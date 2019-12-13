@@ -1,10 +1,14 @@
 package glavni_prozor;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JToolBar;
 
 public class Glavni_prozor extends JFrame{
 
@@ -21,6 +25,9 @@ public class Glavni_prozor extends JFrame{
     setLocationRelativeTo(null);  // centriranje
     
     getContentPane().setBackground(Color.WHITE);
+    
+    MojToolbar toolbar = new MojToolbar();
+	add(toolbar, BorderLayout.NORTH);
 	
 	}
 
