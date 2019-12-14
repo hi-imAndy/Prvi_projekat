@@ -3,11 +3,13 @@ package glavni_prozor;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
 public class Glavni_prozor extends JFrame{
@@ -28,6 +30,8 @@ public class Glavni_prozor extends JFrame{
     
     MojToolbar toolbar = new MojToolbar();
 	add(toolbar, BorderLayout.NORTH);
+	
+	
 	
 	}
 
