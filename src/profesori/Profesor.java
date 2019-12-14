@@ -1,6 +1,9 @@
 package profesori;
 
+import java.util.ArrayList;
+
 import osobe.Osoba;
+import predmeti.Predmet;
 
 public class Profesor extends Osoba{
 	
@@ -8,7 +11,7 @@ public class Profesor extends Osoba{
 	private int brojLicne;
 	private String titula;
 	private String zvanje;
-	// spisak predmeta na kojima je profesor
+	private ArrayList<Predmet> predmeti;// spisak predmeta na kojima je profesor
 	
 	public Profesor(String ime, String prz, String datum, String adr, String tel, String email, String adrKanc, int br, String titula, String zvanje) {
 		super(ime,prz,datum,adr,tel,email);
@@ -16,6 +19,7 @@ public class Profesor extends Osoba{
 		this.brojLicne = br;
 		this.titula = titula;
 		this.zvanje = zvanje;
+		this.predmeti = new ArrayList<Predmet>();
 	}
 	
 	public String getAdresaKancelarije() {
