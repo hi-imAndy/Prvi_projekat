@@ -3,7 +3,6 @@ package glavni_prozor;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
@@ -29,10 +28,21 @@ public class Glavni_prozor extends JFrame{
     getContentPane().setBackground(Color.WHITE);
     
     MojToolbar toolbar = new MojToolbar();
-	add(toolbar, BorderLayout.NORTH);
+	//add(toolbar, BorderLayout.NORTH);
 	
+	menu_bar menu_bar1 = new menu_bar();
+	//add(menu_bar1,NORTH);
 	
-	
+	JPanel MyPanel1 = new JPanel();
+	 
+	MyPanel1.setLayout( new BorderLayout() );
+
+   
+  	 MyPanel1.add(menu_bar1,BorderLayout.NORTH);
+  	 MyPanel1.add(toolbar,BorderLayout.SOUTH);
+   
+  	 getContentPane().add( MyPanel1,BorderLayout.NORTH);   // Add MyPanel1 to North
+
 	}
 
 }
