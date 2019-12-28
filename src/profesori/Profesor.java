@@ -22,6 +22,22 @@ public class Profesor extends Osoba{
 		this.predmeti = new ArrayList<Predmet>();
 	}
 	
+	public void addPredmet(Predmet p) {
+		predmeti.add(p);
+	}
+	
+	public void removePredmet(Predmet p) {
+		predmeti.remove(p);
+	}
+	
+	public ArrayList<Predmet> getPredmeti() {
+		return predmeti;
+	}
+
+	public void setPredmeti(ArrayList<Predmet> predmeti) {
+		this.predmeti = predmeti;
+	}
+
 	public String getAdresaKancelarije() {
 		return adresaKancelarije;
 	}
@@ -45,5 +61,10 @@ public class Profesor extends Osoba{
 	}
 	public void setZvanje(String zvanje) {
 		this.zvanje = zvanje;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%6s %6s %6s %6s %6s %6s %6s %10d %6s %6s", ime, prezime, datumRodjenja, adresaStanovanja, telefon, email,adresaKancelarije,  brojLicne, titula, zvanje);
 	}
 }

@@ -1,12 +1,12 @@
 package osobe;
 
 public class Osoba {
-	private String ime;
-	private String prezime;
-	private String datumRodjenja;
-	private String adresaStanovanja;
-	private String telefon;
-	private String email;
+	protected String ime;
+	protected String prezime;
+	protected String datumRodjenja;
+	protected String adresaStanovanja;
+	protected String telefon;
+	protected String email;
 	
 	public Osoba(String ime, String prz, String datum, String adr, String tel, String email) {
 		this.ime = ime;
