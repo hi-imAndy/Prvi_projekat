@@ -85,9 +85,9 @@ public class Student extends Osoba{
 		lista_predmeta.addPredmet(sifra, naziv, semestar, godina, prof);
 	}
 	
-	/*void removePredmet(String predmet) {
-		lista_predmeta.removePredmet(int sifra);
-	}*/
+	void removePredmet(int sif) {
+		lista_predmeta.deletePredmet(sif);
+	}
 	
 	public String toString() {
 		String pV = "";
