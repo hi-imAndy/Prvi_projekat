@@ -20,7 +20,7 @@ public class ListaStudenata {
 	}
 
 	public void dodavanjeStudenta(String ime, String prz, String datum, String adr, String tel, String email,
-			String indeks, String datum_upisa, int godina_studija, Status_studenta status, float prosecna_ocena) {
+			String indeks, String datum_upisa, String godina_studija, Status_studenta status, float prosecna_ocena) {
 
 		lista_studenata.add(new Student(ime, prz, datum, adr, tel, email, indeks, datum_upisa, godina_studija, status,
 				prosecna_ocena));
@@ -50,7 +50,7 @@ public class ListaStudenata {
 	}
 
 	public void izmenaStudenta(String ime, String prz, String datum, String adr, String tel, String email,
-			String indeks, String datum_upisa, int godina_studija, Status_studenta status, float prosecna_ocena) {
+			String indeks, String datum_upisa, String godina_studija, Status_studenta status, float prosecna_ocena) {
 		for (Student student : lista_studenata) {
 			if (student.getBroj_indeksa().equalsIgnoreCase(indeks)) {
 				student.setAdresaStanovanja(adr);

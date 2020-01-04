@@ -1,7 +1,7 @@
 package glavni_prozor;
 
 import java.awt.Color;
-
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,15 +12,32 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
+import studenti.Dodavanje_studenta;
+
 public class MojToolbar extends JToolBar{
 	
-	public MojToolbar() {
+	public MojToolbar(Frame parent) {
 	super(SwingConstants.HORIZONTAL);
 	
 	JButton btnCreate = new JButton();
 	btnCreate.setToolTipText("Create");
 	btnCreate.setIcon(new ImageIcon("slike/createImg2.jpg"));
 	add(btnCreate);
+	
+	btnCreate.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			//if(TabbedPane.getInstance().getSelectedIndex()==1) {
+				Dodavanje_studenta dodavanje_studenta_dijalog=new Dodavanje_studenta(parent);
+				dodavanje_studenta_dijalog.setVisible(true);
+		//	}
+			//else
+				
+			
+		}
+	});
+	
 	
 	//btnCreate.addActionListener(new HandleActionListener());
 	//addSeparator();

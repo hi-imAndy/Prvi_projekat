@@ -11,12 +11,12 @@ public class Student extends Osoba{
 	ListaPredmeta lista_predmeta;
 	String broj_indeksa;
 	String datum_upisa;
-	int godina_studija;
+	String godina_studija;
 	Status_studenta status;
 	float prosecna_ocena;
 	
 	public Student(String ime, String prz, String datum, String adr, String tel, String email,
-			String indeks,String datum_upisa,int godina_studija,Status_studenta status , float prosecna_ocena ) {
+			String indeks,String datum_upisa,String godina_studija,Status_studenta status , float prosecna_ocena ) {
 		super(ime, prz, datum, adr, tel, email);
 		// TODO Auto-generated constructor stub
 		broj_indeksa = indeks;
@@ -57,11 +57,11 @@ public class Student extends Osoba{
 		this.datum_upisa = datum_upisa;
 	}
 
-	public int getGodina_studija() {
+	public String getGodina_studija() {
 		return godina_studija;
 	}
 
-	public void setGodina_studija(int godina_studija) {
+	public void setGodina_studija(String godina_studija) {
 		this.godina_studija = godina_studija;
 	}
 

@@ -16,8 +16,19 @@ import javax.swing.JToolBar;
 
 import predmeti.Tabela_predmeta;
 import profesori.Tabela_profesora;
+import studenti.AbstractTableModelStudenti;
+import studenti.StudentiJTable;
 
 public class Glavni_prozor extends JFrame{
+	
+	private static Glavni_prozor instance = null;
+	
+	public static Glavni_prozor getInstance() {
+		if (instance == null) {
+			instance = new Glavni_prozor();
+		}
+		return instance;
+	}
 	
 	public static Tabela_predmeta tabela_predmeta;
 	public static Tabela_profesora tabela_profesora;
@@ -32,7 +43,7 @@ public class Glavni_prozor extends JFrame{
     setLocationRelativeTo(null);  // centriranje
     getContentPane().setBackground(Color.WHITE);
     
-    MojToolbar toolbar = new MojToolbar();
+    MojToolbar toolbar = new MojToolbar(null);
     Izbor_Toolbar izbor_toolbar = new Izbor_Toolbar();
 	menu_bar menu_bar1 = new menu_bar();
 	JPanel MyPanel1 = new JPanel();
@@ -69,6 +80,18 @@ public class Glavni_prozor extends JFrame{
   	 
   	 add(MyPanel2);
   	 
+  	 
+  	 
+  	 
 	}
 
+	
+	public void azurirajPrikaz() {
+		AbstractTableModelStudenti model = (AbstractTableModelStudenti) StudentiJTable.getInstance().getModel();
+		model.fireTableDataChanged();
+		validate();
+		setVisible(true);
+	}
+
+	
 }
