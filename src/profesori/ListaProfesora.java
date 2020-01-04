@@ -14,6 +14,10 @@ public class ListaProfesora {
 		profesori = new ArrayList<Profesor>();
 	}
 	
+	public List<Profesor> getProfesori(){
+		return this.profesori;
+	}
+	
 	public List<Profesor> searchProfesor(String stringIn){
 		List<Profesor> returnProfesori = new ArrayList<Profesor>();
 		HashMap<String, String> data = new HashMap<String, String>();
@@ -24,7 +28,7 @@ public class ListaProfesora {
 			String[] podatak = s.split(":");
 			data.put(podatak[0], podatak[1]);
 		}
-		
+	
 		
 		
 		return returnProfesori;
@@ -50,6 +54,10 @@ public class ListaProfesora {
 	
 	public void addProfesor(String ime, String prz, String datum, String adr, String tel, String email, String adrKanc, int br, String titula, String zvanje) {
 		profesori.add(new Profesor(ime,prz,datum,adr,tel,email,adrKanc,br,titula,zvanje));
+	}
+	
+	public void addProfesor(Profesor p) {
+		profesori.add(new Profesor(p.getIme(),p.getPrezime(),p.getDatumRodjenja(),p.getAdresaStanovanja(),p.getTelefon(),p.getEmail(),p.getAdresaKancelarije(),p.getBrojLicne(),p.getTitula(),p.getZvanje()));
 	}
 	
 	public void deleteProfesor(int brLicne) {

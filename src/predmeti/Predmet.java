@@ -48,6 +48,12 @@ public class Predmet {
 	public void setProfesor(Profesor profesor) {
 		this.profesor = profesor;
 	}
+
+	@Override
+	public String toString() {
+		return "Predmet [sifraPredmeta=" + sifraPredmeta + ", naziv=" + naziv + ", semestar=" + semestar
+				+ ", godinaStudija=" + godinaStudija + ", profesor=" + profesor.getBrojLicne() + "]";
+	}
 	
 	
 }

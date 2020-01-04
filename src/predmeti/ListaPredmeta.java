@@ -1,20 +1,45 @@
 package predmeti;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import profesori.Profesor;
 
 public class ListaPredmeta {
 	
-	private ArrayList<Predmet> predmeti;
-	
+	private List<Predmet> predmeti;
 	
 	public ListaPredmeta() {
 		this.predmeti = new ArrayList<Predmet>();
 	}
 	
+	public List<Predmet> getPredmeti() {
+		return this.predmeti;
+	}
+	
+	public List<Predmet> searchPredmet(String stringIn){
+		List<Predmet> returnProfesori = new ArrayList<Predmet>();
+		HashMap<String, String> data = new HashMap<String, String>();
+		
+		String[] podaci = stringIn.split(";");
+		
+		for(String s : podaci) {
+			String[] podatak = s.split(":");
+			data.put(podatak[0], podatak[1]);
+		}
+	
+		
+		
+		return returnProfesori;
+	}
+	
 	public void addPredmet(int sifra, String naziv, int semestar, int godina, Profesor prof) {
 		predmeti.add(new Predmet(sifra,naziv,semestar,godina,prof));
+	}
+	
+	public void addPredmet(Predmet p) {
+		predmeti.add(new Predmet(p.getSifraPredmeta(),p.getNaziv(),p.getSemestar(),p.getGodinaStudija(),p.getProfesor()));
 	}
 	
 	public void deletePredmet(int sif) {

@@ -2,6 +2,9 @@ package glavni_prozor;
 
 import java.awt.Color;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
@@ -14,13 +17,12 @@ public class MojToolbar extends JToolBar{
 	public MojToolbar() {
 	super(SwingConstants.HORIZONTAL);
 	
-	
-	
 	JButton btnCreate = new JButton();
 	btnCreate.setToolTipText("Create");
 	btnCreate.setIcon(new ImageIcon("slike/createImg2.jpg"));
 	add(btnCreate);
 	
+	//btnCreate.addActionListener(new HandleActionListener());
 	//addSeparator();
 	
 	JButton btnEdit = new JButton();
