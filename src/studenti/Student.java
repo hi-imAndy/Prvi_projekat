@@ -9,14 +9,14 @@ import profesori.Profesor;
 public class Student extends Osoba{
 
 	ListaPredmeta lista_predmeta;
-	int broj_indeksa;
+	String broj_indeksa;
 	String datum_upisa;
 	int godina_studija;
 	Status_studenta status;
 	float prosecna_ocena;
 	
 	public Student(String ime, String prz, String datum, String adr, String tel, String email,
-			int indeks,String datum_upisa,int godina_studija,Status_studenta status , float prosecna_ocena ) {
+			String indeks,String datum_upisa,int godina_studija,Status_studenta status , float prosecna_ocena ) {
 		super(ime, prz, datum, adr, tel, email);
 		// TODO Auto-generated constructor stub
 		broj_indeksa = indeks;
@@ -41,11 +41,11 @@ public class Student extends Osoba{
 
 
 
-	public int getBroj_indeksa() {
+	public String getBroj_indeksa() {
 		return broj_indeksa;
 	}
 
-	public void setBroj_indeksa(int broj_indeksa) {
+	public void setBroj_indeksa(String broj_indeksa) {
 		this.broj_indeksa = broj_indeksa;
 	}
 

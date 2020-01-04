@@ -39,6 +39,14 @@ public class Glavni_prozor extends JFrame{
 	 
 	 MyPanel1.setLayout( new BorderLayout() );
 	 MyPanel1.add(menu_bar1,BorderLayout.NORTH);
+
+	MyPanel1.setLayout( new BorderLayout() );
+
+	//Status_BAR//
+	Status_bar status_bar = new Status_bar();
+	add(status_bar,BorderLayout.SOUTH);
+	//Status_BAR//
+  	 MyPanel1.add(menu_bar1,BorderLayout.NORTH);
   	 MyPanel1.add(toolbar,BorderLayout.SOUTH);
   	 
   	 JPanel MyPanel2 = new JPanel();
