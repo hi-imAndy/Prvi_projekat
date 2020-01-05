@@ -14,6 +14,8 @@ import profesori.Tabela_profesora;
 
 public class Izbor_Toolbar extends JToolBar implements ActionListener{
 	
+	public static int trenutni = 0;
+	
 	private JButton btnStudent;
 	private JButton btnProfesor;
 	private JButton btnPredmet;
@@ -47,15 +49,17 @@ public class Izbor_Toolbar extends JToolBar implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource() == btnStudent) {
-			
+			trenutni = 1;
 		}
 		else if(event.getSource() == btnProfesor) {
 			Glavni_prozor.tabela_predmeta.setVisible(false);
 			Glavni_prozor.tabela_profesora.setVisible(true);
+			trenutni = 2;
 		}
 		else if(event.getSource() == btnPredmet) {
 			Glavni_prozor.tabela_profesora.setVisible(false);
 			Glavni_prozor.tabela_predmeta.setVisible(true);
+			trenutni = 3;
 		}
 	}
 	

@@ -13,10 +13,10 @@ import predmeti.Predmet;
 public class Tabela_profesora extends JPanel{
 
 JTable jTable = new JTable();
+DefaultTableModel model = new DefaultTableModel();
 	
 	public Tabela_profesora() {
 		
-		DefaultTableModel model = new DefaultTableModel();
 		String[] columns = {"Ime","Prezime","Datum rodjenja", "Adresa", "Telefon", "E-mail","Adresa kancelarije", "Licna karta","Titula","Zvanje"};
 		model.setColumnIdentifiers(columns);
 		jTable.setModel(model);
@@ -44,6 +44,10 @@ JTable jTable = new JTable();
 		
 		JScrollPane jScroll = new JScrollPane(jTable);
 		add(jScroll);
+	}
+	
+	public DefaultTableModel getModel() {
+		return model;
 	}
 	
 }

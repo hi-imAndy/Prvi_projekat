@@ -8,7 +8,7 @@ import predmeti.Predmet;
 
 
 public class ListaProfesora {
-	private List<Profesor> profesori;
+	public List<Profesor> profesori;
 	
 	public ListaProfesora() {
 		profesori = new ArrayList<Profesor>();

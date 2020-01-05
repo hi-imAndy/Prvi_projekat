@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
+import profesori.Profesor_dialog;
 import studenti.Dodavanje_studenta;
 
 public class MojToolbar extends JToolBar{
@@ -29,8 +30,17 @@ public class MojToolbar extends JToolBar{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			//if(TabbedPane.getInstance().getSelectedIndex()==1) {
+			if(Izbor_Toolbar.trenutni == 1) {
 				Dodavanje_studenta dodavanje_studenta_dijalog=new Dodavanje_studenta(parent);
 				dodavanje_studenta_dijalog.setVisible(true);
+			}
+			else if(Izbor_Toolbar.trenutni == 2) {
+				Profesor_dialog profesor_dialog = new Profesor_dialog(parent);
+				profesor_dialog.setVisible(true);
+			}
+			else if(Izbor_Toolbar.trenutni == 3) {
+				
+			}
 		//	}
 			//else
 				
