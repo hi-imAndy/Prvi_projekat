@@ -94,13 +94,13 @@ public class Dodavanje_studenta extends JDialog{
 		JButton ButtonOdustanak=new JButton("Odustanak");
 		JLabel ime = new JLabel("Ime*");
 		JLabel prezime = new JLabel("Prezime*");
-		JLabel datum_rodjenja = new JLabel("Datum rodjenja*");
+		JLabel datum_rodjenja = new JLabel("Datum rođenja*");
 		JLabel adresa_stanovanja = new JLabel("Adresa stanovanja*");
 		JLabel broj_telefona = new JLabel("Broj telefona*");
 		JLabel broj_indexa = new JLabel("Broj indeksa*");
 		JLabel trenutna_godina_studiranja = new JLabel("Godina studija*");
 		JLabel email = new JLabel("E-mail*");
-		JLabel prosek = new JLabel("ProseÄ�na ocena*");
+		JLabel prosek = new JLabel("Prosečna ocena*");
 		JLabel datum_upisa = new JLabel("Datum upisa*");
 		
 		
@@ -167,7 +167,7 @@ public class Dodavanje_studenta extends JDialog{
 		trengodstud.addItem("Prva");
 		trengodstud.addItem("Druga");
 		trengodstud.addItem("Treca");
-	   trengodstud.addItem("Cetvrta");
+	    trengodstud.addItem("Cetvrta");
 	   
 	   panelTrenutnaGodinaStudiranja.add(trenutna_godina_studiranja);
 	   panelTrenutnaGodinaStudiranja.add(trengodstud);
@@ -266,7 +266,7 @@ public class Dodavanje_studenta extends JDialog{
 				if(Ime.equals("") || Prezime.equals("") || Datum_rodjenja==null || Adresa_stanovanja.equals("") ||  Kontakt_telefon.equals("") || email_adresa.equals("")
 						||Broj_indeksa.equals("")|| Datum_upisa==null || Trenutna_godina_studija.equals("")|| (budzet==false && samofinansiranje==false) || Prosecna_ocena==0)
 				{
-					JOptionPane.showMessageDialog(null, "Sva polja moraju biti popunjena da bi mogli uneti studenta!");
+					JOptionPane.showMessageDialog(null, "Sva polja moraju biti popunjena!");
 				}
 				else
 				{
@@ -274,6 +274,16 @@ public class Dodavanje_studenta extends JDialog{
 								Trenutna_godina_studija,status,Prosecna_ocena,Spisak_predmeta);
 						System.out.println("Student dodat");
 						setVisible(false);
+						txtAdresaStanovanja.setText("");
+						txtBrojIndexa.setText("");
+						txtBrojTelefona.setText("");
+						txtDatumRodjenja.setText("");
+						txtDatumUpisa.setText("");
+						txtEmailAdresa.setText("");
+						txtGodinaStudiranja.setText("");
+						txtIme.setText("");
+						txtPrezime.setText("");
+						txtProsek.setText("");
 				}
 				
 			}
