@@ -24,5 +24,5 @@ public class StudentiController {
 		// izmena modela
 		BazaStudenata.getInstance().dodajStudenta(ime,prezime,dr,adresa,telefon,email,brindexa,datupisa,tgs,s,prosek);
 		// azuriranje prikaza
-		Glavni_prozor.getInstance().azurirajPrikaz();
+	//	Glavni_prozor.getInstance().azurirajPrikaz();
 	}}

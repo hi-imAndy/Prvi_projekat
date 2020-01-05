@@ -11,11 +11,13 @@ import glavni_prozor.Kreiranje_entiteta;
 import glavni_prozor.MyApp;
 
 public class Tabela_studenata extends JPanel {
+	
 	JTable jTable = new JTable();
+	DefaultTableModel model = new DefaultTableModel();
 	
 	public Tabela_studenata() {
 		
-		DefaultTableModel model = new DefaultTableModel();
+		
 		String[] columns = {"Ime","Prezime","Broj indeksa", "Adresa", "Telefon", "Godina studija" , "Status studenta" , "Peosečna ocena" , "Datum upisa" , "Datum rođenja" , "Broj telefona","E-mail adresa"};
 		model.setColumnIdentifiers(columns);
 		jTable.setModel(model);
@@ -48,6 +50,9 @@ public class Tabela_studenata extends JPanel {
 		add(jScroll);
 	}
 	
+	public DefaultTableModel getModel() {
+		return model;
+	}
 	
 	
 }
