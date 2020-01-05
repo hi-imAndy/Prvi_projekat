@@ -49,11 +49,10 @@ public class BazaStudenata {
 	}
 
 	private void initStudent() {
-	/*	List<Predmet> predmeti=new ArrayList<Predmet>();
-		studenti.add(new Student("Maja","Tomic","11.08.11197","jskjff","","","","","",Status_studenta.B,4.5,predmeti));
-		studenti.add(new Student("Maja","Tomic","11.08.11197","jskjff","","","","","",Status_studenta.B,4.5,predmeti));
-		studenti.add(new Student("Maja","Tomic","11.08.11197","jskjff","","","","","",Status_studenta.B,4.5,predmeti));
-		*/
+		List<Predmet> predmeti=new ArrayList<Predmet>();
+		studenti.dodavanjeStudenta(new Student("Ime", "Pre zime", "1111", "SS44", "123456", "1233445", "RA-42-2017", "11111", "1", Status_studenta.B, (float) 1.5));
+
+		
 		
 
 	}

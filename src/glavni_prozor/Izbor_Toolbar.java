@@ -50,16 +50,22 @@ public class Izbor_Toolbar extends JToolBar implements ActionListener{
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource() == btnStudent) {
 			trenutni = 1;
+
+			Glavni_prozor.tabela_predmeta.setVisible(false);
+			Glavni_prozor.tabela_profesora.setVisible(false);
+			Glavni_prozor.tabela_studenata.setVisible(true);
 		}
 		else if(event.getSource() == btnProfesor) {
 			Glavni_prozor.tabela_predmeta.setVisible(false);
 			Glavni_prozor.tabela_profesora.setVisible(true);
 			trenutni = 2;
+			Glavni_prozor.tabela_studenata.setVisible(false);
 		}
 		else if(event.getSource() == btnPredmet) {
 			Glavni_prozor.tabela_profesora.setVisible(false);
 			Glavni_prozor.tabela_predmeta.setVisible(true);
 			trenutni = 3;
+			Glavni_prozor.tabela_studenata.setVisible(false);
 		}
 	}
 	

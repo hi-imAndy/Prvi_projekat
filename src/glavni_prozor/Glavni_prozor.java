@@ -18,6 +18,7 @@ import predmeti.Tabela_predmeta;
 import profesori.Tabela_profesora;
 import studenti.AbstractTableModelStudenti;
 import studenti.StudentiJTable;
+import studenti.Tabela_studenata;
 
 public class Glavni_prozor extends JFrame{
 	
@@ -32,6 +33,7 @@ public class Glavni_prozor extends JFrame{
 	
 	public static Tabela_predmeta tabela_predmeta;
 	public static Tabela_profesora tabela_profesora;
+	public static Tabela_studenata tabela_studenata;
 
 	public Glavni_prozor() {
 		
@@ -66,6 +68,8 @@ public class Glavni_prozor extends JFrame{
   	 tabela_predmeta.setVisible(false);
 	 tabela_profesora = new Tabela_profesora();
 	 tabela_profesora.setVisible(false);
+	 tabela_studenata = new Tabela_studenata();
+	 tabela_studenata.setVisible(false);
 	 
 	 GridBagConstraints gbc = new GridBagConstraints();
 	 gbc.gridx = 0;
@@ -74,6 +78,7 @@ public class Glavni_prozor extends JFrame{
 	 MyPanel2.add(izbor_toolbar);
 	 MyPanel2.add(tabela_profesora, gbc);
 	 MyPanel2.add(tabela_predmeta, gbc);
+	 MyPanel2.add(tabela_studenata,gbc);
 	 MyPanel2.setLayout(new FlowLayout(-screenSize.width * 3 / 4,1,1));//u odnosu na centar, izmedju njih, od gore
   	
   	 getContentPane().add( MyPanel1,BorderLayout.NORTH);
