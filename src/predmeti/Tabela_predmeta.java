@@ -12,10 +12,10 @@ import glavni_prozor.MyApp;
 
 public class Tabela_predmeta extends JPanel {
 	JTable jTable = new JTable();
+	DefaultTableModel model = new DefaultTableModel();
 	
 	public Tabela_predmeta() {
-		
-		DefaultTableModel model = new DefaultTableModel();
+	
 		String[] columns = {"Sifra predmeta","Naziv","Semestar", "Godina studija", "Profesor(Licna karta)"};
 		model.setColumnIdentifiers(columns);
 		jTable.setModel(model);
@@ -38,5 +38,9 @@ public class Tabela_predmeta extends JPanel {
 		
 		JScrollPane jScroll = new JScrollPane(jTable);
 		add(jScroll);
+	}
+	
+	public DefaultTableModel getModel() {
+		return model;
 	}
 }

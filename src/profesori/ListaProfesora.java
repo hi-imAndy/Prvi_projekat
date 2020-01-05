@@ -18,6 +18,14 @@ public class ListaProfesora {
 		return this.profesori;
 	}
 	
+	public Profesor findProfesor(int brLicne) {
+		for(Profesor p: profesori) {
+			if(p.getBrojLicne() == brLicne)
+				return p;
+		}
+		return null;
+	}
+	
 	public List<Profesor> searchProfesor(String stringIn){
 		List<Profesor> returnProfesori = new ArrayList<Profesor>();
 		HashMap<String, String> data = new HashMap<String, String>();

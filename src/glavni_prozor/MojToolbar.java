@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
+import predmeti.Predmet_dialog;
 import profesori.Profesor_dialog;
 import studenti.Dodavanje_studenta;
 
@@ -39,7 +40,8 @@ public class MojToolbar extends JToolBar{
 				profesor_dialog.setVisible(true);
 			}
 			else if(Izbor_Toolbar.trenutni == 3) {
-				
+				Predmet_dialog predmet_dialog = new Predmet_dialog(parent);
+				predmet_dialog.setVisible(true);
 			}
 		//	}
 			//else
