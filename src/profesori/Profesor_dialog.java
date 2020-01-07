@@ -204,11 +204,12 @@ public class Profesor_dialog extends JDialog{
 					JOptionPane.showMessageDialog(null, "Niste popunili sva polja!");
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "Profesor uspesno unet!");
-					setVisible(false);
 					
 					Kreiranje_entiteta.listaProfesora.addProfesor(ime, prezime, datum, adresa, telefon, email, adresaKanc, brojLicne, titula, zvanje);
-					DefaultTableModel model = Glavni_prozor.tabela_profesora.getModel();
+					
+					JOptionPane.showMessageDialog(null, "Profesor uspesno unet!");
+					setVisible(false);
+					/*DefaultTableModel model = Glavni_prozor.tabela_profesora.getModel();
 					
 					String[] data = new String[10];
 					data[0] = ime;
@@ -232,9 +233,8 @@ public class Profesor_dialog extends JDialog{
 					
 					for(Profesor p : Kreiranje_entiteta.listaProfesora.getProfesori()) {
 						System.out.println(p.toString());
-					}
+					}*/
 				}
-			
 			}
 		});
 		JButton odustanakButton = new JButton("Odustanak");

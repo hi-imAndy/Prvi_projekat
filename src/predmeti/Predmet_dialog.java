@@ -171,7 +171,7 @@ public class Predmet_dialog extends JDialog{
 				else {
 					
 					Kreiranje_entiteta.listaPredmeta.addPredmet(sifra,naziv,semestar,godina,p);
-					DefaultTableModel model = Glavni_prozor.tabela_predmeta.getModel();
+					/*DefaultTableModel model = Glavni_prozor.tabela_predmeta.getModel();
 					
 					String[] data = new String[10];
 					data[0] = String.valueOf(sifra);
@@ -185,7 +185,7 @@ public class Predmet_dialog extends JDialog{
 					model.fireTableDataChanged();
 					//Tabela_profesora tabela_profesora = new Tabela_profesora();
 					//tabela_profesora.setVisible(true);
-					//Glavni_prozor.getInstance().add(tabela_profesora);
+					//Glavni_prozor.getInstance().add(tabela_profesora);*/
 					
 					JOptionPane.showMessageDialog(null, "Predmet uspesno unet!");
 					setVisible(false);

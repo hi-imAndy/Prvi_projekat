@@ -16,6 +16,8 @@ import javax.swing.event.AncestorListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import predmeti.Tabela_predmeta;
+import profesori.Tabela_profesora;
 import studenti.StudentiJTable;
 
 
@@ -64,11 +66,21 @@ private static Tab instance=null;
 
 		//PROF
 
+		Tabela_profesora tabprof = new Tabela_profesora();
+		JScrollPane tabpro=new JScrollPane(tabprof);
+		tabpro.setPreferredSize(new Dimension(w-50,h-50));
+		prof.add(tabpro,BorderLayout.NORTH);
+		
+		add("Profesori", prof);
 		
 		//PREDMET
 
+		Tabela_predmeta tabpred = new Tabela_predmeta();
+		JScrollPane tp=new JScrollPane(tabpred);
+		tp.setPreferredSize(new Dimension(w-50,h-50));
+		pred.add(tp,BorderLayout.NORTH);
 		
-		
+		add("Predmeti", pred);
 	
 }}
 	

@@ -1,6 +1,7 @@
 package glavni_prozor;
 
 import java.awt.Color;
+
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -50,10 +51,12 @@ public class MojToolbar extends JToolBar{
 			     }
 				else if(Tab.getSelectedIndex1()==1)
 				{
-					//DODAVANJE PROFESORA
+					Profesor_dialog profesor_dialog = new Profesor_dialog(parent);
+					profesor_dialog.setVisible(true);
 				}else if(Tab.getSelectedIndex1()==2)
 				{
-					//DODAVANJE PREDMETA
+					Predmet_dialog predmet_dialog = new Predmet_dialog(parent);
+					predmet_dialog.setVisible(true);
 				}
 					
 				
@@ -137,7 +140,7 @@ public class MojToolbar extends JToolBar{
 	
 	JSeparator toolBarSeparator = new JToolBar.Separator();
 	
-	for(int i = 0; i < 80; i++)
+	for(int i = 0; i < 60; i++)
 		addSeparator();
 	
 	JTextField textField = new JTextField(30);

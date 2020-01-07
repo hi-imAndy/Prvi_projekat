@@ -8,14 +8,14 @@ import predmeti.Predmet;
 
 
 public class ListaProfesora {
-	public List<Profesor> profesori;
+	private List<Profesor> profesori;
 	
 	public ListaProfesora() {
 		profesori = new ArrayList<Profesor>();
 	}
 	
-	public List<Profesor> getProfesori(){
-		return this.profesori;
+	public List<Profesor> getListaProfesora(){
+		return profesori;
 	}
 	
 	public Profesor findProfesor(int brLicne) {

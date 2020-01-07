@@ -8,7 +8,6 @@ import profesori.Profesor;
 
 public class MyApp {
 	
-	public static ListaPredmeta listaPredmeta;
 	
 	public static void main(String[] args) {
 		

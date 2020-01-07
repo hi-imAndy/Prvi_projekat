@@ -49,7 +49,6 @@ public class BazaStudenata {
 	}
 
 	private void initStudent() {
-		List<Predmet> predmeti=new ArrayList<Predmet>();
 	    studenti.dodavanjeStudenta(new Student("Maja","Zoric","11.08.1997","jskjff","","","RA-76-2017","","1",Status_studenta.B,(float) 4.5));
 		studenti.dodavanjeStudenta(new Student("Zorica","Lakic","11.10.1997","jskjff","","","RA-19-2017","","2",Status_studenta.S,(float)7.5));
 		studenti.dodavanjeStudenta(new Student("Aleksandra","Arsic","12.1.1998.","jskjff","","","RA-40-2017","","4",Status_studenta.S,(float)10.0));

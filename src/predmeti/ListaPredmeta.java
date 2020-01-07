@@ -5,17 +5,19 @@ import java.util.HashMap;
 import java.util.List;
 
 import profesori.Profesor;
+import studenti.BazaStudenata;
+import studenti.Student;
 
 public class ListaPredmeta {
 	
 	private List<Predmet> predmeti;
 	
 	public ListaPredmeta() {
-		this.predmeti = new ArrayList<Predmet>();
+		predmeti = new ArrayList<Predmet>();
 	}
 	
-	public List<Predmet> getPredmeti() {
-		return this.predmeti;
+	public List<Predmet> getListaPredmeta(){
+		return predmeti;
 	}
 	
 	public List<Predmet> searchPredmet(String stringIn){
