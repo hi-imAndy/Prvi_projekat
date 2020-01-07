@@ -209,6 +209,7 @@ public class Profesor_dialog extends JDialog{
 					
 					JOptionPane.showMessageDialog(null, "Profesor uspesno unet!");
 					setVisible(false);
+					Tabela_profesora.azurirajPrikaz();
 				}
 			}
 		});

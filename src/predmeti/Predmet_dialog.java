@@ -176,6 +176,7 @@ public class Predmet_dialog extends JDialog{
 					
 					JOptionPane.showMessageDialog(null, "Predmet uspesno unet!");
 					setVisible(false);
+					Tabela_predmeta.azurirajPrikaz();
 				}
 			
 			}
