@@ -81,7 +81,17 @@ private static Tab instance=null;
 		pred.add(tp,BorderLayout.NORTH);
 		
 		add("Predmeti", pred);
-	
+	   
+		
+		this.addChangeListener(new ChangeListener() {
+			
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				JTabbedPane tp=(JTabbedPane)e.getSource();
+				selectedIndex1=tp.getSelectedIndex();
+				
+			}
+		});
 }}
 	
 	
