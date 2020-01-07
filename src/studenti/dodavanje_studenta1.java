@@ -170,7 +170,7 @@ public class dodavanje_studenta1 extends JDialog{
 		trengodstud.addItem("Prva");
 		trengodstud.addItem("Druga");
 		trengodstud.addItem("Treca");
-	   trengodstud.addItem("Cetvrta");
+	    trengodstud.addItem("Cetvrta");
 	   
 	   panelTrenutnaGodinaStudiranja.add(trenutna_godina_studiranja);
 	   panelTrenutnaGodinaStudiranja.add(trengodstud);
@@ -221,7 +221,13 @@ public class dodavanje_studenta1 extends JDialog{
 				Datum_upisa=txtDatumUpisa.getText();
 				
 				Kontakt_telefon=dodavanje_studenta1.txtBrojTelefona.getText();
+				
+				try {
 				Prosecna_ocena=Float.parseFloat(txtProsek.getText());
+				}
+				catch (Exception e) {
+					txtProsek.setText("Prosek nije dobro unet!");
+				}
 				
 				boolean budzet=false;
 				boolean samofinansiranje=false;
