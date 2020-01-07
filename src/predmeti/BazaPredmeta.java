@@ -44,6 +44,7 @@ public class BazaPredmeta {
 		kolone.add("SEMESTAR");
 		kolone.add("GODINA");
 		kolone.add("PROFESOR");
+		kolone.add("STUDENTI");
 	}
 	
 	private void makePredmeti() {

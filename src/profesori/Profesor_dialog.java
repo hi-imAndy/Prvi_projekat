@@ -209,31 +209,6 @@ public class Profesor_dialog extends JDialog{
 					
 					JOptionPane.showMessageDialog(null, "Profesor uspesno unet!");
 					setVisible(false);
-					/*DefaultTableModel model = Glavni_prozor.tabela_profesora.getModel();
-					
-					String[] data = new String[10];
-					data[0] = ime;
-					data[1] = prezime;
-					data[2] = datum;
-					data[3] = adresa;
-					data[4] = telefon;
-					data[5] = email;
-					data[6] = adresaKanc;
-					data[7] = String.valueOf(brojLicne);
-					data[8] = titula;
-					data[9] = zvanje;
-							
-				    model.addRow(data);
-					
-					model.fireTableDataChanged();
-					//Tabela_profesora tabela_profesora = new Tabela_profesora();
-					//tabela_profesora.setVisible(true);
-					//Glavni_prozor.getInstance().add(tabela_profesora);
-					
-					
-					for(Profesor p : Kreiranje_entiteta.listaProfesora.getProfesori()) {
-						System.out.println(p.toString());
-					}*/
 				}
 			}
 		});

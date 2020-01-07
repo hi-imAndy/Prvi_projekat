@@ -2,6 +2,7 @@ package glavni_prozor;
 
 import java.awt.BorderLayout;
 
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -14,7 +15,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
+import predmeti.ModelPredmeta;
 import predmeti.Tabela_predmeta;
+import profesori.ModelProfesora;
 import profesori.Tabela_profesora;
 import studenti.AbstractTableModelStudenti;
 import studenti.StudentiJTable;
@@ -68,6 +71,26 @@ public class Glavni_prozor extends JFrame{
 	 add(tab,BorderLayout.CENTER);
  	
   	 
+	}
+	
+	public void azurirajPrikazStudenti() {
+		AbstractTableModelStudenti model = (AbstractTableModelStudenti) StudentiJTable.getInstance().getModel();
+		model.fireTableDataChanged();
+		validate();
+	}
+	
+	public void azurirajPrikazProfesori() {
+		ModelProfesora model = (ModelProfesora) Tabela_profesora.getInstance().getModel();
+		model.fireTableDataChanged();
+		validate();
+		//setVisible(true);
+	}	
+		public void azurirajPrikazPredmeti() {
+			ModelPredmeta model = (ModelPredmeta) Tabela_predmeta.getInstance().getModel();
+			model.fireTableDataChanged();
+			validate();
+			//setVisible(true);
+	
 	}
 	
 }
