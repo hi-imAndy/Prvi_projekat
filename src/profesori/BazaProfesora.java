@@ -34,6 +34,8 @@ public class BazaProfesora {
 		profesori = new ListaProfesora();
 		makeProfesori();
 		
+		kolone = new ArrayList<>();
+		
 		this.kolone.add("IME"); 
 		this.kolone.add("PREZIME");
 		this.kolone.add("DATUM RODJENJA");
@@ -44,7 +46,7 @@ public class BazaProfesora {
 		this.kolone.add("BROJ LICNE KARTE");
 		this.kolone.add("TITULA");
 		this.kolone.add("ZVANJE");
-		//this.kolone.add("PREDMETI"); dodati jos
+		this.kolone.add("PREDMETI"); 
 	}
 	
 	private void makeProfesori() {
