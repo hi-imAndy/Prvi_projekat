@@ -6,7 +6,9 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 
-public class AbstractTableModelStudenti extends AbstractTableModel {
+
+
+public class AbstractTableModelStudenti extends AbstractTableModel { 
 
 	@Override
 	public int getRowCount() {
@@ -31,6 +33,6 @@ public class AbstractTableModelStudenti extends AbstractTableModel {
 	}
 	
 	public String getColumnName(int columnIndex) {
-		return BazaStudenata.getInstance().getKolone().get(columnIndex);
+		return BazaStudenata.getInstance().getKolone().get(columnIndex); 
 	}
 }

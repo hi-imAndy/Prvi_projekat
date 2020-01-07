@@ -33,7 +33,7 @@ public class Glavni_prozor extends JFrame{
 	
 	public static Tabela_predmeta tabela_predmeta;
 	public static Tabela_profesora tabela_profesora;
-	public static Tabela_studenata tabela_studenata;
+	public static StudentiJTable tabela_studenata;
 
 	public Glavni_prozor() {
 		
@@ -59,6 +59,9 @@ public class Glavni_prozor extends JFrame{
 	Status_bar status_bar = new Status_bar();
 	add(status_bar,BorderLayout.SOUTH);
 	//Status_BAR//
+	
+	
+
   	 MyPanel1.add(menu_bar1,BorderLayout.NORTH);
   	 MyPanel1.add(toolbar,BorderLayout.SOUTH);
   	 
@@ -68,12 +71,14 @@ public class Glavni_prozor extends JFrame{
   	 tabela_predmeta.setVisible(false);
 	 tabela_profesora = new Tabela_profesora();
 	 tabela_profesora.setVisible(false);
-	 tabela_studenata = new Tabela_studenata();
+	 tabela_studenata = new StudentiJTable();
 	 tabela_studenata.setVisible(false);
 	 
 	 GridBagConstraints gbc = new GridBagConstraints();
 	 gbc.gridx = 0;
 	 gbc.gridy = 0;
+	 
+
 	 
 	 MyPanel2.add(izbor_toolbar);
 	 MyPanel2.add(tabela_profesora, gbc);
@@ -86,7 +91,10 @@ public class Glavni_prozor extends JFrame{
   	 add(MyPanel2);
   	 
   	 
-  	 
+ 	Tab tab=new Tab(); 
+	
+ 	add(tab,BorderLayout.CENTER);
+ 	
   	 
 	}
 

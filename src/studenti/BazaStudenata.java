@@ -24,34 +24,37 @@ public class BazaStudenata {
 
 
 
-	private ListaStudenata studenti;
+	ListaStudenata studenti;
 	private List<String> kolone;
 
-	private BazaStudenata() {
+	public BazaStudenata() {
 		
-		studenti = new ListaStudenata();
+		studenti=new ListaStudenata();
 		initStudent();
 
 		this.kolone = new ArrayList<>();
-		this.kolone.add("IME");
+		this.kolone.add("IME"); 
 		this.kolone.add("PREZIME");
-		this.kolone.add("DATUM ROÄ�ENJA");
+		this.kolone.add("DATUM RODJENJA");
 		this.kolone.add("ADRESA");		
 		this.kolone.add("TELEFON");
-		this.kolone.add("E-MAIL");
-		this.kolone.add("BROJ INDEKSA");
+		this.kolone.add("EMAIL");
+		this.kolone.add("BROJ INDEXA");
 		this.kolone.add("DATUM UPISA");
-		this.kolone.add("GODINA STUDIJA");
-		this.kolone.add("STATUS ");
-		this.kolone.add("PROSEÄŒNA OCENA");
+		this.kolone.add("GODINA STUDIRANJA");
+		this.kolone.add("STATUS");
+		this.kolone.add("PROSEK");
 		this.kolone.add("PREDMETI");
 
 	}
 
 	private void initStudent() {
 		List<Predmet> predmeti=new ArrayList<Predmet>();
-		studenti.dodavanjeStudenta(new Student("Ime", "Pre zime", "1111", "SS44", "123456", "1233445", "RA-42-2017", "11111", "1", Status_studenta.B, (float) 1.5));
-
+	    studenti.dodavanjeStudenta(new Student("Maja","Zoric","11.08.1997","jskjff","","","RA-76-2017","","1",Status_studenta.B,(float) 4.5));
+		studenti.dodavanjeStudenta(new Student("Zorica","Lakic","11.10.1997","jskjff","","","RA-19-2017","","2",Status_studenta.S,(float)7.5));
+		studenti.dodavanjeStudenta(new Student("Aleksandra","Arsic","12.1.1998.","jskjff","","","RA-40-2017","","4",Status_studenta.S,(float)10.0));
+		studenti.dodavanjeStudenta(new Student("Aleksandra","Arsic","12.1.1998.","jskjff","","","RA-40-2018","","3",Status_studenta.B,(float)2));
+		studenti.dodavanjeStudenta(new Student("Aleksandra","Arsic","12.1.1998.","jskjff","","","SW-40-2017","","4",Status_studenta.B,(float)4.33));
 		
 		
 
@@ -120,23 +123,70 @@ public class BazaStudenata {
 	
 	
 	public void dodajStudenta(String ime,String prezime,String dr,String adresa,String telefon,String email,String brindexa,
-			String datupisa,String tgs,Status_studenta s,float prosek) {
-		studenti.dodavanjeStudenta(new Student(ime,prezime,dr,adresa,telefon,email,brindexa,datupisa,tgs,s,prosek));
-		System.out.println(studenti.getLista_studenata().size());
+			String datupisa,String tgs,Status_studenta s,double prosek) {
+		studenti.dodavanjeStudenta(new Student(ime,prezime,dr,adresa,telefon,email,brindexa,datupisa,tgs,s,(float) prosek));
+	//	System.out.println(studenti.size());
 	}
 
 	public void izbrisiStudenta(String index) {
-		for (Student s:studenti.getLista_studenata()) {
-			if (s.getBroj_indeksa() == index) {
-				studenti.getLista_studenata().remove(index);
-				break;
-			}
-		}
+
+				studenti.uklanjanjeStudenta(index);
+			
+		
 	}
-
-//	public void izmeniStudenta() {
-//
-//	}
-
-
-}
+	
+	//OVDE SAM STAO
+	public void izmeniStudenta(String ime,String prezime,String DatumRodj,String Email,String DatumUpisa,float prosek,String adresa,
+			String brtel,String brindexa,String trengodstud,Status_studenta s) {
+		
+		Student st = BazaStudenata.getInstance().getRow(StudentiJTable.tab.getSelectedRow());
+		st.setIme(ime);
+		st.setPrezime(prezime);
+		st.setAdresaStanovanja(adresa);
+		st.setDatum_upisa(DatumRodj);
+		st.setTelefon(brtel);
+		st.setEmail(Email);
+		st.setBroj_indeksa(brindexa);
+		st.setProsecna_ocena(prosek);
+		st.setDatum_upisa(DatumUpisa);
+		st.setGodina_studija(trengodstud);
+		st.setStatus(s);
+		
+		
+		
+		
+	}
+	
+	
+	public boolean StudentPostoji(String index)
+	{
+		for(Student s:studenti.getLista_studenata())
+		{	
+			if(s.getBroj_indeksa().equals(index))
+			{
+				return true;
+			} 
+		
+		}
+		return false;
+		
+	}
+	
+	public Student VratiStudenta(String index)
+	{
+		Student st=null;
+		for(Student s:studenti.getLista_studenata())
+		{
+			if(s.getBroj_indeksa().equals(index))
+				{
+					st=s;
+					break;
+				}
+		}
+		return st;
+	}
+	
+	
+	}
+		
+	

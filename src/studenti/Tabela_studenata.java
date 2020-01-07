@@ -50,8 +50,25 @@ public class Tabela_studenata extends JPanel {
 		add(jScroll);
 	}
 	
+	public int getRed() {
+		return jTable.getSelectedRow();
+	}
+	
+	
 	public DefaultTableModel getModel() {
 		return model;
+	}
+
+	public JTable getjTable() {
+		return jTable;
+	}
+
+	public void setjTable(JTable jTable) {
+		this.jTable = jTable;
+	}
+
+	public void setModel(DefaultTableModel model) {
+		this.model = model;
 	}
 	
 	

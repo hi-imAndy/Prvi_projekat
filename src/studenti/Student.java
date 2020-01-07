@@ -15,15 +15,17 @@ public class Student extends Osoba{
 	Status_studenta status;
 	float prosecna_ocena;
 	
-	public Student(String ime, String prz, String datum, String adr, String tel, String email,
-			String indeks,String datum_upisa,String godina_studija,Status_studenta status , float prosecna_ocena ) {
-		super(ime, prz, datum, adr, tel, email);
-		// TODO Auto-generated constructor stub
-		broj_indeksa = indeks;
+	public Student(String ime, String prezime, String datum_rodjenja, String adresa_stanovanja, String kontakt_telefon,
+			String email_adresa, String broj_indeksa, String datum_upisa, String trenutna_godina_studija, Status_studenta status,
+			float prosecna_ocena) {
+		super(ime, prezime,  datum_rodjenja,  adresa_stanovanja,  kontakt_telefon,  email_adresa);
+
+		this.broj_indeksa = broj_indeksa;
 		this.datum_upisa = datum_upisa;
-		this.godina_studija = godina_studija;
+		godina_studija = trenutna_godina_studija;
 		this.status = status;
 		this.prosecna_ocena = prosecna_ocena;
+		
 		lista_predmeta = new ListaPredmeta();
 	}
 

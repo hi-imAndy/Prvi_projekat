@@ -1,16 +1,26 @@
 package studenti;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
+import java.util.List;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.Box;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -19,17 +29,23 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 
-import glavni_prozor.Glavni_prozor;
-import glavni_prozor.Kreiranje_entiteta;
+import predmeti.Predmet;
 
-public class Dodavanje_studenta extends JDialog{
 
+
+
+
+public class dodavanje_studenta1 extends JDialog{
+	
+	
+
+	
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4748005953045502934L;
+	private static final long serialVersionUID = 1L;
 	static JTextField txtIme = new JTextField();
 	static JTextField txtPrezime = new JTextField();
 	static JTextField txtDatumRodjenja = new JTextField();
@@ -43,14 +59,12 @@ public class Dodavanje_studenta extends JDialog{
 	static JComboBox<String> trengodstud=new JComboBox<String>();
 	static JRadioButton budzet=new JRadioButton("Budzet");
 	static JRadioButton samofinansiranje=new JRadioButton("Samofinansiranje");
+	static List<Predmet> listapredmeta=null;
 	
-	
-	public Dodavanje_studenta(Frame parent) {
-		
+	public dodavanje_studenta1(Frame parent) {
 		super(parent);
 		
-		Box box=Box.createVerticalBox();
-		this.add(box,BorderLayout.CENTER);
+		
 		
 		txtIme.setPreferredSize(new Dimension(160,20));
 		txtPrezime.setPreferredSize(new Dimension(160,20));
@@ -58,32 +72,24 @@ public class Dodavanje_studenta extends JDialog{
 		txtAdresaStanovanja.setPreferredSize(new Dimension(160,20));
 		txtBrojTelefona.setPreferredSize(new Dimension(160,20));
 		txtBrojIndexa.setPreferredSize(new Dimension(160,20));
-		txtGodinaStudiranja.setPreferredSize(new Dimension(160,20));
+		txtGodinaStudiranja.setPreferredSize(new Dimension(160,20)); 
 		txtEmailAdresa.setPreferredSize(new Dimension(160,20));
 		txtProsek.setPreferredSize(new Dimension(160,20));
-		txtDatumUpisa.setPreferredSize(new Dimension(160,20));
+		txtDatumUpisa.setPreferredSize(new Dimension(160,20)); 
 		
-		setTitle("Dodavanje studenta");
+		ButtonGroup group=new ButtonGroup();
+		group.add(budzet);
+		group.add(samofinansiranje);
+		
+		setBackground(Color.GREEN);
 		setModal(true);
+		setTitle("Dodavanje studenta");
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		double height=screenSize.getHeight();
 		double width=screenSize.getWidth();
 		height=height*0.7;
 		width=width*0.3;
 		setBounds(150, 150, (int)width, (int)height);
-		
-		JPanel panelIme = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelPrezime = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelDatumRodjenja = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelBrojIndexa = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelAdresaStanovanja = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelBrojTelefona = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelTrenutnaGodinaStudiranja = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelEmail = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelProsek = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelDatumUpisa = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		
-		
 		
 		JPanel panelBottom = new JPanel();
 		JButton ButtonPotvrda=new JButton("Potvrda");
@@ -101,6 +107,23 @@ public class Dodavanje_studenta extends JDialog{
 		JLabel datum_upisa = new JLabel("Datum upisa*");
 		
 		
+		
+		
+		JPanel panelIme = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelPrezime = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelDatumRodjenja = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelBrojIndexa = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelAdresaStanovanja = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelBrojTelefona = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelTrenutnaGodinaStudiranja = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelEmail = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelProsek = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelDatumUpisa = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		
+		
+		
+		
+		Box box=Box.createVerticalBox();
 		this.add(box,BorderLayout.CENTER);
 		
 		
@@ -143,10 +166,11 @@ public class Dodavanje_studenta extends JDialog{
 		panelBrojIndexa.add(txtBrojIndexa);
 		box.add(panelBrojIndexa);
 		
+		
 		trengodstud.addItem("Prva");
 		trengodstud.addItem("Druga");
-	    trengodstud.addItem("Treca");
-	    trengodstud.addItem("Cetvrta");
+		trengodstud.addItem("Treca");
+	   trengodstud.addItem("Cetvrta");
 	   
 	   panelTrenutnaGodinaStudiranja.add(trenutna_godina_studiranja);
 	   panelTrenutnaGodinaStudiranja.add(trengodstud);
@@ -167,13 +191,13 @@ public class Dodavanje_studenta extends JDialog{
 				
 			}
 		});
-		
-		
-		JPanel panelDole = new JPanel();
-		JButton potvrdaButton = new JButton("Potvrda");
-		potvrdaButton.addActionListener(new ActionListener() {
+		panelBottom.add(ButtonOdustanak);
+		this.add(panelBottom, BorderLayout.SOUTH);
+		ButtonPotvrda.addActionListener(new ActionListener() {
+			
 			@Override
-			public void actionPerformed(ActionEvent event) {
+			public void actionPerformed(ActionEvent arg0) {
+				
 				String Ime="";
 				String Prezime="";
 			    String Datum_rodjenja="";
@@ -183,95 +207,60 @@ public class Dodavanje_studenta extends JDialog{
 				String Broj_indeksa="";
 				String Datum_upisa="";
 				String Trenutna_godina_studija="";
-				double Prosecna_ocena=0;
+				float Prosecna_ocena=0;
 				Status_studenta status=Status_studenta.B;
+				List<Predmet> Spisak_predmeta_koje_student_slusa=new ArrayList<Predmet>();
 				
-				Ime=Dodavanje_studenta.txtIme.getText();
-				Prezime=Dodavanje_studenta.txtPrezime.getText();
-				Adresa_stanovanja=Dodavanje_studenta.txtAdresaStanovanja.getText();
-				email_adresa=Dodavanje_studenta.txtEmailAdresa.getText();
-				Broj_indeksa=Dodavanje_studenta.txtBrojIndexa.getText();
-				Trenutna_godina_studija=Dodavanje_studenta.trengodstud.getSelectedItem().toString();
+				Ime=dodavanje_studenta1.txtIme.getText();
+				Prezime=dodavanje_studenta1.txtPrezime.getText();
+				Adresa_stanovanja=dodavanje_studenta1.txtAdresaStanovanja.getText();
+				email_adresa=dodavanje_studenta1.txtEmailAdresa.getText();
+				Broj_indeksa=dodavanje_studenta1.txtBrojIndexa.getText();
+				Trenutna_godina_studija=dodavanje_studenta1.trengodstud.getSelectedItem().toString();
 				Datum_rodjenja=txtDatumRodjenja.getText();
-				Datum_upisa=txtDatumUpisa.getText();				
-				Kontakt_telefon=Dodavanje_studenta.txtBrojTelefona.getText();
+				Datum_upisa=txtDatumUpisa.getText();
 				
-				try {
-					Prosecna_ocena=Float.parseFloat(txtProsek.getText());
-				} catch (Exception e) {
-					txtProsek.setText("Nije dobro uneto");
-				}
-				
+				Kontakt_telefon=dodavanje_studenta1.txtBrojTelefona.getText();
+				Prosecna_ocena=Float.parseFloat(txtProsek.getText());
 				
 				boolean budzet=false;
 				boolean samofinansiranje=false;
-				budzet=Dodavanje_studenta.budzet.isSelected();
-				samofinansiranje=Dodavanje_studenta.samofinansiranje.isSelected();
+				budzet=dodavanje_studenta1.budzet.isSelected();
+				samofinansiranje=dodavanje_studenta1.samofinansiranje.isSelected();
+				
+				if(budzet)
+				{
+					status=Status_studenta.B;
+				} else if (samofinansiranje)
+					status=Status_studenta.S;
+				else
+				{
+					JOptionPane.showMessageDialog(null,"Mora biti cekirano jedno od polja BUDZET/SAMOFINANSIRANJE");
+				}
 				
 				if(Ime.equals("") || Prezime.equals("") || Datum_rodjenja==null || Adresa_stanovanja.equals("") ||  Kontakt_telefon.equals("") || email_adresa.equals("")
 						||Broj_indeksa.equals("")|| Datum_upisa==null || Trenutna_godina_studija.equals("")|| (budzet==false && samofinansiranje==false) || Prosecna_ocena==0)
 				{
-					JOptionPane.showMessageDialog(null, "Sva polja moraju biti popunjena!");
+					JOptionPane.showMessageDialog(null, "Sva polja moraju biti popunjena da bi mogli uneti studenta!");
 				}
-				else {
-					JOptionPane.showMessageDialog(null, "Student uspesno unet!");
-					setVisible(false);
-					
-					Kreiranje_entiteta.listaStudenata.dodavanjeStudenta(Ime, Prezime, Datum_rodjenja, Adresa_stanovanja, Kontakt_telefon,
-							email_adresa, Broj_indeksa, Datum_upisa, Trenutna_godina_studija, status, (float) Prosecna_ocena);
-					DefaultTableModel model = (DefaultTableModel) Glavni_prozor.tabela_studenata.getModel();
-					
-					
-					txtIme.setText("");
-					txtPrezime.setText("");
-					txtDatumRodjenja.setText("");
-					txtAdresaStanovanja.setText("");
-					txtBrojTelefona.setText("");
-					txtBrojIndexa.setText("");
-					txtGodinaStudiranja.setText("");
-					txtEmailAdresa.setText("");
-					txtProsek.setText("");
-					txtDatumUpisa.setText("");
-					
-					
-					String[] data = new String[12];
-					data[0] = Ime;
-					data[1] = Prezime;
-					data[2] = Broj_indeksa;
-					data[3] = Adresa_stanovanja;
-					data[4] = Kontakt_telefon;
-					data[5] = Trenutna_godina_studija;
-					data[6] = String.valueOf(status);
-					data[7] = String.valueOf(Prosecna_ocena);
-					data[8] = Datum_upisa;
-					data[9] = Datum_rodjenja;
-					data[10] = Kontakt_telefon;
-					data[11] = email_adresa;
-							
-				    model.addRow(data);
-					
-					model.fireTableDataChanged();
-
-					
-					
-					for(Student s : Kreiranje_entiteta.listaStudenata.getLista_studenata()) {
-						System.out.println(s.toString());
-					}
+				else
+				{
+						StudentiController.getInstance().dodajStudenta(Ime,Prezime,Datum_rodjenja,Adresa_stanovanja,Kontakt_telefon,email_adresa,Broj_indeksa,Datum_upisa,
+								Trenutna_godina_studija,status,Prosecna_ocena);
+						System.out.println("Student dodat");
+						setVisible(false);
 				}
+				
+			}
 			
-			}
 		});
-		JButton odustanakButton = new JButton("Odustanak");
-		odustanakButton.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent event) {
-				setVisible(false);
-			}
-		});
-		panelDole.add(odustanakButton);
-		panelDole.add(potvrdaButton);
 		
-		box.add(panelDole);
 		
-	}
+		
+		
+		
+		
+}
+		
+	
 }
