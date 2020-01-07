@@ -2,13 +2,14 @@ package studenti;
 
 import java.awt.Dimension;
 
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import glavni_prozor.Kreiranje_entiteta;
 import glavni_prozor.MyApp;
+
 
 public class Tabela_studenata extends JPanel {
 	

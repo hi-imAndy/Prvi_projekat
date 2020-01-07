@@ -1,6 +1,7 @@
 package studenti;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -22,7 +23,6 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import glavni_prozor.Glavni_prozor;
-import glavni_prozor.Kreiranje_entiteta;
 
 public class Dodavanje_studenta extends JDialog{
 
@@ -217,7 +217,7 @@ public class Dodavanje_studenta extends JDialog{
 					JOptionPane.showMessageDialog(null, "Student uspesno unet!");
 					setVisible(false);
 					
-					Kreiranje_entiteta.listaStudenata.dodavanjeStudenta(Ime, Prezime, Datum_rodjenja, Adresa_stanovanja, Kontakt_telefon,
+					BazaStudenata.getInstance().getStudenti().dodavanjeStudenta(Ime, Prezime, Datum_rodjenja, Adresa_stanovanja, Kontakt_telefon,
 							email_adresa, Broj_indeksa, Datum_upisa, Trenutna_godina_studija, status, (float) Prosecna_ocena);
 					DefaultTableModel model = (DefaultTableModel) Glavni_prozor.tabela_studenata.getModel();
 					
@@ -254,7 +254,7 @@ public class Dodavanje_studenta extends JDialog{
 
 					
 					
-					for(Student s : Kreiranje_entiteta.listaStudenata.getLista_studenata()) {
+					for(Student s : BazaStudenata.getInstance().getStudenti().getLista_studenata()) {
 						System.out.println(s.toString());
 					}
 				}

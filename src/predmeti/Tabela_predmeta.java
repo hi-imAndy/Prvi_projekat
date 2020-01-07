@@ -1,6 +1,7 @@
 package predmeti;
 
 import java.awt.Color;
+
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
@@ -14,7 +15,6 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
-import glavni_prozor.Kreiranje_entiteta;
 import glavni_prozor.MyApp;
 import studenti.AbstractTableModelStudenti;
 

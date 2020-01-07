@@ -1,6 +1,7 @@
 package predmeti;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -20,7 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import glavni_prozor.Glavni_prozor;
-import glavni_prozor.Kreiranje_entiteta;
+import profesori.BazaProfesora;
 import profesori.Profesor;
 
 public class Predmet_dialog extends JDialog{
@@ -164,13 +165,13 @@ public class Predmet_dialog extends JDialog{
 					JOptionPane.showMessageDialog(null, "Niste popunili sva polja!");
 				}
 				
-				else if((p = Kreiranje_entiteta.listaProfesora.findProfesor(profesor)) == null) {
+				else if((p = BazaProfesora.getInstance().getProfesori().findProfesor(profesor)) == null) {
 					JOptionPane.showMessageDialog(null, "Ne postoji profesor sa tom licnom kartom!");
 				}
 				
 				else {
 					
-					Kreiranje_entiteta.listaPredmeta.addPredmet(sifra,naziv,semestar,godina,p);
+					BazaPredmeta.getInstance().getPredmeti().addPredmet(sifra,naziv,semestar,godina,p);
 					/*DefaultTableModel model = Glavni_prozor.tabela_predmeta.getModel();
 					
 					String[] data = new String[10];

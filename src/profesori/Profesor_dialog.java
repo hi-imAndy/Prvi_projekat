@@ -1,5 +1,6 @@
 package profesori;
 
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -19,7 +20,6 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import glavni_prozor.Glavni_prozor;
-import glavni_prozor.Kreiranje_entiteta;
 
 public class Profesor_dialog extends JDialog{
 
@@ -205,7 +205,7 @@ public class Profesor_dialog extends JDialog{
 				}
 				else {
 					
-					Kreiranje_entiteta.listaProfesora.addProfesor(ime, prezime, datum, adresa, telefon, email, adresaKanc, brojLicne, titula, zvanje);
+					BazaProfesora.getInstance().getProfesori().addProfesor(ime, prezime, datum, adresa, telefon, email, adresaKanc, brojLicne, titula, zvanje);
 					
 					JOptionPane.showMessageDialog(null, "Profesor uspesno unet!");
 					setVisible(false);

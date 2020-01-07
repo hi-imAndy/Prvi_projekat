@@ -11,7 +11,7 @@ public class MyApp {
 	
 	public static void main(String[] args) {
 		
-		Kreiranje_entiteta kreiranje = new Kreiranje_entiteta();
+		//Kreiranje_entiteta kreiranje = new Kreiranje_entiteta();
 				
 		Glavni_prozor prozor = new Glavni_prozor();
 		prozor.setVisible(true);
