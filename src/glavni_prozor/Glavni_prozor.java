@@ -18,7 +18,7 @@ import predmeti.Tabela_predmeta;
 import profesori.Tabela_profesora;
 import studenti.AbstractTableModelStudenti;
 import studenti.StudentiJTable;
-import studenti.Tabela_studenata;
+
 
 public class Glavni_prozor extends JFrame{
 	

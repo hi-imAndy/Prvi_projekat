@@ -16,13 +16,14 @@ import javax.swing.SwingConstants;
 
 import predmeti.Predmet_dialog;
 import profesori.Profesor_dialog;
+
 import studenti.BazaStudenata;
 import studenti.Brisanje_studenta;
-import studenti.Dodavanje_studenta;
+
 import studenti.Izmena_studenta;
 import studenti.Student;
 import studenti.StudentiJTable;
-import studenti.Tabela_studenata;
+
 import studenti.dodavanje_studenta1;
 
 public class MojToolbar extends JToolBar{
@@ -42,7 +43,7 @@ public class MojToolbar extends JToolBar{
 
 		
 		btnCreate.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(Tab.getSelectedIndex1()==0) {
