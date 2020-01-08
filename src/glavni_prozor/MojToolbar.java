@@ -14,7 +14,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
+import javax.swing.RowFilter;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 import predmeti.BazaPredmeta;
 import predmeti.BrisanjePredmeta;
@@ -168,7 +171,7 @@ public class MojToolbar extends JToolBar{
 	
 	btnStudentNaPredmet = new JButton();
 	btnStudentNaPredmet.setToolTipText("Add student");
-	btnStudentNaPredmet.setIcon(new ImageIcon("slike/createImg2.jpg"));
+	btnStudentNaPredmet.setIcon(new ImageIcon("slike/stud2.jpg"));
 	btnStudentNaPredmet.setVisible(false);
 	add(btnStudentNaPredmet);
 	
@@ -186,7 +189,7 @@ public class MojToolbar extends JToolBar{
 	
 	btnProfesorNaPredmet = new JButton();
 	btnProfesorNaPredmet.setToolTipText("Add profesor");
-	btnProfesorNaPredmet.setIcon(new ImageIcon("slike/createImg2.jpg"));
+	btnProfesorNaPredmet.setIcon(new ImageIcon("slike/prof2.jpg"));
 	btnProfesorNaPredmet.setVisible(false);
 	add(btnProfesorNaPredmet);
 	
@@ -212,6 +215,23 @@ public class MojToolbar extends JToolBar{
 	JButton btnSearch = new JButton();
 	btnSearch.setToolTipText("Search");
 	btnSearch.setIcon(new ImageIcon("slike/search_icon2.png"));
+	
+	btnSearch.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			if(Tabela_predmeta.tableActive) {
+				String query = textField.getText();
+				DefaultTableModel model = (DefaultTableModel)Tabela_predmeta.model;
+				TableRowSorter<DefaultTableModel> table = new TableRowSorter<DefaultTableModel>(model);
+				Tabela_predmeta.getInstance().setRowSorter(table);
+				
+				table.setRowFilter(RowFilter.regexFilter(query));
+			}
+			else if(Tabela_profesora.tableActive) {
+				
+			}
+		}
+	});
 	
 	add(btnSearch); 
 	

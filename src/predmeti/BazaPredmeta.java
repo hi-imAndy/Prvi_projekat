@@ -49,11 +49,21 @@ public class BazaPredmeta {
 	
 	private void makePredmeti() {
 		Profesor p = BazaProfesora.getInstance().getProfesori().findProfesor(0654345);
+		Profesor p1 = BazaProfesora.getInstance().getProfesori().findProfesor(0743567);
+		Profesor p2 = BazaProfesora.getInstance().getProfesori().findProfesor(1456345);
+		Profesor p3 = BazaProfesora.getInstance().getProfesori().findProfesor(1536234);
+		Profesor p4 = BazaProfesora.getInstance().getProfesori().findProfesor(0734611);
+		Profesor p5 = BazaProfesora.getInstance().getProfesori().findProfesor(1893484);
 		predmeti.addPredmet(1, "Programski prevodioci", 5, 3, p);
-		predmeti.addPredmet(1, "Programski prevodioci", 5, 3, p);
-		predmeti.addPredmet(1, "Programski prevodioci", 5, 3, p);
-		predmeti.addPredmet(1, "Programski prevodioci", 5, 3, p);
-		predmeti.addPredmet(1, "Programski prevodioci", 5, 3, p);
+		predmeti.addPredmet(2, "Operativni sistemi", 3,2, p1);
+		predmeti.addPredmet(3, "Arhitektura racunara", 2, 1, p2);
+		predmeti.addPredmet(4, "Fizika", 1, 2, p3);
+		predmeti.addPredmet(5, "Osnove elektrotehnike", 1, 2, p4);
+		predmeti.addPredmet(6, "Programski jezici", 1, 1, p5);
+		predmeti.addPredmet(7, "Algebra", 1,1, p);
+		predmeti.addPredmet(8, "Logicko projektovanje racunara", 2, 1, p1);
+		predmeti.addPredmet(9, "Matematicka analiza", 1, 1, p2);
+		predmeti.addPredmet(10, "Engleski jezik", 1, 1, p3);
 	}
 	
 	public Predmet getRow(int rowIndex) {
@@ -72,7 +82,7 @@ public class BazaPredmeta {
 		case 3:
 			return String.valueOf(predmet.getGodinaStudija());
 		case 4:
-			 return String.valueOf(predmet.getProfesor().getBrojLicne());
+			 return String.valueOf(predmet.getProfesor().getIme() + " " + predmet.getProfesor().getPrezime());
 		default:
 			return null;
 		}

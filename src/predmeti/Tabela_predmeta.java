@@ -25,6 +25,7 @@ public class Tabela_predmeta extends JTable {
 	public static AbstractTableModel model;
 	public static int row=-1;
 	public static JTable tab;
+	public static boolean tableActive = false;
 	
 	public static Tabela_predmeta getInstance() {
 		if (instance == null) {
@@ -64,6 +65,7 @@ public class Tabela_predmeta extends JTable {
 		}
 		MojToolbar.btnProfesorNaPredmet.setVisible(true);
 		MojToolbar.btnStudentNaPredmet.setVisible(true);
+		tableActive = true;
 		return c;
 	}
 	public static void azurirajPrikaz() {		

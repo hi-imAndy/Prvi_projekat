@@ -59,11 +59,11 @@ public class BazaProfesora {
 	
 	private void makeProfesori() {
 		profesori.addProfesor("Milan", "Milanovic", "10.4.1970.", "Partizanska 21 Backa Palanka", "021/6045-789", "milanmilanovic@gmail.com", "Bul. Cara Lazara 34", 0654345, "Dipl.dr. racunarstva i automatike", "Vanredni profesor");
-		profesori.addProfesor("Luka", "Lukovic", "14.12.1976.", "Bul. Evrope 25", "021/6045-123", "lukalukovic@gmail.com", "Bul. Cara Lazara 34", 0743567, "Dipl.dr. racunarstva i automatike", "Redovni profesor");
-		profesori.addProfesor("Milan", "Milanovic", "10.4.1970.", "Partizanska 21 Backa Palanka", "021/6045-789", "milanmilanovic@gmail.com", "Bul. Cara Lazara 34", 0654345, "Dipl.dr. racunarstva i automatike", "Vanredni profesor");
-		profesori.addProfesor("Luka", "Lukovic", "14.12.1976.", "Bul. Evrope 25", "021/6045-123", "lukalukovic@gmail.com", "Bul. Cara Lazara 34", 0743567, "Dipl.dr. racunarstva i automatike", "Redovni profesor");
-		profesori.addProfesor("Milan", "Milanovic", "10.4.1970.", "Partizanska 21 Backa Palanka", "021/6045-789", "milanmilanovic@gmail.com", "Bul. Cara Lazara 34", 0654345, "Dipl.dr. racunarstva i automatike", "Vanredni profesor");
-		profesori.addProfesor("Luka", "Lukovic", "14.12.1976.", "Bul. Evrope 25", "021/6045-123", "lukalukovic@gmail.com", "Bul. Cara Lazara 34", 0743567, "Dipl.dr. racunarstva i automatike", "Redovni profesor");
+		profesori.addProfesor("Luka", "Lukovic", "1.12.1976.", "Bul. Evrope 25", "021/6043-123", "lukalukovic@gmail.com", "Bul. Cara Lazara 34", 0743567, "Dipl.dr. racunarstva i automatike", "Redovni profesor");
+		profesori.addProfesor("Branislav", "Ciric", "4.8.1980.", "Partizanska 21 Backa Palanka", "021/6042-543", "branislavciric@gmail.com", "Bul. Cara Lazara 34", 1456345, "Dipl.dr. racunarstva i automatike", "Vanredni profesor");
+		profesori.addProfesor("Miroslav", "Hajdukovic", "14.10.1982.", "Bul. Evrope 25", "021/6044-175", "miroslavhajdukovic@gmail.com", "Bul. Cara Lazara 34", 1536234, "Dipl.dr. racunarstva i automatike", "Redovni profesor");
+		profesori.addProfesor("Srdjan", "Popov", "9.1.1964.", "Partizanska 21 Backa Palanka", "021/6045-836", "srdjanpopov@gmail.com", "Bul. Cara Lazara 34", 0734611, "Dipl.dr. racunarstva i automatike", "Vanredni profesor");
+		profesori.addProfesor("Miodrag", "Milovanovic", "5.11.1962.", "Bul. Evrope 25", "021/6043-604", "miodragmilovanovic@gmail.com", "Bul. Cara Lazara 34", 1893484, "Dipl.dr. racunarstva i automatike", "Redovni profesor");
 	}
 	
 	public String getValueAt(int row, int column) {

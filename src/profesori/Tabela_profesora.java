@@ -27,6 +27,7 @@ private static Tabela_profesora instance=null;
 public static AbstractTableModel model;
 public static int row=-1;
 public static JTable tab;
+public static boolean tableActive= false;
 
 public static Tabela_profesora getInstance() {
 	if (instance == null) {
@@ -66,6 +67,7 @@ public Component prepareRenderer(TableCellRenderer renderer, int row, int column
 	}
 	MojToolbar.btnProfesorNaPredmet.setVisible(false);
 	MojToolbar.btnStudentNaPredmet.setVisible(false);
+	tableActive = true;
 	return c;
 }
 public static void azurirajPrikaz() {		
