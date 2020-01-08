@@ -27,6 +27,7 @@ import predmeti.Predmet;
 import predmeti.Predmet_dialog;
 import predmeti.Tabela_predmeta;
 import profesori.BazaProfesora;
+import profesori.BrisanjeProfesora;
 import profesori.Izmena_profesora;
 import profesori.Profesor;
 import profesori.Profesor_dialog;
@@ -150,9 +151,12 @@ public class MojToolbar extends JToolBar{
 		     }
 			else if(Tab.getSelectedIndex1()==1)
 			{	
-			
-					//BRISANJE PROFESORA
-				
+				if(Tabela_profesora.row==-1)
+					JOptionPane.showMessageDialog(null, "Profesor mora biti izabran da bi bio obrisan!");
+				else {
+				BrisanjeProfesora brisanje=new BrisanjeProfesora(parent);
+				brisanje.setVisible(true);
+				}
 
 			}else if(Tab.getSelectedIndex1()==2)
 			{	
