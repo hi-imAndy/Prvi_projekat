@@ -1,6 +1,11 @@
 package predmeti;
 
+import java.util.ArrayList;
+
+import java.util.List;
+
 import profesori.Profesor;
+import studenti.Student;
 
 public class Predmet {
 	private int sifraPredmeta;
@@ -8,7 +13,7 @@ public class Predmet {
 	private int semestar;
 	private int godinaStudija;
 	private Profesor profesor;
-	// spisak studenata koji slusaju predmet
+	private List<Student> studenti;
 	
 	public Predmet(int sifra, String naziv, int semestar, int godina, Profesor prof) {
 		this.sifraPredmeta = sifra;
@@ -16,8 +21,21 @@ public class Predmet {
 		this.semestar = semestar;
 		this.godinaStudija = godina;
 		this.profesor = prof;
+		this.studenti = new ArrayList<Student>();
 	}
 	
+	public void addStudent(Student s) {
+		studenti.add(s);
+	}
+	
+	public List<Student> getStudenti() {
+		return studenti;
+	}
+
+	public void setStudenti(List<Student> studenti) {
+		this.studenti = studenti;
+	}
+
 	public int getSifraPredmeta() {
 		return sifraPredmeta;
 	}

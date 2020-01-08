@@ -15,6 +15,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import glavni_prozor.MojToolbar;
 import glavni_prozor.MyApp;
 import studenti.AbstractTableModelStudenti;
 
@@ -61,6 +62,8 @@ public class Tabela_predmeta extends JTable {
 		} else {
 			c.setBackground(Color.WHITE);
 		}
+		MojToolbar.btnProfesorNaPredmet.setVisible(true);
+		MojToolbar.btnStudentNaPredmet.setVisible(true);
 		return c;
 	}
 	public static void azurirajPrikaz() {		

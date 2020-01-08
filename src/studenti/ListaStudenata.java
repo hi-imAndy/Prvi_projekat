@@ -32,6 +32,15 @@ public class ListaStudenata {
 		lista_studenata.add(student);
 
 	}
+	
+	public Student findStudent(String index) {
+		for(Student s : lista_studenata) {
+			if(index.equalsIgnoreCase(s.getBroj_indeksa())) {
+				return s;
+			}
+		}
+		return null;
+	}
 
 	public void uklanjanjeStudenta(String indeks) {
 		int i = -1;

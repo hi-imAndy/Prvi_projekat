@@ -3,6 +3,7 @@ package glavni_prozor;
 import java.awt.Color;
 
 
+
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +18,7 @@ import javax.swing.SwingConstants;
 
 import predmeti.BazaPredmeta;
 import predmeti.BrisanjePredmeta;
+import predmeti.DodavanjeStudentaNaPredmet;
 import predmeti.IzmenaPredmeta;
 import predmeti.Predmet;
 import predmeti.Predmet_dialog;
@@ -42,6 +44,9 @@ public class MojToolbar extends JToolBar{
 	static JButton btnEdit;
 	static JButton btnDelete;
 	
+	public static JButton btnStudentNaPredmet;
+	public static JButton btnProfesorNaPredmet;
+	
 	public MojToolbar(Frame parent) {
 	super(SwingConstants.HORIZONTAL);
 	
@@ -49,9 +54,7 @@ public class MojToolbar extends JToolBar{
 	btnCreate.setToolTipText("Create");
 	btnCreate.setIcon(new ImageIcon("slike/createImg2.jpg"));
 	add(btnCreate);
-	
 
-		
 		btnCreate.addActionListener(new ActionListener() {
 
 			@Override
@@ -73,10 +76,6 @@ public class MojToolbar extends JToolBar{
 				
 			}
 		});
-	
-	
-	//btnCreate.addActionListener(new HandleActionListener());
-	//addSeparator();
 	
 	JButton btnEdit = new JButton();
 	btnEdit.setToolTipText("Edit");
@@ -167,10 +166,42 @@ public class MojToolbar extends JToolBar{
 		}
 	});
 	
+	btnStudentNaPredmet = new JButton();
+	btnStudentNaPredmet.setToolTipText("Add student");
+	btnStudentNaPredmet.setIcon(new ImageIcon("slike/createImg2.jpg"));
+	btnStudentNaPredmet.setVisible(false);
+	add(btnStudentNaPredmet);
 	
-	JSeparator toolBarSeparator = new JToolBar.Separator();
+	btnStudentNaPredmet.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(Tabela_predmeta.row==-1)
+				JOptionPane.showMessageDialog(null, "Predmet mora biti izabran da biste dodali studenta!");
+			else {
+				DodavanjeStudentaNaPredmet dsnp = new DodavanjeStudentaNaPredmet(parent);
+				dsnp.setVisible(true);
+			}
+		}
+	});
 	
-	for(int i = 0; i < 60; i++)
+	btnProfesorNaPredmet = new JButton();
+	btnProfesorNaPredmet.setToolTipText("Add profesor");
+	btnProfesorNaPredmet.setIcon(new ImageIcon("slike/createImg2.jpg"));
+	btnProfesorNaPredmet.setVisible(false);
+	add(btnProfesorNaPredmet);
+	
+	btnProfesorNaPredmet.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(Tabela_predmeta.row==-1)
+				JOptionPane.showMessageDialog(null, "Predmet mora biti izabran da biste dodali profesora!");
+			else {
+				
+			}
+		}
+	});
+	
+	for(int i = 0; i < 50; i++)
 		addSeparator();
 	
 	JTextField textField = new JTextField(30);

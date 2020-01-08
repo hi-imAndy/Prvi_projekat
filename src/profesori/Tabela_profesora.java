@@ -15,6 +15,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import glavni_prozor.MojToolbar;
 import predmeti.Predmet;
 import predmeti.Tabela_predmeta;
 import studenti.AbstractTableModelStudenti;
@@ -63,6 +64,8 @@ public Component prepareRenderer(TableCellRenderer renderer, int row, int column
 	} else {
 		c.setBackground(Color.WHITE);
 	}
+	MojToolbar.btnProfesorNaPredmet.setVisible(false);
+	MojToolbar.btnStudentNaPredmet.setVisible(false);
 	return c;
 }
 public static void azurirajPrikaz() {		
