@@ -2,6 +2,7 @@ package glavni_prozor;
 
 import java.awt.Color;
 
+
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +21,11 @@ import predmeti.IzmenaPredmeta;
 import predmeti.Predmet;
 import predmeti.Predmet_dialog;
 import predmeti.Tabela_predmeta;
+import profesori.BazaProfesora;
+import profesori.Izmena_profesora;
+import profesori.Profesor;
 import profesori.Profesor_dialog;
+import profesori.Tabela_profesora;
 
 import studenti.BazaStudenata;
 import studenti.Brisanje_studenta;
@@ -96,7 +101,16 @@ public class MojToolbar extends JToolBar{
 		     }
 			else if(Tab.getSelectedIndex1()==1)
 			{   
-				
+
+				if(Tabela_profesora.row== -1)
+					JOptionPane.showMessageDialog(null, "Mora biti selektovan neki red u tabeli da biste mogli da editujete profesora!");
+				else
+				{
+				Profesor p=BazaProfesora.getInstance().getRow(Tabela_profesora.tab.getSelectedRow());
+				Izmena_profesora ipd=new Izmena_profesora(p.getIme(), p.getPrezime(), p.getDatumRodjenja(), 
+						p.getAdresaStanovanja(),p.getTelefon(),p.getEmail(), p.getAdresaKancelarije(), p.getBrojLicne(), p.getTitula(), p.getZvanje()) ;
+				ipd.setVisible(true);
+				}
 			}else if(Tab.getSelectedIndex1()==2)
 			{	
 				if(Tabela_predmeta.row==-1)
