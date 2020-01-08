@@ -49,8 +49,8 @@ public class Glavni_prozor extends JFrame{
     setLocationRelativeTo(null);  // centriranje
     getContentPane().setBackground(Color.WHITE);
     
-    MojToolbar toolbar = new MojToolbar(null);
-	menu_bar menu_bar1 = new menu_bar();
+    MojToolbar toolbar = new MojToolbar(this);
+	menu_bar menu_bar1 = new menu_bar(this);
 	JPanel MyPanel1 = new JPanel();
 	 
 	 MyPanel1.setLayout( new BorderLayout() );
