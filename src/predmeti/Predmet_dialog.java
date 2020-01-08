@@ -165,6 +165,10 @@ public class Predmet_dialog extends JDialog{
 					JOptionPane.showMessageDialog(null, "Niste popunili sva polja!");
 				}
 				
+				else if(BazaPredmeta.getInstance().getPredmeti().findPredmet(sifra)){
+					JOptionPane.showMessageDialog(null, "Vec postoji predmet sa tom sifrom!");
+				}
+				
 				else if((p = BazaProfesora.getInstance().getProfesori().findProfesor(profesor)) == null) {
 					JOptionPane.showMessageDialog(null, "Ne postoji profesor sa tom licnom kartom!");
 				}

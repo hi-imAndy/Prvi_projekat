@@ -56,6 +56,10 @@ public class BazaPredmeta {
 		predmeti.addPredmet(1, "Programski prevodioci", 5, 3, p);
 	}
 	
+	public Predmet getRow(int rowIndex) {
+		return predmeti.getListaPredmeta().get(rowIndex);
+	}
+	
 	public String getValueAt(int row, int column) {
 		Predmet predmet= this.predmeti.getListaPredmeta().get(row);
 		switch (column) {

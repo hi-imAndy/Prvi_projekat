@@ -44,6 +44,15 @@ public class ListaPredmeta {
 		predmeti.add(new Predmet(p.getSifraPredmeta(),p.getNaziv(),p.getSemestar(),p.getGodinaStudija(),p.getProfesor()));
 	}
 	
+	public boolean findPredmet(int sifra) {
+		for(Predmet p : predmeti) {
+			if(sifra == p.getSifraPredmeta()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public void deletePredmet(int sif) {
 		for (Predmet p : predmeti) {
 			if(sif == p.getSifraPredmeta()) {

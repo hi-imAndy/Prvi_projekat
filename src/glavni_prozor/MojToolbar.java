@@ -14,7 +14,12 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
+import predmeti.BazaPredmeta;
+import predmeti.BrisanjePredmeta;
+import predmeti.IzmenaPredmeta;
+import predmeti.Predmet;
 import predmeti.Predmet_dialog;
+import predmeti.Tabela_predmeta;
 import profesori.Profesor_dialog;
 
 import studenti.BazaStudenata;
@@ -91,12 +96,17 @@ public class MojToolbar extends JToolBar{
 		     }
 			else if(Tab.getSelectedIndex1()==1)
 			{   
-				//IZMENA PROFESORA
 				
 			}else if(Tab.getSelectedIndex1()==2)
 			{	
-				//IZMENA PREDMETA
-			}
+				if(Tabela_predmeta.row==-1)
+					JOptionPane.showMessageDialog(null, "Mora biti selektovan neki red u tabeli da biste mogli da editujete predmet!");
+				else
+				{
+					Predmet p = BazaPredmeta.getInstance().getRow(Tabela_predmeta.tab.getSelectedRow());
+					IzmenaPredmeta izmena = new IzmenaPredmeta(p.getSifraPredmeta(),p.getNaziv(),p.getSemestar(),p.getGodinaStudija(),p.getProfesor().getBrojLicne());
+					izmena.setVisible(true);}
+		     	}
 			}
 	});
 	
@@ -131,7 +141,12 @@ public class MojToolbar extends JToolBar{
 			}else if(Tab.getSelectedIndex1()==2)
 			{	
 			
-				    //BRISANJE PREDMETA
+				if(Tabela_predmeta.row==-1)
+					JOptionPane.showMessageDialog(null, "Predmet mora biti izabran da bi bio obrisan!");
+				else {
+				BrisanjePredmeta brisanje=new BrisanjePredmeta(parent);
+				brisanje.setVisible(true);
+				}
 			
 			}
 	
