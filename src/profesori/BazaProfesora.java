@@ -3,9 +3,12 @@ package profesori;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import predmeti.BazaPredmeta;
 import predmeti.ListaPredmeta;
 import predmeti.Predmet;
+
 
 public class BazaProfesora {
 
@@ -29,6 +32,11 @@ public class BazaProfesora {
 	public List<String> getKolone(){
 		return kolone;
 	}
+	
+	public Profesor getRow(int rowIndex) {
+		return this.profesori.getListaProfesora().get(rowIndex);
+	}
+	
 	
 	public BazaProfesora() {
 		profesori = new ListaProfesora();
@@ -87,4 +95,47 @@ public class BazaProfesora {
 			return null;
 		}
 	}
+
+	public void dodajProfesora(String ime, String prezime,String datumrodj, String adresastan, String kontakt, String mail,
+			String adresakanc, int brlk, String titula, String zvanje) {
+		for (Profesor i : profesori.getListaProfesora()) {
+			if (i.getBrojLicne()==brlk) {
+				 JOptionPane.showMessageDialog(null, "Profesor mora da ima jedinstven redni broj!");
+				 return;
+			}
+		}
+		this.profesori.addProfesor(new Profesor(ime,prezime,datumrodj,adresastan,kontakt,mail,adresakanc,brlk,titula,zvanje));
+											
+	}
+	
+    public void izmeniProf(String ime, String prezime,String datumrodj, String adresastan, String l, String mail,
+			String adresakanc, int brlk, String titula, String zvanje)
+    {
+    	ArrayList<Predmet> predmeti=new ArrayList<Predmet>();
+    	Profesor p=BazaProfesora.getInstance().getRow(Tabela_profesora.tab.getSelectedRow());
+    	p.setIme(ime);
+    	p.setPrezime(prezime);
+    	p.setDatumRodjenja(datumrodj);
+    	p.setAdresaStanovanja(adresastan);
+    	p.setTelefon(l);
+    	p.setEmail(mail);
+    	p.setAdresaKancelarije(adresakanc);
+    	p.setBrojLicne(brlk);
+    	p.setTitula(titula);
+    	p.setZvanje(zvanje);
+    	
+    }
+	private String adresaKancelarije;
+	private int brojLicne;
+	private String titula;
+	private String zvanje;
+    public void izbrisiProfesora(int i) {
+  
+		for (Profesor p : profesori.getListaProfesora()) {
+			if(p.getBrojLicne()==i) {
+				profesori.deleteProfesor(p.getBrojLicne());
+				break;
+			}
+		}
+    }
 }
