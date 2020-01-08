@@ -90,6 +90,7 @@ public class ListaProfesora {
 				p.setBrojLicne(br);
 				p.setTitula(titula);
 				p.setZvanje(zvanje);
+				p.setBrojLicne(br);
 			}
 		}
 	}

@@ -123,6 +123,8 @@ public class BazaProfesora {
     	p.setBrojLicne(brlk);
     	p.setTitula(titula);
     	p.setZvanje(zvanje);
+    	profesori.editProfesor( ime,  prezime, datumrodj,  adresastan,  l,  mail,
+			 adresakanc,  brlk,  titula,  zvanje);
     	
     }
 	private String adresaKancelarije;
