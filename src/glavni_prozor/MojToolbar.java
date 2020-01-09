@@ -21,6 +21,7 @@ import javax.swing.table.TableRowSorter;
 
 import predmeti.BazaPredmeta;
 import predmeti.BrisanjePredmeta;
+import predmeti.DodavanjeProfNaPredmet;
 import predmeti.DodavanjeStudentaNaPredmet;
 import predmeti.IzmenaPredmeta;
 import predmeti.Predmet;
@@ -205,7 +206,8 @@ public class MojToolbar extends JToolBar{
 			if(Tabela_predmeta.row==-1)
 				JOptionPane.showMessageDialog(null, "Predmet mora biti izabran da biste dodali profesora!");
 			else {
-				
+				DodavanjeProfNaPredmet d = new DodavanjeProfNaPredmet(parent);
+				d.setVisible(true);
 			}
 		}
 	});

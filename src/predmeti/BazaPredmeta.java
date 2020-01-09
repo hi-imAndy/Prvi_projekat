@@ -103,6 +103,17 @@ public class BazaPredmeta {
 		
 	}
 	
+	public void dodajProfesoraNaPredmet(Profesor prof, int selektovani_predmet) {
+		Predmet pred = predmeti.getListaPredmeta().get(selektovani_predmet);
+		for(Predmet p : prof.getPredmeti()) {
+			if(p.equals(pred)) {
+				JOptionPane.showMessageDialog(null, "Profesor je vec na tom predmetu!");
+				return;
+			}
+		}
+		prof.addPredmet(pred);
+	}
+	
 	public void DodajStudentaNaPredmet(Student s,int selektovani_predmet)
 	{
 		
