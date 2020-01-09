@@ -8,14 +8,14 @@ import profesori.Profesor;
 import studenti.Student;
 
 public class Predmet {
-	private int sifraPredmeta;
+	private String sifraPredmeta;
 	private String naziv;
 	private int semestar;
 	private int godinaStudija;
 	private Profesor profesor;
 	private List<Student> studenti;
 	
-	public Predmet(int sifra, String naziv, int semestar, int godina, Profesor prof) {
+	public Predmet(String sifra, String naziv, int semestar, int godina, Profesor prof) {
 		this.sifraPredmeta = sifra;
 		this.naziv = naziv;
 		this.semestar = semestar;
@@ -28,6 +28,8 @@ public class Predmet {
 		studenti.add(s);
 	}
 	
+
+	
 	public List<Student> getStudenti() {
 		return studenti;
 	}
@@ -36,10 +38,10 @@ public class Predmet {
 		this.studenti = studenti;
 	}
 
-	public int getSifraPredmeta() {
+	public String getSifraPredmeta() {
 		return sifraPredmeta;
 	}
-	public void setSifraPredmeta(int sifraPredmeta) {
+	public void setSifraPredmeta(String sifraPredmeta) {
 		this.sifraPredmeta = sifraPredmeta;
 	}
 	public String getNaziv() {

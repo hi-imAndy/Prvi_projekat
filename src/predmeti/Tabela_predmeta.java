@@ -65,6 +65,7 @@ public class Tabela_predmeta extends JTable {
 		}
 		MojToolbar.btnProfesorNaPredmet.setVisible(true);
 		MojToolbar.btnStudentNaPredmet.setVisible(true);
+		MojToolbar.btnStudentSaPredmeta.setVisible(true);
 		tableActive = true;
 		return c;
 	}

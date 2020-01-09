@@ -22,7 +22,7 @@ import profesori.Profesor;
 
 public class IzmenaPredmeta extends JDialog{
 	
-	public IzmenaPredmeta(int sifra, String naziv, int semestar, int godina, int profLicnaKarta) {
+	public IzmenaPredmeta(String sifra, String naziv, int semestar, int godina, String profLicnaKarta) {
 	    JTextField sifraText = new JTextField(String.valueOf(sifra));
 		JTextField nazivText = new JTextField(naziv);
 		JComboBox<String> semestarCombo = new JComboBox<String>();
@@ -182,14 +182,14 @@ public class IzmenaPredmeta extends JDialog{
 		buttonPotvrda.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				int sifraPredmeta = 0;
+				String sifraPredmeta = "";
 				String nazivPredmeta = "";
 				int semestar = 0;
 				int godina = 0;
-				int brLicne = 0;
+				String brLicne = "";
 				
 				try {
-					sifraPredmeta = Integer.parseInt(sifraText.getText());
+					sifraPredmeta = sifraText.getText();
 				}catch(Exception e) {
 					sifraText.setText("Neispravno uneta sifra!");
 				}
@@ -201,7 +201,7 @@ public class IzmenaPredmeta extends JDialog{
 				}
 				
 				try {
-					brLicne = Integer.parseInt(profText.getText());
+					brLicne = profText.getText();
 				}catch(Exception e) {
 					profText.setText("Neispravno unet profesor!");
 				}
@@ -211,7 +211,7 @@ public class IzmenaPredmeta extends JDialog{
 				
 				Profesor p;
 				
-				if(sifraPredmeta == 0 || nazivPredmeta.equals("") || semestar == 0 || godina == 0 || brLicne == 0) {
+				if(sifraPredmeta.equals("") || nazivPredmeta.equals("") || semestar == 0 || godina == 0 || brLicne.equals("")) {
 					JOptionPane.showMessageDialog(null, "Niste popunili sva polja!");
 				}
 				

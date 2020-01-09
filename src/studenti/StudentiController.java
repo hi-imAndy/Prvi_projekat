@@ -22,7 +22,7 @@ public class StudentiController {
 	private StudentiController() {}
 	
 	public void dodajStudenta(String ime,String prezime,String dr,String adresa,String telefon,String email,String brindexa,
-			String datupisa,String tgs,Status_studenta s,float prosek) {
+			String datupisa,String tgs,Status_studenta s,double prosek) {
 		// izmena modela
 		BazaStudenata.getInstance().dodajStudenta(ime,prezime,dr,adresa,telefon,email,brindexa,datupisa,tgs,s,prosek);
 		// azuriranje prikaza
@@ -38,7 +38,7 @@ public class StudentiController {
 	StudentiJTable.azurirajPrikaz();
 	}
 
-	public void izmeniStudenta(String ime,String prezime,String DatumRodj,String Email,String DatumUpisa,float prosek,String adresa,
+	public void izmeniStudenta(String ime,String prezime,String DatumRodj,String Email,String DatumUpisa,double prosek,String adresa,
 			String brtel,String brindexa,String trengodstud,Status_studenta s)
 	{
 		

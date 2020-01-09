@@ -8,12 +8,12 @@ import predmeti.Predmet;
 public class Profesor extends Osoba{
 	
 	private String adresaKancelarije;
-	private int brojLicne;
+	private String brojLicne;
 	private String titula;
 	private String zvanje;
 	private ArrayList<Predmet> predmeti;// spisak predmeta na kojima je profesor
 	
-	public Profesor(String ime, String prz, String datum, String adr, String tel, String email, String adrKanc, int br, String titula, String zvanje) {
+	public Profesor(String ime, String prz, String datum, String adr, String tel, String email, String adrKanc, String br, String titula, String zvanje) {
 		super(ime,prz,datum,adr,tel,email);
 		this.adresaKancelarije = adrKanc;
 		this.brojLicne = br;
@@ -44,10 +44,10 @@ public class Profesor extends Osoba{
 	public void setAdresaKancelarije(String adresaKancelarije) {
 		this.adresaKancelarije = adresaKancelarije;
 	}
-	public int getBrojLicne() {
+	public String getBrojLicne() {
 		return brojLicne;
 	}
-	public void setBrojLicne(int brojLicne) {
+	public void setBrojLicne(String brojLicne) {
 		this.brojLicne = brojLicne;
 	}
 	public String getTitula() {
@@ -65,6 +65,6 @@ public class Profesor extends Osoba{
 	
 	@Override
 	public String toString() {
-		return String.format("%6s %6s %6s %6s %6s %6s %6s %10d %6s %6s", ime, prezime, datumRodjenja, adresaStanovanja, telefon, email,adresaKancelarije,  brojLicne, titula, zvanje);
+		return String.format("%6s %6s %6s %6s %6s %6s %6s %10s %6s %6s", ime, prezime, datumRodjenja, adresaStanovanja, telefon, email,adresaKancelarije,  brojLicne, titula, zvanje);
 	}
 }

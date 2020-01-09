@@ -18,14 +18,14 @@ public class ListaProfesora {
 		return profesori;
 	}
 	
-	public Profesor findProfesor(int brLicne) {
+	public Profesor findProfesor(String brLicne) {
 		for(Profesor p: profesori) {
-			if(p.getBrojLicne() == brLicne)
+			if(p.getBrojLicne().equalsIgnoreCase(brLicne))
 				return p;
 		}
 		return null;
 	}
-	
+	/*
 	public List<Profesor> searchProfesor(String stringIn){
 		List<Profesor> returnProfesori = new ArrayList<Profesor>();
 		HashMap<String, String> data = new HashMap<String, String>();
@@ -40,9 +40,9 @@ public class ListaProfesora {
 		
 		
 		return returnProfesori;
-	}
+	}*/
 	
-	public void addProfesorNaPredmet(Predmet predmet, int brLicne) {
+	public void addProfesorNaPredmet(Predmet predmet, String brLicne) {
 		for(Profesor p : profesori) {
 			if(p.getBrojLicne() == brLicne) {
 				p.addPredmet(predmet);
@@ -51,7 +51,7 @@ public class ListaProfesora {
 		}
 	}
 	
-	public void removeProfesorSaPredmeta(Predmet predmet, int brLicne) {
+	public void removeProfesorSaPredmeta(Predmet predmet, String brLicne) {
 		for(Profesor p : profesori) {
 			if(p.getBrojLicne() == brLicne) {
 				p.removePredmet(predmet);
@@ -60,7 +60,7 @@ public class ListaProfesora {
 		}
 	}
 	
-	public void addProfesor(String ime, String prz, String datum, String adr, String tel, String email, String adrKanc, int br, String titula, String zvanje) {
+	public void addProfesor(String ime, String prz, String datum, String adr, String tel, String email, String adrKanc, String br, String titula, String zvanje) {
 		profesori.add(new Profesor(ime,prz,datum,adr,tel,email,adrKanc,br,titula,zvanje));
 	}
 	
@@ -68,18 +68,18 @@ public class ListaProfesora {
 		profesori.add(new Profesor(p.getIme(),p.getPrezime(),p.getDatumRodjenja(),p.getAdresaStanovanja(),p.getTelefon(),p.getEmail(),p.getAdresaKancelarije(),p.getBrojLicne(),p.getTitula(),p.getZvanje()));
 	}
 	
-	public void deleteProfesor(int brLicne) {
+	public void deleteProfesor(String brLicne) {
 		for (Profesor p : profesori) {
-			if(brLicne == p.getBrojLicne()) {
+			if(brLicne.equalsIgnoreCase(p.getBrojLicne())) {
 				profesori.remove(p);
 				break;
 			}
 		}
 	}
 	
-	public void editProfesor(String ime, String prz, String datum, String adr, String tel, String email, String adrKanc, int br, String titula, String zvanje) {
+	public void editProfesor(String ime, String prz, String datum, String adr, String tel, String email, String adrKanc, String br, String titula, String zvanje) {
 		for (Profesor p : profesori) {
-			if (p.getBrojLicne() == br) {
+			if (br.equalsIgnoreCase(p.getBrojLicne())) {
 				p.setIme(ime);
 				p.setPrezime(prz);
 				p.setDatumRodjenja(datum);

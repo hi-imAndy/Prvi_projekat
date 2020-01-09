@@ -136,7 +136,7 @@ public class Profesor_dialog extends JDialog{
 				String telefon = "";
 				String email = "";
 				String adresaKanc = "";
-				int brojLicne = 0;
+				String brojLicne = "";
 				String titula = "";
 				String zvanje = "";
 				
@@ -183,7 +183,7 @@ public class Profesor_dialog extends JDialog{
 				}
 				
 				try {
-					brojLicne = Integer.parseInt(brojLicneText.getText());
+					brojLicne = brojLicneText.getText();
 				}catch(Exception e) {
 					brojLicneText.setText("Neispravno unet broj licne karte!");
 				}
@@ -200,7 +200,7 @@ public class Profesor_dialog extends JDialog{
 					zvanjeText.setText("Neispravno uneto zvanje!");
 				}
 				
-				if(ime.equals("") || prezime.equals("") || datum.equals("") || adresa.equals("") || telefon.equals("") || email.equals("") || adresaKanc.equals("") || brojLicne == 0 || titula.equals("") || zvanje.equals("")) {
+				if(ime.equals("") || prezime.equals("") || datum.equals("") || adresa.equals("") || telefon.equals("") || email.equals("") || adresaKanc.equals("") || brojLicne.equals("") || titula.equals("") || zvanje.equals("")) {
 					JOptionPane.showMessageDialog(null, "Niste popunili sva polja!");
 				}
 				else {

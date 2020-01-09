@@ -132,14 +132,14 @@ public class Predmet_dialog extends JDialog{
 		potvrdaButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				int sifra = 0;
+				String sifra = "";
 				String naziv = "";
 				int semestar = 0;
 				int godina = 0;
-				int profesor = 0;
+				String profesor = "";
 				
 				try {
-					sifra = Integer.parseInt(sifraText.getText());
+					sifra = sifraText.getText();
 				}catch(Exception e) {
 					sifraText.setText("Neispravno uneta sifra!");
 				}
@@ -151,7 +151,7 @@ public class Predmet_dialog extends JDialog{
 				}
 				
 				try {
-					profesor = Integer.parseInt(profesorText.getText());
+					profesor = profesorText.getText();
 				}catch(Exception e) {
 					profesorText.setText("Neispravno unet profesor!");
 				}
@@ -161,7 +161,7 @@ public class Predmet_dialog extends JDialog{
 				
 				Profesor p;
 				
-				if(sifra == 0 || naziv.equals("") || semestar == 0 || godina == 0 || profesor == 0) {
+				if(sifra.equals("") || naziv.equals("") || semestar == 0 || godina == 0 || profesor.equals("")) {
 					JOptionPane.showMessageDialog(null, "Niste popunili sva polja!");
 				}
 				

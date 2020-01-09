@@ -49,11 +49,11 @@ public class BazaStudenata {
 	}
 
 	private void initStudent() {
-	    studenti.dodavanjeStudenta(new Student("Maja","Zoric","11.08.1997","jskjff","","","RA-76-2017","","1",Status_studenta.B,(float) 4.5));
-		studenti.dodavanjeStudenta(new Student("Zorica","Lakic","11.10.1997","jskjff","","","RA-19-2017","","2",Status_studenta.S,(float)7.5));
-		studenti.dodavanjeStudenta(new Student("Aleksandra","Arsic","12.1.1998.","jskjff","","","RA-40-2017","","4",Status_studenta.S,(float)10.0));
-		studenti.dodavanjeStudenta(new Student("Aleksandra","Arsic","12.1.1998.","jskjff","","","RA-40-2018","","3",Status_studenta.B,(float)2));
-		studenti.dodavanjeStudenta(new Student("Aleksandra","Arsic","12.1.1998.","jskjff","","","SW-40-2017","","4",Status_studenta.B,(float)4.33));
+	    studenti.dodavanjeStudenta(new Student("Maja","Zoric","11.08.1997","jskjff","","","RA-76-2017","","1",Status_studenta.B,(double) 4.5));
+		studenti.dodavanjeStudenta(new Student("Zorica","Lakic","11.10.1997","jskjff","","","RA-19-2017","","2",Status_studenta.S,(double)7.5));
+		studenti.dodavanjeStudenta(new Student("Aleksandra","Arsic","12.1.1998.","jskjff","","","RA-40-2017","","4",Status_studenta.S,(double)10.0));
+		studenti.dodavanjeStudenta(new Student("Aleksandra","Arsic","12.1.1998.","jskjff","","","RA-40-2018","","3",Status_studenta.B,(double)2));
+		studenti.dodavanjeStudenta(new Student("Aleksandra","Arsic","12.1.1998.","jskjff","","","SW-40-2017","","4",Status_studenta.B,(double)4.33));
 		
 		
 
@@ -123,7 +123,7 @@ public class BazaStudenata {
 	
 	public void dodajStudenta(String ime,String prezime,String dr,String adresa,String telefon,String email,String brindexa,
 			String datupisa,String tgs,Status_studenta s,double prosek) {
-		studenti.dodavanjeStudenta(new Student(ime,prezime,dr,adresa,telefon,email,brindexa,datupisa,tgs,s,(float) prosek));
+		studenti.dodavanjeStudenta(new Student(ime,prezime,dr,adresa,telefon,email,brindexa,datupisa,tgs,s,(double) prosek));
 	//	System.out.println(studenti.size());
 	}
 
@@ -135,7 +135,7 @@ public class BazaStudenata {
 	}
 	
 	//OVDE SAM STAO
-	public void izmeniStudenta(String ime,String prezime,String DatumRodj,String Email,String DatumUpisa,float prosek,String adresa,
+	public void izmeniStudenta(String ime,String prezime,String DatumRodj,String Email,String DatumUpisa,double prosek,String adresa,
 			String brtel,String brindexa,String trengodstud,Status_studenta s) {
 		
 		Student st = BazaStudenata.getInstance().getRow(StudentiJTable.tab.getSelectedRow());

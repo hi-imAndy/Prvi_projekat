@@ -20,7 +20,7 @@ public class ProfesoriController {
 	private ProfesoriController() {}
 	
 	public void dodajProfesora(String ime, String prezime,String datumrodj, String adresastan, String kontakt, String mail,
-			String adresakanc, int brlk, String titula, String zvanje) {
+			String adresakanc, String brlk, String titula, String zvanje) {
 		
 		BazaProfesora.getInstance().dodajProfesora(ime,prezime,datumrodj,adresastan,kontakt,mail,adresakanc,brlk,titula,zvanje);
 	
@@ -28,7 +28,7 @@ public class ProfesoriController {
 	}
 	
      public void izmeniProfesora(String ime,String prezime,String datumrodjenja
-							,String adresastanovanja,String l,String email,String adresakanc,int brlk,String titula,String zvanje)
+							,String adresastanovanja,String l,String email,String adresakanc,String brlk,String titula,String zvanje)
      {
     	  BazaProfesora.getInstance().izmeniProf(ime,prezime,datumrodjenja,adresastanovanja,l,email,adresakanc,brlk,titula,zvanje);
     	 Tabela_profesora.azurirajPrikaz();

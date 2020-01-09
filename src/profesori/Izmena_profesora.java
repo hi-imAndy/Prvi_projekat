@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 public class Izmena_profesora extends JDialog {
 	
 	public Izmena_profesora(String ime,String prezime,String datumrodj,String adresa,String kontakt,String email,
-			String adresakancelarije,int brojlokala,String t,String z) 
+			String adresakancelarije,String br_licne,String t,String z) 
 	{
 		JTextField txtIme = new JTextField(ime);
 		JTextField txtPrezime = new JTextField(prezime);
@@ -29,7 +29,7 @@ public class Izmena_profesora extends JDialog {
 		JTextField txtBrojTelefona= new JTextField(kontakt.toString());
         JTextField txtEmailAdresa=new JTextField(email);
 		JTextField txtAdresaKancelarije = new JTextField(adresakancelarije);
-		JTextField txtBrojLokala = new JTextField(brojlokala);
+		JTextField txtBrojLicne = new JTextField(String.valueOf(br_licne));
 		JTextField txtTitula=new JTextField(t);
 		JTextField txtZvanje=new JTextField(z);
 		
@@ -49,7 +49,7 @@ public class Izmena_profesora extends JDialog {
 		txtBrojTelefona.setPreferredSize(new Dimension(160,20));
 		txtEmailAdresa.setPreferredSize(new Dimension(160,20));
 		txtAdresaKancelarije.setPreferredSize(new Dimension(160,20));
-		txtBrojLokala.setPreferredSize(new Dimension(160,20));
+		txtBrojLicne.setPreferredSize(new Dimension(160,20));
 		
 		
 		JLabel ime1 = new JLabel("Ime*");
@@ -59,7 +59,7 @@ public class Izmena_profesora extends JDialog {
 		JLabel broj_telefona = new JLabel("Broj telefona*");
 		JLabel email1 = new JLabel("Email*");
 		JLabel adresa_kancelarije = new JLabel("Adresa kancelarije*");
-		JLabel broj_lokala = new JLabel("Broj lične karte*");
+		JLabel br_licne1 = new JLabel("Broj lične karte*");
 		JLabel titula = new JLabel("Titula*");
 		JLabel zvanje = new JLabel("Zvanje*");
 		
@@ -108,8 +108,8 @@ public class Izmena_profesora extends JDialog {
 		panelAdresaKancelarije.add(txtAdresaKancelarije);
 		centralBox.add(panelAdresaKancelarije);
 		
-		panelBrojLokala.add(broj_lokala);
-		panelBrojLokala.add(txtBrojLokala);
+		panelBrojLokala.add(br_licne1);
+		panelBrojLokala.add(txtBrojLicne);
 		centralBox.add(panelBrojLokala);
 		
 		panelTitula.add(titula);
@@ -147,7 +147,7 @@ public class Izmena_profesora extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				if(txtIme.getText().isEmpty() || txtPrezime.getText().isEmpty() || txtDatumRodjenja.getText().isEmpty() ||
 						 txtAdresaStanovanja.getText().isEmpty() || txtBrojTelefona.getText().isEmpty() || txtEmailAdresa.getText().isEmpty() ||
-						 txtAdresaKancelarije.getText().isEmpty() || txtBrojLokala.getText().isEmpty() || txtTitula.getText().isEmpty() || txtZvanje.getText().isEmpty())
+						 txtAdresaKancelarije.getText().isEmpty() || txtBrojLicne.getText().isEmpty() || txtTitula.getText().isEmpty() || txtZvanje.getText().isEmpty())
 					
 					JOptionPane.showMessageDialog(null, "Sva polja moraju biti popunjena da bi mogli izmeniti profesora!");
 				else
@@ -158,7 +158,7 @@ public class Izmena_profesora extends JDialog {
 					
 					ProfesoriController.getInstance().izmeniProfesora(txtIme.getText(),txtPrezime.getText(),txtDatumRodjenja.getText()
 							,txtAdresaStanovanja.getText(),txtBrojTelefona.getText(),txtEmailAdresa.getText(),txtAdresaKancelarije.getText()
-							,Integer.parseInt(txtBrojLokala.getText()),txtTitula.getText(),txtZvanje.getText());
+							,txtBrojLicne.getText(),txtTitula.getText(),txtZvanje.getText());
 					setVisible(false);
 					}
 			}

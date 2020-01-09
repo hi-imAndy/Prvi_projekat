@@ -3,6 +3,8 @@ package predmeti;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import profesori.BazaProfesora;
 import profesori.Profesor;
 import studenti.BazaStudenata;
@@ -48,22 +50,15 @@ public class BazaPredmeta {
 	}
 	
 	private void makePredmeti() {
-		Profesor p = BazaProfesora.getInstance().getProfesori().findProfesor(0654345);
-		Profesor p1 = BazaProfesora.getInstance().getProfesori().findProfesor(0743567);
-		Profesor p2 = BazaProfesora.getInstance().getProfesori().findProfesor(1456345);
-		Profesor p3 = BazaProfesora.getInstance().getProfesori().findProfesor(1536234);
-		Profesor p4 = BazaProfesora.getInstance().getProfesori().findProfesor(0734611);
-		Profesor p5 = BazaProfesora.getInstance().getProfesori().findProfesor(1893484);
-		predmeti.addPredmet(1, "Programski prevodioci", 5, 3, p);
-		predmeti.addPredmet(2, "Operativni sistemi", 3,2, p1);
-		predmeti.addPredmet(3, "Arhitektura racunara", 2, 1, p2);
-		predmeti.addPredmet(4, "Fizika", 1, 2, p3);
-		predmeti.addPredmet(5, "Osnove elektrotehnike", 1, 2, p4);
-		predmeti.addPredmet(6, "Programski jezici", 1, 1, p5);
-		predmeti.addPredmet(7, "Algebra", 1,1, p);
-		predmeti.addPredmet(8, "Logicko projektovanje racunara", 2, 1, p1);
-		predmeti.addPredmet(9, "Matematicka analiza", 1, 1, p2);
-		predmeti.addPredmet(10, "Engleski jezik", 1, 1, p3);
+		Profesor p = BazaProfesora.getInstance().getProfesori().findProfesor("007198721");
+		Profesor p1 = BazaProfesora.getInstance().getProfesori().findProfesor("008431903");
+		Profesor p2 = BazaProfesora.getInstance().getProfesori().findProfesor("005671007");
+		Profesor p3 = BazaProfesora.getInstance().getProfesori().findProfesor("009999331");
+		predmeti.addPredmet("OP301", "Osnove programiranja", 1, 1, p);
+		predmeti.addPredmet("DM881", "Diskretna matematika", 3,2, p1);
+		predmeti.addPredmet("PP007", "Paralelno programiranje", 5, 3, p2);
+		predmeti.addPredmet("RVP33", "Računarstvo visokih performansi",7, 4, p3);
+		predmeti.addPredmet("JSD91", "Jezici specifični za domen", 8, 4, null);
 	}
 	
 	public Predmet getRow(int rowIndex) {
@@ -87,4 +82,38 @@ public class BazaPredmeta {
 			return null;
 		}
 	}
+	
+	
+	public void IzbrisiStudSaPredmeta(String indeks,int selektovani_predmet)
+	{
+		
+	   for(Student s:predmeti.getListaPredmeta().get(selektovani_predmet).getStudenti())
+	   {
+		   if(s.getBroj_indeksa().equals(indeks))
+		   {
+			   predmeti.getListaPredmeta().get(selektovani_predmet).getStudenti().remove(s);
+			   break;
+			   
+		   }
+		  
+	   }
+	   
+	   
+	   
+		
+	}
+	
+	public void DodajStudentaNaPredmet(Student s,int selektovani_predmet)
+	{
+		
+	for(Student st :	predmeti.getListaPredmeta().get(selektovani_predmet).getStudenti()) {
+		if(st.getBroj_indeksa().equalsIgnoreCase(s.getBroj_indeksa())) {
+			JOptionPane.showMessageDialog(null, "Student vec postoji na predmetu");
+			return;
+		}
+	}
+		
+		predmeti.getListaPredmeta().get(selektovani_predmet).getStudenti().add(s);
+	}
+	
 }

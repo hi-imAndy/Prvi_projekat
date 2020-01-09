@@ -51,6 +51,8 @@ public class MojToolbar extends JToolBar{
 	public static JButton btnStudentNaPredmet;
 	public static JButton btnProfesorNaPredmet;
 	
+	public static JButton btnStudentSaPredmeta;
+	
 	public MojToolbar(Frame parent) {
 	super(SwingConstants.HORIZONTAL);
 	
@@ -207,6 +209,24 @@ public class MojToolbar extends JToolBar{
 			}
 		}
 	});
+	
+	
+	btnStudentSaPredmeta = new JButton();
+	btnStudentSaPredmeta.setToolTipText("Add profesor");
+	btnStudentSaPredmeta.setIcon(new ImageIcon("slike/delete_student.png"));
+	btnStudentSaPredmeta.setVisible(false);
+	add(btnStudentSaPredmeta);
+	btnStudentSaPredmeta.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(Tabela_predmeta.row==-1)
+				JOptionPane.showMessageDialog(null, "Predmet mora biti izabran da biste uklonili studenta!");
+			else {
+				Brisanje_studenta bsd	= new Brisanje_studenta(parent);
+				bsd.setVisible(true);}
+		}
+	});
+	
 	
 	for(int i = 0; i < 50; i++)
 		addSeparator();

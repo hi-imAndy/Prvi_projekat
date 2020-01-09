@@ -58,13 +58,14 @@ public class BazaProfesora {
 	}
 	
 	private void makeProfesori() {
-		profesori.addProfesor("Milan", "Milanovic", "10.4.1970.", "Partizanska 21 Backa Palanka", "021/6045-789", "milanmilanovic@gmail.com", "Bul. Cara Lazara 34", 0654345, "Dipl.dr. racunarstva i automatike", "Vanredni profesor");
-		profesori.addProfesor("Luka", "Lukovic", "1.12.1976.", "Bul. Evrope 25", "021/6043-123", "lukalukovic@gmail.com", "Bul. Cara Lazara 34", 0743567, "Dipl.dr. racunarstva i automatike", "Redovni profesor");
-		profesori.addProfesor("Branislav", "Ciric", "4.8.1980.", "Partizanska 21 Backa Palanka", "021/6042-543", "branislavciric@gmail.com", "Bul. Cara Lazara 34", 1456345, "Dipl.dr. racunarstva i automatike", "Vanredni profesor");
-		profesori.addProfesor("Miroslav", "Hajdukovic", "14.10.1982.", "Bul. Evrope 25", "021/6044-175", "miroslavhajdukovic@gmail.com", "Bul. Cara Lazara 34", 1536234, "Dipl.dr. racunarstva i automatike", "Redovni profesor");
-		profesori.addProfesor("Srdjan", "Popov", "9.1.1964.", "Partizanska 21 Backa Palanka", "021/6045-836", "srdjanpopov@gmail.com", "Bul. Cara Lazara 34", 0734611, "Dipl.dr. racunarstva i automatike", "Vanredni profesor");
-		profesori.addProfesor("Miodrag", "Milovanovic", "5.11.1962.", "Bul. Evrope 25", "021/6043-604", "miodragmilovanovic@gmail.com", "Bul. Cara Lazara 34", 1893484, "Dipl.dr. racunarstva i automatike", "Redovni profesor");
-	}
+		profesori.addProfesor("Aleksa", "Petković", "15.1.1965.", "Temerinska 15, Novi Sad", "021/334-990", "aleksa.petkovic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, MI 105", "007198721", "Prof.dr", "Redovni profesor");
+		profesori.addProfesor("Jana", "Lazarević", "25.02.1963.", "Jovana Cvijića 26, Novi Sad", "021/435-891", "jana.lazarevic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, Nastavni blok 206", "008431903", "Prof.dr", "Redovni profesor");
+		profesori.addProfesor("Nađa", "Aleksić", "23.03.1973.", "Gundulićeva 75, Novi Sad", "021/730-172", "nadja.aleksic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, NTP 307", "005671007", "Dr", "Vanredni profesor");
+		profesori.addProfesor("Đorđe", "Spasojević", "24.08.1978..", "Šekspirova 44, Novi Sad", "021/514-893", "djordje.spasojevic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, MI 118", "009999331", "Dr", "Vanredni profesor");
+		profesori.addProfesor("Elena", "Milenković", "08.11.1985.", "Tolstojeva 52, Novi Sad", "021/834-901", "elena.milenkovic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, Nastavni blok 217", "003330976", "Dr", "Docent");
+		profesori.addProfesor("Teodor", "Mladenović", "14.12.1983.", "Jovana Subotića 33, Novi Sad", "021/441-007", "teodor.mladenovic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, NTP M35", "007441998", "Dr", "Docent");
+	
+		}
 	
 	public String getValueAt(int row, int column) {
 		Profesor prof= profesori.getListaProfesora().get(row);
@@ -97,9 +98,9 @@ public class BazaProfesora {
 	}
 
 	public void dodajProfesora(String ime, String prezime,String datumrodj, String adresastan, String kontakt, String mail,
-			String adresakanc, int brlk, String titula, String zvanje) {
+			String adresakanc, String brlk, String titula, String zvanje) {
 		for (Profesor i : profesori.getListaProfesora()) {
-			if (i.getBrojLicne()==brlk) {
+			if (i.getBrojLicne().equalsIgnoreCase(brlk)) {
 				 JOptionPane.showMessageDialog(null, "Profesor mora da ima jedinstven redni broj!");
 				 return;
 			}
@@ -109,7 +110,7 @@ public class BazaProfesora {
 	}
 	
     public void izmeniProf(String ime, String prezime,String datumrodj, String adresastan, String l, String mail,
-			String adresakanc, int brlk, String titula, String zvanje)
+			String adresakanc, String brlk, String titula, String zvanje)
     {
     	ArrayList<Predmet> predmeti=new ArrayList<Predmet>();
     	Profesor p=BazaProfesora.getInstance().getRow(Tabela_profesora.tab.getSelectedRow());
@@ -131,10 +132,10 @@ public class BazaProfesora {
 	private int brojLicne;
 	private String titula;
 	private String zvanje;
-    public void izbrisiProfesora(int i) {
+    public void izbrisiProfesora(String i) {
   
 		for (Profesor p : profesori.getListaProfesora()) {
-			if(p.getBrojLicne()==i) {
+			if(p.getBrojLicne().equalsIgnoreCase(i)) {
 				profesori.deleteProfesor(p.getBrojLicne());
 				break;
 			}

@@ -36,7 +36,10 @@ public class ListaPredmeta {
 		return returnProfesori;
 	}
 	
-	public void addPredmet(int sifra, String naziv, int semestar, int godina, Profesor prof) {
+	public void addPredmet(String sifra, String naziv, int semestar, int godina, Profesor prof) {
+		if(prof == null) {
+			prof = new Profesor("","","","","","","","","","");
+		}
 		predmeti.add(new Predmet(sifra,naziv,semestar,godina,prof));
 	}
 	
@@ -44,27 +47,27 @@ public class ListaPredmeta {
 		predmeti.add(new Predmet(p.getSifraPredmeta(),p.getNaziv(),p.getSemestar(),p.getGodinaStudija(),p.getProfesor()));
 	}
 	
-	public boolean findPredmet(int sifra) {
+	public boolean findPredmet(String sifra) {
 		for(Predmet p : predmeti) {
-			if(sifra == p.getSifraPredmeta()) {
+			if(sifra.equals(p.getSifraPredmeta())) {
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	public void deletePredmet(int sif) {
+	public void deletePredmet(String sif) {
 		for (Predmet p : predmeti) {
-			if(sif == p.getSifraPredmeta()) {
-				predmeti.remove(sif);
+			if(sif.equals(p.getSifraPredmeta())) {
+				predmeti.remove(p);
 				break;
 			}
 		}
 	}
 	
-	public void editPredmet(int sifra, String naziv, int semestar, int godina, Profesor prof) {
+	public void editPredmet(String sifra, String naziv, int semestar, int godina, Profesor prof) {
 		for (Predmet p : predmeti) {
-			if (p.getSifraPredmeta() == sifra) {
+			if (p.getSifraPredmeta().equalsIgnoreCase(sifra)) {
 				p.setNaziv(naziv);
 				p.setSemestar(semestar);
 				p.setGodinaStudija(godina);
@@ -72,14 +75,14 @@ public class ListaPredmeta {
 			}
 		}
 	}
-	
+	/*
 	public void sortPredmetiPoSifri(int sort) {
 		if(sort == 0) {  // rastuce
 			for(int i = 0; i < predmeti.size() - 1; i++) {
 				Predmet p = predmeti.get(i);
 				for(int j = i + 1; j < predmeti.size(); j++) {
 					Predmet p1 = predmeti.get(j);
-					if(p1.getSifraPredmeta() < p.getSifraPredmeta()) {
+					if(p1.getSifraPredmeta().compareTo(p.getSifraPredmeta() < 1) {
 						Predmet p2 = predmeti.get(i);
 						Predmet p3 = predmeti.get(j);
 						predmeti.set(j, p2);
@@ -211,6 +214,6 @@ public class ListaPredmeta {
 				}
 			}
 		}
-	}
+	}*/
 	
 }
