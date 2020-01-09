@@ -20,9 +20,9 @@ import studenti.BazaStudenata;
 import studenti.Student;
 import studenti.StudentiJTable;
 
-public class DodavanjeStudentaNaPredmet extends JDialog{
+public class Brisanje_studenta_sa_predmeta extends JDialog{
 
-	public DodavanjeStudentaNaPredmet(Frame parent) {
+	public Brisanje_studenta_sa_predmeta(Frame parent) {
 		setModal(true);
 		setTitle("Dodavanje studenta na predmet");
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -66,11 +66,9 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 					JOptionPane.showMessageDialog(null, "Ne postoji student sa tim indexom!");
 				}
 				else {
-					BazaPredmeta.getInstance().DodajStudentaNaPredmet(new Student(s.getIme(), s.getPrezime(),
-							s.getDatumRodjenja(), s.getAdresaStanovanja(), s.getTelefon(),
-							s.getEmail(), s.getBroj_indeksa(), s.getDatum_upisa(), s.getGodina_studija(), s.getStatus(), s.getProsecna_ocena()), vrsta);
+					BazaPredmeta.getInstance().IzbrisiStudSaPredmeta(index,vrsta);
 					
-					JOptionPane.showMessageDialog(parent, "Student uspesno dodat!");
+					JOptionPane.showMessageDialog(parent, "Student uspesno uklonjen!");
 					setVisible(false);
 				}
 				

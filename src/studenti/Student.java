@@ -14,11 +14,11 @@ public class Student extends Osoba{
 	String datum_upisa;
 	String godina_studija;
 	Status_studenta status;
-	float prosecna_ocena;
+	double prosecna_ocena;
 	
 	public Student(String ime, String prezime, String datum_rodjenja, String adresa_stanovanja, String kontakt_telefon,
 			String email_adresa, String broj_indeksa, String datum_upisa, String trenutna_godina_studija, Status_studenta status,
-			float prosecna_ocena) {
+			double prosecna_ocena) {
 		super(ime, prezime,  datum_rodjenja,  adresa_stanovanja,  kontakt_telefon,  email_adresa);
 
 		this.broj_indeksa = broj_indeksa;
@@ -76,11 +76,11 @@ public class Student extends Osoba{
 		this.status = status;
 	}
 
-	public float getProsecna_ocena() {
+	public double getProsecna_ocena() {
 		return prosecna_ocena;
 	}
 
-	public void setProsecna_ocena(float prosecna_ocena) {
+	public void setProsecna_ocena(double prosecna_ocena) {
 		this.prosecna_ocena = prosecna_ocena;
 	}
 

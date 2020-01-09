@@ -3,6 +3,8 @@ package predmeti;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import profesori.BazaProfesora;
 import profesori.Profesor;
 import studenti.BazaStudenata;
@@ -87,4 +89,38 @@ public class BazaPredmeta {
 			return null;
 		}
 	}
+	
+	
+	public void IzbrisiStudSaPredmeta(String indeks,int selektovani_predmet)
+	{
+		
+	   for(Student s:predmeti.getListaPredmeta().get(selektovani_predmet).getStudenti())
+	   {
+		   if(s.getBroj_indeksa().equals(indeks))
+		   {
+			   predmeti.getListaPredmeta().get(selektovani_predmet).getStudenti().remove(s);
+			   break;
+			   
+		   }
+		  
+	   }
+	   
+	   
+	   
+		
+	}
+	
+	public void DodajStudentaNaPredmet(Student s,int selektovani_predmet)
+	{
+		
+	for(Student st :	predmeti.getListaPredmeta().get(selektovani_predmet).getStudenti()) {
+		if(st.getBroj_indeksa().equalsIgnoreCase(s.getBroj_indeksa())) {
+			JOptionPane.showMessageDialog(null, "Student vec postoji na predmetu");
+			return;
+		}
+	}
+		
+		predmeti.getListaPredmeta().get(selektovani_predmet).getStudenti().add(s);
+	}
+	
 }

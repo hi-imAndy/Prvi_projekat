@@ -207,7 +207,7 @@ public class dodavanje_studenta1 extends JDialog{
 				String Broj_indeksa="";
 				String Datum_upisa="";
 				String Trenutna_godina_studija="";
-				float Prosecna_ocena=0;
+				double Prosecna_ocena=0;
 				Status_studenta status=Status_studenta.B;
 				List<Predmet> Spisak_predmeta_koje_student_slusa=new ArrayList<Predmet>();
 				
@@ -223,7 +223,7 @@ public class dodavanje_studenta1 extends JDialog{
 				Kontakt_telefon=dodavanje_studenta1.txtBrojTelefona.getText();
 				
 				try {
-				Prosecna_ocena=Float.parseFloat(txtProsek.getText());
+				Prosecna_ocena=Double.parseDouble(txtProsek.getText());
 				}
 				catch (Exception e) {
 					txtProsek.setText("Prosek nije dobro unet!");
@@ -251,10 +251,24 @@ public class dodavanje_studenta1 extends JDialog{
 				}
 				else
 				{
+					int flag = 1;
+					if(!BazaStudenata.getInstance().studenti.getLista_studenata().isEmpty()) {
+						for(Student s : BazaStudenata.getInstance().studenti.getLista_studenata()) {
+							if(s.getBroj_indeksa().equalsIgnoreCase(Broj_indeksa)) {
+								JOptionPane.showMessageDialog(null, "Broj indeksa mora biti jedinstven!");
+								flag = 0;
+								break;}
+
+						}
+					
+					}
+					if(flag == 1) {	
 						StudentiController.getInstance().dodajStudenta(Ime,Prezime,Datum_rodjenja,Adresa_stanovanja,Kontakt_telefon,email_adresa,Broj_indeksa,Datum_upisa,
 								Trenutna_godina_studija,status,Prosecna_ocena);
 						System.out.println("Student dodat");
 						setVisible(false);
+					}
+
 				}
 				
 			}

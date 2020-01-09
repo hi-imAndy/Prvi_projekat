@@ -20,7 +20,7 @@ public class ListaStudenata {
 	}
 
 	public void dodavanjeStudenta(String ime, String prz, String datum, String adr, String tel, String email,
-			String indeks, String datum_upisa, String godina_studija, Status_studenta status, float prosecna_ocena) {
+			String indeks, String datum_upisa, String godina_studija, Status_studenta status, double prosecna_ocena) {
 
 		lista_studenata.add(new Student(ime, prz, datum, adr, tel, email, indeks, datum_upisa, godina_studija, status,
 				prosecna_ocena));
@@ -59,7 +59,7 @@ public class ListaStudenata {
 	}
 
 	public void izmenaStudenta(String ime, String prz, String datum, String adr, String tel, String email,
-			String indeks, String datum_upisa, String godina_studija, Status_studenta status, float prosecna_ocena) {
+			String indeks, String datum_upisa, String godina_studija, Status_studenta status, double prosecna_ocena) {
 		for (Student student : lista_studenata) {
 			if (student.getBroj_indeksa().equalsIgnoreCase(indeks)) {
 				student.setAdresaStanovanja(adr);
@@ -134,10 +134,10 @@ public class ListaStudenata {
 		if (sort == 0) {//opadajuce
 			for (int i = 0; i < lista_studenata.size(); i++) {
 				Student s = lista_studenata.get(i);
-				float s_ocena = s.prosecna_ocena;
+				double s_ocena = s.prosecna_ocena;
 				for (int j = 0; j < lista_studenata.size(); j++) {
 					Student s1 = lista_studenata.get(j);
-					float s1_ocena = s1.prosecna_ocena;
+					double s1_ocena = s1.prosecna_ocena;
 					if (s1_ocena > s_ocena) {
 						Student temp1 = lista_studenata.get(i);
 						Student temp2 = lista_studenata.get(j);
@@ -151,10 +151,10 @@ public class ListaStudenata {
 		else { // rastuce
 			for (int i = 0; i < lista_studenata.size(); i++) {
 				Student s = lista_studenata.get(i);
-				float s_ocena = s.prosecna_ocena;
+				double s_ocena = s.prosecna_ocena;
 				for (int j =0; j < lista_studenata.size(); j++) {
 					Student s1 = lista_studenata.get(j);
-					float s1_ocena = s1.prosecna_ocena;
+					double s1_ocena = s1.prosecna_ocena;
 					if (s1_ocena < s_ocena) {
 						Student temp1 = lista_studenata.get(i);
 						Student temp2 = lista_studenata.get(j);

@@ -42,9 +42,12 @@ public class Izmena_studenta extends JDialog {
 		 JTextField txtEmailAdresa=new JTextField(email1);
 		 JTextField txtBrojIndexa = new JTextField(brindexa);
 		 JTextField txtGodinaStudiranja = new JTextField(tren_god_stud);
-		JTextField txtDatumUpisa = new JTextField(dat_upisa1);
+		 JTextField txtDatumUpisa = new JTextField(dat_upisa1);
 		 JTextField txtProsek = new JTextField(prosek1.toString());
 		 JComboBox<String> trengodstud=new JComboBox<String>(); 
+		 txtBrojIndexa.setEditable(false);
+		
+		 
 		
 		 
 		 if(s==Status_studenta.B)
@@ -229,7 +232,7 @@ public class Izmena_studenta extends JDialog {
 				{
 					
 						StudentiController.getInstance().izmeniStudenta(txtIme.getText(),txtPrezime.getText(),txtDatumRodjenja.getText(),
-								txtEmailAdresa.getText(),txtDatumUpisa.getText(),(float) Double.parseDouble(txtProsek.getText()),txtAdresaStanovanja.getText(),txtBrojTelefona.getText(),
+								txtEmailAdresa.getText(),txtDatumUpisa.getText(), Double.parseDouble(txtProsek.getText()),txtAdresaStanovanja.getText(),txtBrojTelefona.getText(),
 								txtBrojIndexa.getText(),trengodstud.getSelectedItem().toString(),status);
 						JOptionPane.showMessageDialog(null, "Student izmenjen");
 						setVisible(false);
