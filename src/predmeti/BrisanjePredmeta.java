@@ -20,7 +20,7 @@ public class BrisanjePredmeta extends JDialog{
 
 	public BrisanjePredmeta(Frame parent) {
 		setModal(true);
-	    setTitle("Brisanje Studenta");
+	    setTitle("Brisanje predmeta");
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		double height=screenSize.getHeight();
 		double width=screenSize.getWidth();

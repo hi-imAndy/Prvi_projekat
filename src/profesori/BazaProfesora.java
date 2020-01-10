@@ -1,10 +1,13 @@
 package profesori;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 
+import glavni_prozor.MojToolbar;
 import predmeti.BazaPredmeta;
 import predmeti.ListaPredmeta;
 import predmeti.Predmet;
@@ -58,13 +61,19 @@ public class BazaProfesora {
 	}
 	
 	private void makeProfesori() {
-		profesori.addProfesor("Aleksa", "Petković", "15.1.1965.", "Temerinska 15, Novi Sad", "021/334-990", "aleksa.petkovic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, MI 105", "007198721", "Prof.dr", "Redovni profesor");
-		profesori.addProfesor("Jana", "Lazarević", "25.02.1963.", "Jovana Cvijića 26, Novi Sad", "021/435-891", "jana.lazarevic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, Nastavni blok 206", "008431903", "Prof.dr", "Redovni profesor");
-		profesori.addProfesor("Nađa", "Aleksić", "23.03.1973.", "Gundulićeva 75, Novi Sad", "021/730-172", "nadja.aleksic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, NTP 307", "005671007", "Dr", "Vanredni profesor");
-		profesori.addProfesor("Đorđe", "Spasojević", "24.08.1978..", "Šekspirova 44, Novi Sad", "021/514-893", "djordje.spasojevic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, MI 118", "009999331", "Dr", "Vanredni profesor");
-		profesori.addProfesor("Elena", "Milenković", "08.11.1985.", "Tolstojeva 52, Novi Sad", "021/834-901", "elena.milenkovic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, Nastavni blok 217", "003330976", "Dr", "Docent");
-		profesori.addProfesor("Teodor", "Mladenović", "14.12.1983.", "Jovana Subotića 33, Novi Sad", "021/441-007", "teodor.mladenovic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, NTP M35", "007441998", "Dr", "Docent");
-	
+		Profesor p1 = new Profesor("Aleksa", "Petković", "15.1.1965.", "Temerinska 15, Novi Sad", "021/334-990", "aleksa.petkovic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, MI 105", "007198721", "Prof.dr", "Redovni profesor");
+		Profesor p2 = new Profesor("Jana", "Lazarević", "25.02.1963.", "Jovana Cvijića 26, Novi Sad", "021/435-891", "jana.lazarevic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, Nastavni blok 206", "008431903", "Prof.dr", "Redovni profesor");
+		Profesor p3 = new Profesor("Nađa", "Aleksić", "23.03.1973.", "Gundulićeva 75, Novi Sad", "021/730-172", "nadja.aleksic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, NTP 307", "005671007", "Dr", "Vanredni profesor");
+		Profesor p4 = new Profesor("Đorđe", "Spasojević", "24.08.1978..", "Šekspirova 44, Novi Sad", "021/514-893", "djordje.spasojevic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, MI 118", "009999331", "Dr", "Vanredni profesor");
+		Profesor p5 = new Profesor("Elena", "Milenković", "08.11.1985.", "Tolstojeva 52, Novi Sad", "021/834-901", "elena.milenkovic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, Nastavni blok 217", "003330976", "Dr", "Docent");
+		Profesor p6 = new Profesor("Teodor", "Mladenović", "14.12.1983.", "Jovana Subotića 33, Novi Sad", "021/441-007", "teodor.mladenovic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, NTP M35", "007441998", "Dr", "Docent");
+		profesori.addProfesor(p1);
+		profesori.addProfesor(p2);
+		profesori.addProfesor(p3);
+		profesori.addProfesor(p4);
+		profesori.addProfesor(p5);
+		profesori.addProfesor(p6);
+		
 		}
 	
 	public String getValueAt(int row, int column) {
@@ -94,6 +103,52 @@ public class BazaProfesora {
 			 return null;
 		default:
 			return null;
+		}
+	}
+	
+	public static void search(String query) {
+		HashMap<String, String> mapa = new HashMap<String, String>();
+		
+		String[] podaci = query.split(";");
+		
+		mapa.put("ime", "");
+		mapa.put("prezime", "");
+		mapa.put("datum rodjenja", "");
+		mapa.put("adresa stanovanja", "");
+		mapa.put("telefon", "");
+		mapa.put("email", "");
+		mapa.put("adresa kancelarije", "");
+		mapa.put("broj licne", "");
+		mapa.put("titula", "");
+		mapa.put("zvanje", "");
+		
+		for(String s : podaci) {
+			String[] podatak = s.split(":");
+			if(podatak.length > 0) {
+				mapa.put(podatak[0].toLowerCase(), podatak[1]);
+			}
+		}
+		
+		List<RowFilter<Object,Object>> rowFilter = new ArrayList<RowFilter<Object,Object>>();
+		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("ime") + ".*", 0));
+		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("prezime") + ".*", 1));
+		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("datum rodjenja") + ".*", 2));
+		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("adresa stanovanja") + ".*", 3));
+		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("telefon") + ".*", 4));
+		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("email") + ".*", 5));
+		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("adresa kancelarije") + ".*", 6));
+		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("broj licne") + ".*", 7));
+		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("titula") + ".*", 8));
+		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("zvanje") + ".*", 9));
+		
+		MojToolbar.rowSorter.setRowFilter(RowFilter.andFilter(rowFilter));
+	}
+	
+	public void obrisiPredmetProfesora(String brLicne, Predmet p) {
+		for(Profesor prof : profesori.getListaProfesora()) {
+			if(prof.getBrojLicne().equals(brLicne)) {
+				prof.getPredmeti().remove(p);
+			}
 		}
 	}
 

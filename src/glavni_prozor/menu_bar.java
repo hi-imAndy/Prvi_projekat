@@ -32,20 +32,11 @@ import studenti.Student;
 import studenti.StudentiJTable;
 import studenti.dodavanje_studenta1;
 
-/*
- * klasa nasleđuje JMenuBar i predstavlja kontejner
- * za komponente JMenu. Instanca ove klase će se 
- * smeštati u glavni prozor aplikacije
- * 
- */
 public class menu_bar extends JMenuBar {
 
 
 
 	public menu_bar(Frame parent) {
-
-		
-		//dugmici
 		
 		JMenu file = new JMenu("File");
 		JMenuItem miNew = new JMenuItem("New");

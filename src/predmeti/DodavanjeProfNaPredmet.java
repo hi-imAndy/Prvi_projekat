@@ -65,12 +65,12 @@ public class DodavanjeProfNaPredmet extends JDialog{
 					JOptionPane.showMessageDialog(null, "Ne postoji profesor sa tom licnom kartom!");
 				}
 				else {
+					Predmet predmet = BazaPredmeta.getInstance().getPredmeti().getListaPredmeta().get(vrsta);
 					BazaPredmeta.getInstance().dodajProfesoraNaPredmet(p, vrsta);
-					//BazaPredmeta.getInstance().DodajStudentaNaPredmet(new Student(s.getIme(), s.getPrezime(),
-							//s.getDatumRodjenja(), s.getAdresaStanovanja(), s.getTelefon(),
-							//s.getEmail(), s.getBroj_indeksa(), s.getDatum_upisa(), s.getGodina_studija(), s.getStatus(), s.getProsecna_ocena()), vrsta);
-					
+					BazaProfesora.getInstance().getProfesori().addProfesorNaPredmet(predmet, brLicne);
+			
 					JOptionPane.showMessageDialog(parent, "Profesor uspesno dodat na predmet!");
+					Tabela_predmeta.azurirajPrikaz();
 					setVisible(false);
 				}
 				

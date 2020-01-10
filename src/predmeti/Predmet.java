@@ -24,11 +24,15 @@ public class Predmet {
 		this.studenti = new ArrayList<Student>();
 	}
 	
+	public void removeProfesor() {
+		profesor = new Profesor("","","","","","","","","","");
+	}
+	
 	public void addStudent(Student s) {
 		studenti.add(s);
 	}
 	
-
+	
 	
 	public List<Student> getStudenti() {
 		return studenti;

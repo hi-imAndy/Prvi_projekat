@@ -50,15 +50,29 @@ public class BazaPredmeta {
 	}
 	
 	private void makePredmeti() {
-		Profesor p = BazaProfesora.getInstance().getProfesori().findProfesor("007198721");
-		Profesor p1 = BazaProfesora.getInstance().getProfesori().findProfesor("008431903");
-		Profesor p2 = BazaProfesora.getInstance().getProfesori().findProfesor("005671007");
-		Profesor p3 = BazaProfesora.getInstance().getProfesori().findProfesor("009999331");
-		predmeti.addPredmet("OP301", "Osnove programiranja", 1, 1, p);
-		predmeti.addPredmet("DM881", "Diskretna matematika", 3,2, p1);
-		predmeti.addPredmet("PP007", "Paralelno programiranje", 5, 3, p2);
-		predmeti.addPredmet("RVP33", "Računarstvo visokih performansi",7, 4, p3);
-		predmeti.addPredmet("JSD91", "Jezici specifični za domen", 8, 4, null);
+		Profesor p1 = BazaProfesora.getInstance().getProfesori().findProfesor("007198721");
+	    Profesor p2 = BazaProfesora.getInstance().getProfesori().findProfesor("008431903");
+	    Profesor p3 = BazaProfesora.getInstance().getProfesori().findProfesor("005671007");
+	    Profesor p4 = BazaProfesora.getInstance().getProfesori().findProfesor("009999331");
+	    Profesor p5 = new Profesor("","","","","","","","","","");
+	    
+	    Predmet pred1 = new Predmet("OP301", "Osnove programiranja", 1, 1, p1);
+	    Predmet pred2 = new Predmet("DM881", "Diskretna matematika", 3,2, p2);
+	    Predmet pred3 = new Predmet("PP007", "Paralelno programiranje", 5, 3, p3);
+	    Predmet pred4 = new Predmet("RVP33", "Računarstvo visokih performansi",7, 4, p4);
+	    Predmet pred5 = new Predmet("JSD91", "Jezici specifični za domen", 8, 4, p5);
+	    
+	    predmeti.addPredmet(pred1);
+		predmeti.addPredmet(pred2);
+		predmeti.addPredmet(pred3);
+		predmeti.addPredmet(pred4);
+		predmeti.addPredmet(pred5);
+		
+		p1.addPredmet(pred1);
+		p2.addPredmet(pred2);
+		p3.addPredmet(pred3);
+		p4.addPredmet(pred4);
+		
 	}
 	
 	public Predmet getRow(int rowIndex) {

@@ -25,22 +25,6 @@ public class ListaProfesora {
 		}
 		return null;
 	}
-	/*
-	public List<Profesor> searchProfesor(String stringIn){
-		List<Profesor> returnProfesori = new ArrayList<Profesor>();
-		HashMap<String, String> data = new HashMap<String, String>();
-		
-		String[] podaci = stringIn.split(";");
-		
-		for(String s : podaci) {
-			String[] podatak = s.split(":");
-			data.put(podatak[0], podatak[1]);
-		}
-	
-		
-		
-		return returnProfesori;
-	}*/
 	
 	public void addProfesorNaPredmet(Predmet predmet, String brLicne) {
 		for(Profesor p : profesori) {

@@ -47,6 +47,23 @@ public class ListaPredmeta {
 		predmeti.add(new Predmet(p.getSifraPredmeta(),p.getNaziv(),p.getSemestar(),p.getGodinaStudija(),p.getProfesor()));
 	}
 	
+	public Predmet returnPredmet(String sifra) {
+		for(Predmet p : predmeti) {
+			if(sifra.equals(p.getSifraPredmeta())) {
+				return p;
+			}
+		}
+		return null;
+	}
+	
+	public void removeProfesor(String sifra) {
+		for(Predmet p : predmeti) {
+			if(p.getSifraPredmeta().equals(sifra)){
+				p.removeProfesor();
+			}
+		}
+	}
+	
 	public boolean findPredmet(String sifra) {
 		for(Predmet p : predmeti) {
 			if(sifra.equals(p.getSifraPredmeta())) {

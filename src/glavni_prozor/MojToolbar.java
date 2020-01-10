@@ -3,10 +3,14 @@ package glavni_prozor;
 import java.awt.Color;
 
 
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
 
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,10 +21,12 @@ import javax.swing.JToolBar;
 import javax.swing.RowFilter;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import predmeti.BazaPredmeta;
 import predmeti.BrisanjePredmeta;
+import predmeti.BrisanjeProfesoraSaPredmeta;
 import predmeti.DodavanjeProfNaPredmet;
 import predmeti.DodavanjeStudentaNaPredmet;
 import predmeti.IzmenaPredmeta;
@@ -53,6 +59,9 @@ public class MojToolbar extends JToolBar{
 	public static JButton btnProfesorNaPredmet;
 	
 	public static JButton btnStudentSaPredmeta;
+	public static JButton btnProfesorSaPredmeta;
+	
+	public static TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(Tabela_profesora.model);
 	
 	public MojToolbar(Frame parent) {
 	super(SwingConstants.HORIZONTAL);
@@ -214,9 +223,9 @@ public class MojToolbar extends JToolBar{
 	
 	
 	btnStudentSaPredmeta = new JButton();
-	btnStudentSaPredmeta.setToolTipText("Add profesor");
+	btnStudentSaPredmeta.setToolTipText("Delete student");
 	btnStudentSaPredmeta.setIcon(new ImageIcon("slike/delete_student.png"));
-	btnStudentSaPredmeta.setVisible(false);
+	btnStudentSaPredmeta.setVisible(true);
 	add(btnStudentSaPredmeta);
 	btnStudentSaPredmeta.addActionListener(new ActionListener() {
 		@Override
@@ -226,6 +235,27 @@ public class MojToolbar extends JToolBar{
 			else {
 				Brisanje_studenta bsd	= new Brisanje_studenta(parent);
 				bsd.setVisible(true);}
+		}
+	});
+	
+	btnProfesorSaPredmeta = new JButton();
+	btnProfesorSaPredmeta.setToolTipText("Delete profesor");
+	btnProfesorSaPredmeta.setIcon(new ImageIcon("slike/delete_student.png"));
+	btnProfesorSaPredmeta.setVisible(true);
+	add(btnProfesorSaPredmeta);
+	btnProfesorSaPredmeta.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(Tabela_profesora.row==-1)
+				JOptionPane.showMessageDialog(null, "Profesor mora biti izabran da biste uklonili predmet!");
+			else {
+				Profesor p = BazaProfesora.getInstance().getProfesori().getListaProfesora().get(Tabela_profesora.row);
+				BrisanjeProfesoraSaPredmeta bpsp = new BrisanjeProfesoraSaPredmeta(p.getBrojLicne());
+				bpsp.setVisible(true);
+				int index = BrisanjeProfesoraSaPredmeta.lista.getSelectedIndex();
+				BrisanjeProfesoraSaPredmeta.lista.remove(index);
+			}
+				
 		}
 	});
 	
@@ -245,17 +275,8 @@ public class MojToolbar extends JToolBar{
 	btnSearch.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent event) {
-			if(Tabela_predmeta.tableActive) {
-				String query = textField.getText();
-				DefaultTableModel model = (DefaultTableModel)Tabela_predmeta.model;
-				TableRowSorter<DefaultTableModel> table = new TableRowSorter<DefaultTableModel>(model);
-				Tabela_predmeta.getInstance().setRowSorter(table);
-				
-				table.setRowFilter(RowFilter.regexFilter(query));
-			}
-			else if(Tabela_profesora.tableActive) {
-				
-			}
+			BazaProfesora.search(textField.getText());
+			Tabela_profesora.azurirajPrikaz();
 		}
 	});
 	
