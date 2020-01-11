@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,6 +20,7 @@ import javax.swing.event.ChangeListener;
 
 import predmeti.Tabela_predmeta;
 import profesori.Tabela_profesora;
+import studenti.PredmetiKodStudenta;
 import studenti.StudentiJTable;
 
 
@@ -55,7 +58,7 @@ private static Tab instance=null;
 		JPanel pred=new JPanel();
 		
 		//STUD
-	    StudentiJTable tabstud=new StudentiJTable();
+	    StudentiJTable tabstud=StudentiJTable.getInstance();
 		JScrollPane sp1=new JScrollPane(tabstud);
 	    sp1.setPreferredSize(new Dimension(w-50,h-50));
 	    stud.add(sp1,BorderLayout.NORTH);
@@ -92,6 +95,22 @@ private static Tab instance=null;
 				
 			}
 		});
+		
+		StudentiJTable.getInstance().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				if(e.getClickCount()==1)
+				{
+					if(StudentiJTable.getInstance().getSelectedColumn()==11)
+					{
+						int row=StudentiJTable.getInstance().getSelectedRow();
+				        PredmetiKodStudenta pks=new PredmetiKodStudenta(row);
+					}
+				}
+			}
+		});
+		
 }}
 	
 	
