@@ -44,6 +44,7 @@ import studenti.BazaStudenata;
 import studenti.Brisanje_studenta;
 
 import studenti.Izmena_studenta;
+import studenti.Pretraga_studenta;
 import studenti.Student;
 import studenti.StudentiJTable;
 
@@ -60,6 +61,8 @@ public class MojToolbar extends JToolBar{
 	
 	public static JButton btnStudentSaPredmeta;
 	public static JButton btnProfesorSaPredmeta;
+	
+	public static Pretraga_studenta ps=null;
 	
 	public static TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(Tabela_profesora.model);
 	
@@ -272,11 +275,28 @@ public class MojToolbar extends JToolBar{
 	btnSearch.setToolTipText("Search");
 	btnSearch.setIcon(new ImageIcon("slike/search_icon2.png"));
 	
+
 	btnSearch.addActionListener(new ActionListener() {
+		
+		
 		@Override
-		public void actionPerformed(ActionEvent event) {
-			BazaProfesora.search(textField.getText());
-			Tabela_profesora.azurirajPrikaz();
+		public void actionPerformed(ActionEvent e) {
+			if(Tab.getSelectedIndex1()==0) {
+				String pretraga=textField.getText();
+				Pretraga_studenta ps=new Pretraga_studenta(pretraga);
+
+		     }
+		/*	else if(Tab.getSelectedIndex1()==1)
+			{
+				String pretraga=textField.getText();
+				pretraga_profesora pf=new pretraga_profesora(pretraga);
+			}else if(Tab.getSelectedIndex1()==2)
+			{	
+				String pretraga=textField.getText();
+				pretraga_predmeta pp=new pretraga_predmeta(pretraga);
+			}
+			
+	*/
 		}
 	});
 	
@@ -285,7 +305,45 @@ public class MojToolbar extends JToolBar{
 	setBackground(Color.LIGHT_GRAY);
 	setFloatable(false);
 	
+	addSeparator();
+	
+	JButton btnRefresh=new JButton();
+	btnSearch.setToolTipText("Refresh");
+	btnRefresh.setIcon(new ImageIcon("slike/refresh.png"));
+	add(btnRefresh);
+	
+	btnRefresh.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			if(Tab.getSelectedIndex1()==0) {
+				BazaStudenata.getInstance().getStudenti().setLista_studenata(ps.getOriginalna_lista());
+				StudentiJTable.azurirajPrikaz();
+				
+				
+		     }
+			/*else if(Tab.getSelectedIndex1()==1)
+			{	
+				BazaProfesora.getInstance().setProfesori(pprof.getOriginalna_lista());
+				ProfesorJTable.azurirajPrikaz();	
+				
+
+			}else if(Tab.getSelectedIndex1()==2)
+			{	
+				BazaPredmeta.getInstance().setPredmeti(pp.getOriginalna_lista());
+				PredmetiJTable.azurirajPrikaz();
+				
+			}*/
+			textField.setText("");
+		}
+	});
+	
+	setBackground(Color.LIGHT_GRAY);
+	setFloatable(false);
 	}
+
+	
 
 	public JButton getBtnCreate() {
 		return btnCreate;
@@ -294,6 +352,8 @@ public class MojToolbar extends JToolBar{
 	public void setBtnCreate(JButton btnCreate) {
 		this.btnCreate = btnCreate;
 	}
+	
+	
 	
 	
 }

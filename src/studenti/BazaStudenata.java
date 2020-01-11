@@ -75,10 +75,10 @@ public class BazaStudenata {
 	}
 
 
-//	public int getColumnCount() {
-//		return 6;
-//	}
-//
+	public int getColumnCount() {
+		return 12;
+	}
+
 	public String getColumnName(int index) {
 		return this.kolone.get(index);
 	}
@@ -113,8 +113,7 @@ public class BazaStudenata {
 		case 10:
 			 return Double.toString(student.getProsecna_ocena());
 		case 11:
-			// return student.getSpisak_predmeta_koje_student_slusa();
-			return "BICE DOPUNJENO";
+			
 		default:
 			return null;
 		}

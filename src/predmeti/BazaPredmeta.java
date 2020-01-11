@@ -109,10 +109,16 @@ public class BazaPredmeta {
 			   break;
 			   
 		   }
+		   
+			for(Student stud: BazaStudenata.getInstance().getStudenti().getLista_studenata()) {
+				if(stud.getBroj_indeksa().equalsIgnoreCase(s.getBroj_indeksa())) {
+					stud.getLista_predmeta().getListaPredmeta().remove(selektovani_predmet);
+					break;
+				}
 		  
 	   }
 	   
-	   
+	   }
 	   
 		
 	}
@@ -139,6 +145,14 @@ public class BazaPredmeta {
 	}
 		
 		predmeti.getListaPredmeta().get(selektovani_predmet).getStudenti().add(s);
+		
+		for(Student stud: BazaStudenata.getInstance().getStudenti().getLista_studenata()) {
+			if(stud.getBroj_indeksa().equalsIgnoreCase(s.getBroj_indeksa())) {
+				stud.getLista_predmeta().getListaPredmeta().add(predmeti.getListaPredmeta().get(selektovani_predmet));
+				break;
+			}
+			
+		}
 	}
 	
 }
