@@ -28,7 +28,7 @@ public class ModelProfesora extends AbstractTableModel{
 		}
 		return null;
 	}
-	
+	/*
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
 		switch (columnIndex) {
@@ -46,7 +46,7 @@ public class ModelProfesora extends AbstractTableModel{
 		default:
 			return null;
 		}
-	}
+	}*/
 	
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {

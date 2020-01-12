@@ -20,9 +20,11 @@ import javax.swing.JToolBar;
 
 import predmeti.BazaPredmeta;
 import predmeti.ModelPredmeta;
+import predmeti.Predmet;
 import predmeti.Tabela_predmeta;
 import profesori.BazaProfesora;
 import profesori.ModelProfesora;
+import profesori.Profesor;
 import profesori.Tabela_profesora;
 
 import studenti.AbstractTableModelStudenti;

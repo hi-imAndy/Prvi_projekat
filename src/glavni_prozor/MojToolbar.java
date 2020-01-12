@@ -68,8 +68,6 @@ public class MojToolbar extends JToolBar{
 	public static JButton btnStudentNaPredmet;
 	public static JButton btnProfesorNaPredmet;
 	
-	public static JButton btnStudentSaPredmeta;
-	public static JButton btnProfesorSaPredmeta;
 	
 	public static Pretraga_studenta ps=null;
 	
@@ -325,6 +323,14 @@ public class MojToolbar extends JToolBar{
 				
 			}
 			textField.setText("");
+			/*
+			for(int i = 0; i < BazaProfesora.getInstance().getProfesori().getListaProfesora().size(); i++) {
+				Profesor prof = BazaProfesora.getInstance().getProfesori().getListaProfesora().get(i);
+				System.out.println("Profesor:" + prof.getIme() + prof.getPrezime());
+				for(Predmet pred : prof.getPredmeti()) {
+					System.out.println(pred.getNaziv());
+				}
+			}*/
 		}
 	});
 	

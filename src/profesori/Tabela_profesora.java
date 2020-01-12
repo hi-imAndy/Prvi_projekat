@@ -10,6 +10,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import glavni_prozor.MojToolbar;
+
 public class Tabela_profesora extends JTable{
 
 	private static final long serialVersionUID = 6605108349608778614L;
@@ -63,6 +65,8 @@ public class Tabela_profesora extends JTable{
 		} else {
 			c.setBackground(Color.WHITE);
 		}
+		MojToolbar.btnProfesorNaPredmet.setVisible(false);
+		MojToolbar.btnStudentNaPredmet.setVisible(false);
 		return c;
 	}
 

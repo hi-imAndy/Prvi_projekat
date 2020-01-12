@@ -88,7 +88,6 @@ public class BazaProfesora {
 		}
 	
 private void initProfesori() {
-		
 		try
 		{
 			FileInputStream ulaz=new FileInputStream(file);
@@ -116,8 +115,6 @@ private void initProfesori() {
 		{
 			e.printStackTrace();
 		}
-		
-
 
 	}
 	
@@ -168,44 +165,6 @@ private void initProfesori() {
 		default:
 			return null;
 		}
-	}
-	
-	public static void search(String query) {
-		HashMap<String, String> mapa = new HashMap<String, String>();
-		
-		String[] podaci = query.split(";");
-		
-		mapa.put("ime", "");
-		mapa.put("prezime", "");
-		mapa.put("datum rodjenja", "");
-		mapa.put("adresa stanovanja", "");
-		mapa.put("telefon", "");
-		mapa.put("email", "");
-		mapa.put("adresa kancelarije", "");
-		mapa.put("broj licne", "");
-		mapa.put("titula", "");
-		mapa.put("zvanje", "");
-		
-		for(String s : podaci) {
-			String[] podatak = s.split(":");
-			if(podatak.length > 0) {
-				mapa.put(podatak[0].toLowerCase(), podatak[1]);
-			}
-		}
-		
-		List<RowFilter<Object,Object>> rowFilter = new ArrayList<RowFilter<Object,Object>>();
-		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("ime") + ".*", 0));
-		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("prezime") + ".*", 1));
-		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("datum rodjenja") + ".*", 2));
-		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("adresa stanovanja") + ".*", 3));
-		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("telefon") + ".*", 4));
-		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("email") + ".*", 5));
-		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("adresa kancelarije") + ".*", 6));
-		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("broj licne") + ".*", 7));
-		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("titula") + ".*", 8));
-		rowFilter.add(RowFilter.regexFilter(".*" + mapa.get("zvanje") + ".*", 9));
-		
-		MojToolbar.rowSorter.setRowFilter(RowFilter.andFilter(rowFilter));
 	}
 	
 	public void obrisiPredmetProfesora(String brLicne, Predmet p) {

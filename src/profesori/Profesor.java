@@ -2,6 +2,7 @@ package profesori;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import osobe.Osoba;
 import predmeti.Predmet;
@@ -28,7 +29,8 @@ public class Profesor extends Osoba implements Serializable {
 	}
 	
 	public void addPredmet(Predmet p) {
-		predmeti.add(p);
+		if(p != null)
+			predmeti.add(p);
 	}
 	
 	public void removePredmet(Predmet p) {

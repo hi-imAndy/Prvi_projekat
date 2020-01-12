@@ -1,26 +1,16 @@
 package profesori;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Frame;
 import java.awt.Toolkit;
-
-import javax.swing.Box;
 import javax.swing.JDialog;
 import javax.swing.JList;
-
-import studenti.BazaStudenata;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Toolkit;
 
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -55,10 +45,6 @@ public class PredmetiKodProfesora {
 		Predmet p=BazaProfesora.getInstance().getProfesori().getListaProfesora().get(row).getPredmeti().get(i);
 		nizPredmeta[i]=p.getSifraPredmeta()+", "+p.getNaziv();
 	}
-		
-
-	
-	
 		JList lista=new JList(nizPredmeta);
 		
 	if(nizPredmeta.length==0) {
