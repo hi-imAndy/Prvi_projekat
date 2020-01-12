@@ -207,13 +207,35 @@ public class Profesor_dialog extends JDialog{
 				if(ime.equals("") || prezime.equals("") || datum.equals("") || adresa.equals("") || telefon.equals("") || email.equals("") || adresaKanc.equals("") || brojLicne.equals("") || titula.equals("") || zvanje.equals("")) {
 					JOptionPane.showMessageDialog(null, "Niste popunili sva polja!");
 				}
-				else {
+				else{
+					
+						for(Profesor p : BazaProfesora.getInstance().getProfesori().getListaProfesora()) {
+							if(p.getBrojLicne().equals(brojLicne)){
+								JOptionPane.showMessageDialog(null, "Profesor sa zadatim brojem lične karte već postoji.");
+								brojLicneText.setText("");
+								return;
+							}
+						}
+						
+						
+					
+					
 					
 					BazaProfesora.getInstance().getProfesori().addProfesor(ime, prezime, datum, adresa, telefon, email, adresaKanc, brojLicne, titula, zvanje);
 					
 					JOptionPane.showMessageDialog(null, "Profesor uspesno unet!");
 					setVisible(false);
 					Tabela_profesora.azurirajPrikaz();
+					imeText.setText("");
+					prezimeText.setText("");
+					datumText.setText("");
+					adresaText.setText("");
+					telefonText.setText("");
+					emailText.setText("");
+					adresaKancText.setText("");
+					brojLicneText.setText("");
+					titulaText.setText("");
+					zvanjeText.setText("");
 				}
 			}
 		});

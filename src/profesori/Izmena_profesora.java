@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 public class Izmena_profesora extends JDialog {
 	
 	public Izmena_profesora(String ime,String prezime,String datumrodj,String adresa,String kontakt,String email,
-			String adresakancelarije,String br_licne,String t,String z) 
+			String adresakancelarije,String br_licne,String t,String z,int index) 
 	{
 		JTextField txtIme = new JTextField(ime);
 		JTextField txtPrezime = new JTextField(prezime);
@@ -153,6 +153,13 @@ public class Izmena_profesora extends JDialog {
 				else
 					{
 					
+					for(Profesor p : BazaProfesora.getInstance().getProfesori().getListaProfesora()) {
+						if(p.getBrojLicne().equals(txtBrojLicne.getText()) && !BazaProfesora.getInstance().getProfesori().getListaProfesora().get(index).getBrojLicne().equalsIgnoreCase(txtBrojLicne.getText())){
+							JOptionPane.showMessageDialog(null, "Profesor sa zadatim brojem lične karte već postoji.");
+							txtBrojLicne.setText("");
+							return;
+						}
+					}
 
 					
 					

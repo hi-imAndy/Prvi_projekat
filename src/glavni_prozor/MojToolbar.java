@@ -131,7 +131,7 @@ public class MojToolbar extends JToolBar{
 				{
 				Profesor p=BazaProfesora.getInstance().getRow(Tabela_profesora.tab.getSelectedRow());
 				Izmena_profesora ipd=new Izmena_profesora(p.getIme(), p.getPrezime(), p.getDatumRodjenja(), 
-						p.getAdresaStanovanja(),p.getTelefon(),p.getEmail(), p.getAdresaKancelarije(), p.getBrojLicne(), p.getTitula(), p.getZvanje()) ;
+						p.getAdresaStanovanja(),p.getTelefon(),p.getEmail(), p.getAdresaKancelarije(), p.getBrojLicne(), p.getTitula(), p.getZvanje(),Tabela_profesora.tab.getSelectedRow()) ;
 				ipd.setVisible(true);
 				}
 			}else if(Tab.getSelectedIndex1()==2)
