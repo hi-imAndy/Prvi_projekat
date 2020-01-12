@@ -33,11 +33,13 @@ import predmeti.DodavanjeStudentaNaPredmet;
 import predmeti.IzmenaPredmeta;
 import predmeti.Predmet;
 import predmeti.Predmet_dialog;
+import predmeti.PretragaPredmeta;
 //import predmeti.PretragaPredmeta;
 import predmeti.Tabela_predmeta;
 import profesori.BazaProfesora;
 import profesori.BrisanjeProfesora;
 import profesori.Izmena_profesora;
+import profesori.PretragaProfesora;
 //import profesori.PretragaProfesora;
 import profesori.Profesor;
 import profesori.Profesor_dialog;
@@ -296,12 +298,12 @@ public class MojToolbar extends JToolBar{
 			else if(Tab.getSelectedIndex1()==1)
 			{	
 				String pretraga=textField.getText();
-				//PretragaProfesora pp=new PretragaProfesora(pretraga);
+				PretragaProfesora pp=new PretragaProfesora(pretraga);
 			}
 			else if(Tab.getSelectedIndex1()==2)
 			{
 				String pretraga=textField.getText();
-				//PretragaPredmeta pp = new PretragaPredmeta(pretraga);
+				PretragaPredmeta pp = new PretragaPredmeta(pretraga);
 			}
 		}
 	});
@@ -329,12 +331,12 @@ public class MojToolbar extends JToolBar{
 		     }
 			else if(Tab.getSelectedIndex1()==1)
 			{	
-				//BazaProfesora.getInstance().getProfesori().setListaProfesora(PretragaProfesora.originalna_lista);
+				BazaProfesora.getInstance().getProfesori().setListaProfesora(PretragaProfesora.originalna_lista);
 				Tabela_profesora.azurirajPrikaz();
 			}
 			else if(Tab.getSelectedIndex1()==2)
 			{	
-				//BazaPredmeta.getInstance().getPredmeti().setListaPredmeta(PretragaPredmeta.originalna_lista);;
+				BazaPredmeta.getInstance().getPredmeti().setListaPredmeta(PretragaPredmeta.originalna_lista);;
 				Tabela_predmeta.azurirajPrikaz();
 				
 			}
