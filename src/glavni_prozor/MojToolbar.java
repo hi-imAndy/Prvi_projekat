@@ -3,6 +3,7 @@ package glavni_prozor;
 import java.awt.Color;
 
 
+
 import javax.swing.RowSorter;
 import javax.swing.SortOrder;
 
@@ -26,7 +27,6 @@ import javax.swing.table.TableRowSorter;
 
 import predmeti.BazaPredmeta;
 import predmeti.BrisanjePredmeta;
-import predmeti.BrisanjeProfesoraSaPredmeta;
 import predmeti.Brisanje_studenta_sa_predmeta;
 import predmeti.DodavanjeProfNaPredmet;
 import predmeti.DodavanjeStudentaNaPredmet;

@@ -167,6 +167,19 @@ private void initProfesori() {
 		}
 	}
 	
+	public void izbrisiPredmetProfesora(String brLicne, String naziv_predmeta) {
+		for(Profesor prof : profesori.getListaProfesora()) {
+			if(prof.getBrojLicne().equalsIgnoreCase(brLicne)) {
+				for(Predmet predmet : prof.getPredmeti()) {
+					if(naziv_predmeta.equalsIgnoreCase(predmet.getNaziv())) {
+						prof.getPredmeti().remove(predmet);
+						break;
+					}
+				}
+			}
+		}
+	}
+	
 	public void obrisiPredmetProfesora(String brLicne, Predmet p) {
 		for(Profesor prof : profesori.getListaProfesora()) {
 			if(prof.getBrojLicne().equals(brLicne)) {

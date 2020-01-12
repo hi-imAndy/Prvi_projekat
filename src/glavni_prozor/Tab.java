@@ -20,6 +20,7 @@ import javax.swing.event.ChangeListener;
 
 import predmeti.Brisanje_studenta_sa_predmeta;
 import predmeti.Tabela_predmeta;
+import profesori.BrisanjeProfesoraSaPredmeta;
 import profesori.PredmetiKodProfesora;
 import profesori.Tabela_profesora;
 
@@ -132,7 +133,7 @@ private static Tab instance=null;
 			}
 			
 		});
-		
+		/*
 		Tabela_profesora.getInstance().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e)
@@ -147,7 +148,7 @@ private static Tab instance=null;
 					}
 				}
 			}
-		});
+		});*/
 		
 		Tabela_profesora.getInstance().addMouseListener(new MouseAdapter() {
 			@Override
@@ -158,7 +159,8 @@ private static Tab instance=null;
 					if(Tabela_profesora.getInstance().getSelectedColumn()==10)
 					{
 						int row=Tabela_profesora.getInstance().getSelectedRow();
-						PredmetiKodProfesora pks=new PredmetiKodProfesora(row);
+						BrisanjeProfesoraSaPredmeta bpsp = new BrisanjeProfesoraSaPredmeta(null,row);
+						bpsp.setVisible(true);
 					}
 				}
 			}
