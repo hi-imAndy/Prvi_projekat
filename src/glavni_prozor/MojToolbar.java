@@ -32,10 +32,12 @@ import predmeti.DodavanjeStudentaNaPredmet;
 import predmeti.IzmenaPredmeta;
 import predmeti.Predmet;
 import predmeti.Predmet_dialog;
+import predmeti.PretragaPredmeta;
 import predmeti.Tabela_predmeta;
 import profesori.BazaProfesora;
 import profesori.BrisanjeProfesora;
 import profesori.Izmena_profesora;
+import profesori.PretragaProfesora;
 import profesori.Profesor;
 import profesori.Profesor_dialog;
 import profesori.Tabela_profesora;
@@ -286,17 +288,16 @@ public class MojToolbar extends JToolBar{
 				Pretraga_studenta ps=new Pretraga_studenta(pretraga);
 
 		     }
-		/*	else if(Tab.getSelectedIndex1()==1)
-			{
-				String pretraga=textField.getText();
-				pretraga_profesora pf=new pretraga_profesora(pretraga);
-			}else if(Tab.getSelectedIndex1()==2)
+			else if(Tab.getSelectedIndex1()==1)
 			{	
 				String pretraga=textField.getText();
-				pretraga_predmeta pp=new pretraga_predmeta(pretraga);
+				PretragaProfesora pp=new PretragaProfesora(pretraga);
 			}
-			
-	*/
+			else if(Tab.getSelectedIndex1()==2)
+			{
+				String pretraga=textField.getText();
+				PretragaPredmeta pp = new PretragaPredmeta(pretraga);
+			}
 		}
 	});
 	
@@ -320,21 +321,18 @@ public class MojToolbar extends JToolBar{
 			if(Tab.getSelectedIndex1()==0) {
 				BazaStudenata.getInstance().getStudenti().setLista_studenata(ps.getOriginalna_lista());
 				StudentiJTable.azurirajPrikaz();
-				
-				
 		     }
-			/*else if(Tab.getSelectedIndex1()==1)
+			else if(Tab.getSelectedIndex1()==1)
 			{	
-				BazaProfesora.getInstance().setProfesori(pprof.getOriginalna_lista());
-				ProfesorJTable.azurirajPrikaz();	
-				
-
-			}else if(Tab.getSelectedIndex1()==2)
+				BazaProfesora.getInstance().getProfesori().setListaProfesora(PretragaProfesora.originalna_lista);
+				Tabela_profesora.azurirajPrikaz();
+			}
+			else if(Tab.getSelectedIndex1()==2)
 			{	
-				BazaPredmeta.getInstance().setPredmeti(pp.getOriginalna_lista());
-				PredmetiJTable.azurirajPrikaz();
+				BazaPredmeta.getInstance().getPredmeti().setListaPredmeta(PretragaPredmeta.originalna_lista);;
+				Tabela_predmeta.azurirajPrikaz();
 				
-			}*/
+			}
 			textField.setText("");
 		}
 	});

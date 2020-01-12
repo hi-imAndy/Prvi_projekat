@@ -18,6 +18,10 @@ public class ListaProfesora {
 		return profesori;
 	}
 	
+	public void setListaProfesora(List<Profesor> newProfesori) {
+		profesori = newProfesori;
+	}
+	
 	public Profesor findProfesor(String brLicne) {
 		for(Profesor p: profesori) {
 			if(p.getBrojLicne().equalsIgnoreCase(brLicne))

@@ -1,6 +1,7 @@
 package predmeti;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,20 +21,8 @@ public class ListaPredmeta {
 		return predmeti;
 	}
 	
-	public List<Predmet> searchPredmet(String stringIn){
-		List<Predmet> returnProfesori = new ArrayList<Predmet>();
-		HashMap<String, String> data = new HashMap<String, String>();
-		
-		String[] podaci = stringIn.split(";");
-		
-		for(String s : podaci) {
-			String[] podatak = s.split(":");
-			data.put(podatak[0], podatak[1]);
-		}
-	
-		
-		
-		return returnProfesori;
+	public void setListaPredmeta(List<Predmet> noviPredmeti) {
+		predmeti = noviPredmeti;
 	}
 	
 	public void addPredmet(String sifra, String naziv, int semestar, int godina, Profesor prof) {
