@@ -234,22 +234,6 @@ public class MojToolbar extends JToolBar{
 	});
 	
 	/*
-	btnStudentSaPredmeta = new JButton();
-	btnStudentSaPredmeta.setToolTipText("Delete student");
-	btnStudentSaPredmeta.setIcon(new ImageIcon("slike/delete_student.png"));
-	btnStudentSaPredmeta.setVisible(true);
-	add(btnStudentSaPredmeta);
-	btnStudentSaPredmeta.addActionListener(new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(Tabela_predmeta.row==-1)
-				JOptionPane.showMessageDialog(null, "Predmet mora biti izabran da biste uklonili studenta!");
-			else {
-				Brisanje_studenta_sa_predmeta bsd	= new Brisanje_studenta_sa_predmeta(parent, orientation);
-				bsd.setVisible(true);}
-		}
-	});*/
-	
 	btnProfesorSaPredmeta = new JButton();
 	btnProfesorSaPredmeta.setToolTipText("Delete profesor");
 	btnProfesorSaPredmeta.setIcon(new ImageIcon("slike/delete_student.png"));
@@ -269,7 +253,7 @@ public class MojToolbar extends JToolBar{
 			}
 				
 		}
-	});
+	});*/
 	
 	
 	for(int i = 0; i < 50; i++)

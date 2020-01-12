@@ -20,6 +20,7 @@ import javax.swing.event.ChangeListener;
 
 import predmeti.Brisanje_studenta_sa_predmeta;
 import predmeti.Tabela_predmeta;
+import profesori.PredmetiKodProfesora;
 import profesori.Tabela_profesora;
 
 import studenti.PredmetiKodStudenta;
@@ -130,7 +131,22 @@ private static Tab instance=null;
 				}
 			}
 			
-			
+		});
+		
+		Tabela_profesora.getInstance().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				if(e.getClickCount()==1)
+				{
+					if(Tabela_profesora.getInstance().getSelectedColumn() == 10)
+					{
+						int row=Tabela_profesora.getInstance().getSelectedRow();
+						PredmetiKodProfesora dijalog=new PredmetiKodProfesora(row);
+						dijalog.setVisible(true);
+					}
+				}
+			}
 		});
 		
 }}
