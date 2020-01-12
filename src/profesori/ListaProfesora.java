@@ -1,5 +1,6 @@
 package profesori;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,7 +8,11 @@ import java.util.List;
 import predmeti.Predmet;
 
 
-public class ListaProfesora {
+public class ListaProfesora implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7059492165898888997L;
 	private List<Profesor> profesori;
 	
 	public ListaProfesora() {

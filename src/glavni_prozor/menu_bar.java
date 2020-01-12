@@ -25,6 +25,7 @@ import profesori.Izmena_profesora;
 import profesori.Profesor;
 import profesori.Profesor_dialog;
 import profesori.Tabela_profesora;
+
 import studenti.BazaStudenata;
 import studenti.Brisanje_studenta;
 import studenti.Izmena_studenta;
@@ -35,6 +36,11 @@ import studenti.dodavanje_studenta1;
 public class menu_bar extends JMenuBar {
 
 
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2995242819604801482L;
 
 	public menu_bar(Frame parent) {
 		
@@ -100,7 +106,7 @@ public class menu_bar extends JMenuBar {
 					{
 					Profesor p=BazaProfesora.getInstance().getRow(Tabela_profesora.tab.getSelectedRow());
 					Izmena_profesora ipd=new Izmena_profesora(p.getIme(), p.getPrezime(), p.getDatumRodjenja(), 
-							p.getAdresaStanovanja(),p.getTelefon(),p.getEmail(), p.getAdresaKancelarije(), p.getBrojLicne(), p.getTitula(), p.getZvanje()) ;
+							p.getAdresaStanovanja(),p.getTelefon(),p.getEmail(), p.getAdresaKancelarije(), p.getBrojLicne(), p.getTitula(), p.getZvanje(),Tabela_predmeta.tab.getSelectedRow()) ;
 					ipd.setVisible(true);
 					}
 				}else if(Tab.getSelectedIndex1()==2)
@@ -163,6 +169,26 @@ public class menu_bar extends JMenuBar {
 		add(file);
 		add(edit);
 		add(help);
+		
+		about.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				About a=new About();
+				a.setVisible(true);
+				
+			}
+		});
+		
+		help1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Help h=new Help();
+				h.setVisible(true);
+				
+			}
+		});
 		
 
 		//mnemonici i precice

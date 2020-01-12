@@ -16,10 +16,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import predmeti.BazaPredmeta;
-import predmeti.Tabela_predmeta;
 
 
 
@@ -35,7 +31,7 @@ public class Brisanje_studenta extends JDialog{
 		setBounds(150, 150, (int)width, (int)height);
 	
 
-    	//JLabel upit=new JLabel( "Da li ste sigurni da zelite da obrisete studenta?");
+    	JLabel upit=new JLabel( "Da li ste sigurni da zelite da obrisete studenta?");
     	
     	JButton potvrda=new JButton("Potvrdi");
     	JButton odustanak=new JButton("Odustanak");
@@ -44,15 +40,8 @@ public class Brisanje_studenta extends JDialog{
     	Box box=Box.createVerticalBox();
     	JPanel panel1=new JPanel(new FlowLayout(FlowLayout.LEFT));
     	JLabel picLabel = new JLabel(new ImageIcon("images/delete.png"));
-		JLabel labela = new JLabel("Indeks studenta*");
-		JTextField text = new JTextField();
-		text.setPreferredSize(new Dimension(160,20));
-		
-		panel1.add(labela);
-		panel1.add(text);
-    	
     	panel1.add(picLabel);
-    	//panel1.add(upit);
+    	panel1.add(upit);
     	box.add(panel1);
     	JPanel panel2=new JPanel(new FlowLayout(FlowLayout.RIGHT));
     	panel2.add(potvrda);
@@ -73,24 +62,17 @@ public class Brisanje_studenta extends JDialog{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Student s = BazaStudenata.getInstance().getStudenti().findStudent(text.getText());
-				if(s == null) {
-					JOptionPane.showMessageDialog(null, "Ne postoji student sa tim indexom!");
-				}
-				else {
-				int vrsta=Tabela_predmeta.tab.getSelectedRow();
+				int vrsta=StudentiJTable.tab.getSelectedRow();
 				if(vrsta==-1)
 					JOptionPane.showMessageDialog(parent, "Morate selektovati studenta da bi mogli da ga obrisete!");
 				else
 				{
-					
-					BazaPredmeta.getInstance().IzbrisiStudSaPredmeta(text.getText(),vrsta );
-					JOptionPane.showMessageDialog(parent, "Student obrisan!");
+					StudentiController.getInstance().izbrisiStudenta(vrsta);
+					JOptionPane.showMessageDialog(parent, "Obrisali ste studenta!");
 					setVisible(false);
 					return;
 				}
 				
-			}
 			}
 		});
 

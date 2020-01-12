@@ -1,5 +1,13 @@
 package profesori;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +19,7 @@ import glavni_prozor.MojToolbar;
 import predmeti.BazaPredmeta;
 import predmeti.ListaPredmeta;
 import predmeti.Predmet;
+
 
 
 public class BazaProfesora {
@@ -28,6 +37,8 @@ public class BazaProfesora {
 	ListaProfesora profesori;
 	List<String> kolone;
 	
+	private File file;
+	
 	public ListaProfesora getProfesori() {
 		return profesori;
 	}
@@ -44,9 +55,9 @@ public class BazaProfesora {
 	public BazaProfesora() {
 		profesori = new ListaProfesora();
 		makeProfesori();
-		
+		this.file=new File("profesori.txt");
 		kolone = new ArrayList<>();
-		
+		initProfesori();
 		this.kolone.add("IME"); 
 		this.kolone.add("PREZIME");
 		this.kolone.add("DATUM RODJENJA");
@@ -75,6 +86,59 @@ public class BazaProfesora {
 		profesori.addProfesor(p6);
 		
 		}
+	
+private void initProfesori() {
+		
+		try
+		{
+			FileInputStream ulaz=new FileInputStream(file);
+			ObjectInputStream ois=new ObjectInputStream(ulaz);
+			Object obj=ois.readObject();
+			ois.close();
+			ulaz.close();
+			
+			profesori = (ListaProfesora) obj;
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch (EOFException e)
+		{
+			e.printStackTrace();
+		}
+		
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		catch(ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		
+
+
+	}
+	
+	public void sacuvajProfesore()
+	{
+		try{
+			FileOutputStream fos=new FileOutputStream(new File("profesori.txt"));
+			ObjectOutputStream oos=new ObjectOutputStream(fos);
+			oos.writeObject(this.profesori);
+			oos.close();
+			fos.close();
+		}
+		catch(FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 	public String getValueAt(int row, int column) {
 		Profesor prof= profesori.getListaProfesora().get(row);

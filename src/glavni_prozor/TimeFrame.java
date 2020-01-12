@@ -9,7 +9,11 @@ import java.util.*;
 import java.text.*;
 public class TimeFrame extends JFrame implements ActionListener
 {
-	  JLabel label;
+	  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1226107092955764200L;
+	JLabel label;
 	  
 	  public TimeFrame()
 	  {

@@ -267,6 +267,18 @@ public class dodavanje_studenta1 extends JDialog{
 								Trenutna_godina_studija,status,Prosecna_ocena);
 						System.out.println("Student dodat");
 						setVisible(false);
+						
+						txtIme.setText("");
+						txtPrezime.setText("");
+						txtDatumRodjenja.setText("");
+						txtAdresaStanovanja.setText("");
+						txtBrojTelefona.setText("");
+						txtBrojIndexa.setText("");
+						txtGodinaStudiranja.setText("");
+						txtEmailAdresa.setText("");
+						txtProsek.setText("");
+						txtDatumUpisa.setText("");
+						
 					}
 
 				}

@@ -1,5 +1,13 @@
 package predmeti;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +24,8 @@ import studenti.StudentiJTable;
 public class BazaPredmeta {
 
 	private static BazaPredmeta instance = null;
-
+	File file;
+	
 	public static BazaPredmeta getInstance() {
 		if (instance == null) {
 			instance = new BazaPredmeta();
@@ -40,6 +49,10 @@ public class BazaPredmeta {
 		predmeti = new ListaPredmeta();
 		makePredmeti();
 		
+		this.file=new File("predmeti.txt");
+		
+		initPredmet();
+		
 		kolone = new ArrayList<>();
 		kolone.add("SIFRA");
 		kolone.add("NAZIV");
@@ -47,6 +60,59 @@ public class BazaPredmeta {
 		kolone.add("GODINA");
 		kolone.add("PROFESOR");
 		kolone.add("STUDENTI");
+	}
+	
+	private void initPredmet() {
+		
+		try
+		{
+			FileInputStream ulaz=new FileInputStream(file);
+			ObjectInputStream ois=new ObjectInputStream(ulaz);
+			Object obj=ois.readObject();
+			
+			ois.close();
+			ulaz.close();
+			this.predmeti = (ListaPredmeta) obj;
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch (EOFException e)
+		{
+			e.printStackTrace();
+		}
+		
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		catch(ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		
+
+		
+
+
+	}
+	public void sacuvajPredmete()
+	{
+		try{
+			FileOutputStream fos=new FileOutputStream(new File("predmeti.txt"));
+			ObjectOutputStream oos=new ObjectOutputStream(fos);
+			oos.writeObject(this.predmeti);
+			oos.close();
+			fos.close();
+		}
+		catch(FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void makePredmeti() {
@@ -101,26 +167,34 @@ public class BazaPredmeta {
 	public void IzbrisiStudSaPredmeta(String indeks,int selektovani_predmet)
 	{
 		
+		Predmet predmet = predmeti.getListaPredmeta().get(selektovani_predmet);
+		Student zaBrisanje = null;
+		
 	   for(Student s:predmeti.getListaPredmeta().get(selektovani_predmet).getStudenti())
 	   {
-		   if(s.getBroj_indeksa().equals(indeks))
+		   if(s.getBroj_indeksa().equalsIgnoreCase(indeks))
 		   {
-			   predmeti.getListaPredmeta().get(selektovani_predmet).getStudenti().remove(s);
-			   break;
+			   System.out.println("Student obrisan");
+			   zaBrisanje = s;
+			  
+			   
 			   
 		   }
 		   
-			for(Student stud: BazaStudenata.getInstance().getStudenti().getLista_studenata()) {
-				if(stud.getBroj_indeksa().equalsIgnoreCase(s.getBroj_indeksa())) {
-					stud.getLista_predmeta().getListaPredmeta().remove(selektovani_predmet);
-					break;
+
+	   
+	   }
+	   if(zaBrisanje != null) {
+		   predmeti.getListaPredmeta().get(selektovani_predmet).getStudenti().remove(zaBrisanje);
+		   for(Student stud: BazaStudenata.getInstance().getStudenti().getLista_studenata()) {
+				if(stud.getBroj_indeksa().equalsIgnoreCase(indeks)) {
+					
+					stud.getLista_predmeta().getListaPredmeta().remove(predmet);
+					
 				}
 		  
 	   }
-	   
 	   }
-	   
-		
 	}
 	
 	public void dodajProfesoraNaPredmet(Profesor prof, int selektovani_predmet) {

@@ -1,6 +1,12 @@
 package osobe;
 
-public class Osoba {
+import java.io.Serializable;
+
+public class Osoba implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2459267911548028695L;
 	protected String ime;
 	protected String prezime;
 	protected String datumRodjenja;
@@ -8,7 +14,7 @@ public class Osoba {
 	protected String telefon;
 	protected String email;
 	
-	public Osoba(String ime, String prz, String datum, String adr, String tel, String email) {
+	public Osoba(String ime, String prz, String datum, String adr, String tel, String email)  {
 		this.ime = ime;
 		this.prezime = prz;
 		this.datumRodjenja = datum;

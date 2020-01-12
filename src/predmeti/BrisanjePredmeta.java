@@ -18,6 +18,11 @@ import studenti.StudentiController;
 
 public class BrisanjePredmeta extends JDialog{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8492775190882734117L;
+
 	public BrisanjePredmeta(Frame parent) {
 		setModal(true);
 	    setTitle("Brisanje predmeta");

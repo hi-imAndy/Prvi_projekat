@@ -25,6 +25,10 @@ import studenti.Student;
 
 public class BrisanjeProfesoraSaPredmeta extends JDialog{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2152757028573143860L;
 	public static JList lista;
 	public static DefaultListModel model;
 	

@@ -1,5 +1,6 @@
 package predmeti;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -7,7 +8,11 @@ import java.util.List;
 import profesori.Profesor;
 import studenti.Student;
 
-public class Predmet {
+public class Predmet implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8099708621513640889L;
 	private String sifraPredmeta;
 	private String naziv;
 	private int semestar;

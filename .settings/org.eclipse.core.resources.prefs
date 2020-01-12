@@ -1,8 +1,12 @@
 eclipse.preferences.version=1
+encoding//src/glavni_prozor/About.java=UTF-8
+encoding//src/glavni_prozor/Help.java=UTF-8
 encoding//src/glavni_prozor/MyApp.java=UTF-8
 encoding//src/glavni_prozor/menu_bar.java=UTF-8
 encoding//src/predmeti/BazaPredmeta.java=UTF-8
+encoding//src/predmeti/Brisanje_studenta_sa_predmeta.java=UTF-8
 encoding//src/profesori/BazaProfesora.java=UTF-8
 encoding//src/profesori/Izmena_profesora.java=UTF-8
+encoding//src/profesori/Profesor_dialog.java=UTF-8
 encoding//src/studenti/BazaStudenata.java=UTF-8
 encoding//src/studenti/ListaStudenata.java=UTF-8

@@ -22,6 +22,11 @@ import studenti.StudentiJTable;
 
 public class DodavanjeStudentaNaPredmet extends JDialog{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2456260493666466771L;
+
 	public DodavanjeStudentaNaPredmet(Frame parent) {
 		setModal(true);
 		setTitle("Dodavanje studenta na predmet");
@@ -66,14 +71,28 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 					JOptionPane.showMessageDialog(null, "Ne postoji student sa tim indexom!");
 				}
 				else {
-					BazaPredmeta.getInstance().DodajStudentaNaPredmet(new Student(s.getIme(), s.getPrezime(),
-							s.getDatumRodjenja(), s.getAdresaStanovanja(), s.getTelefon(),
-							s.getEmail(), s.getBroj_indeksa(), s.getDatum_upisa(), s.getGodina_studija(), s.getStatus(), s.getProsecna_ocena()), vrsta);
-					
-					JOptionPane.showMessageDialog(parent, "Student uspesno dodat!");
-					setVisible(false);
+					int godina = BazaPredmeta.getInstance().getPredmeti().getListaPredmeta().get(vrsta).getGodinaStudija();
+				String god = "";
+					if(godina == 1)
+						god += "Prva";
+					else if(godina == 2)
+						god += "Druga";
+					else if(godina == 3)
+						god += "Treca";
+					else if(godina == 4)
+						god += "Cetvrta";
+					if(!god.equalsIgnoreCase(s.getGodina_studija())) {
+						JOptionPane.showMessageDialog(parent, "Godina studija se ne poklapa sa godinom slušanja predmeta.");
+					}
+					else {
+						BazaPredmeta.getInstance().DodajStudentaNaPredmet(new Student(s.getIme(), s.getPrezime(),
+								s.getDatumRodjenja(), s.getAdresaStanovanja(), s.getTelefon(),
+								s.getEmail(), s.getBroj_indeksa(), s.getDatum_upisa(), s.getGodina_studija(), s.getStatus(), s.getProsecna_ocena()), vrsta);
+						
+						JOptionPane.showMessageDialog(parent, "Student uspesno dodat!");
+						setVisible(false);
+					}
 				}
-				
 				
 			}
 		});

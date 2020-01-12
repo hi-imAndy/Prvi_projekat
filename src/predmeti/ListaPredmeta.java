@@ -1,5 +1,6 @@
 package predmeti;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,8 +9,12 @@ import profesori.Profesor;
 import studenti.BazaStudenata;
 import studenti.Student;
 
-public class ListaPredmeta {
+public class ListaPredmeta implements Serializable  {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6959598662103482288L;
 	private List<Predmet> predmeti;
 	
 	public ListaPredmeta() {
