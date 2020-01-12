@@ -1,78 +1,69 @@
 package profesori;
 
-import java.awt.Color;
 
+import java.awt.Color;
 import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
-
-import glavni_prozor.MojToolbar;
-import predmeti.Predmet;
-import predmeti.Tabela_predmeta;
-import studenti.AbstractTableModelStudenti;
 
 public class Tabela_profesora extends JTable{
 
-private static final long serialVersionUID = 6605108349608778614L;
-private static Tabela_profesora instance=null;
-public static AbstractTableModel model;
-public static int row=-1;
-public static JTable tab;
-public static boolean tableActive= false;
-
-public static Tabela_profesora getInstance() {
-	if (instance == null) {
-		instance = new Tabela_profesora(); 
-	} 
-	return instance;
-}
-public Tabela_profesora() {
-	this.setRowSelectionAllowed(true);
-	this.setColumnSelectionAllowed(true);
-	this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	setModel(new ModelProfesora());
-	this.setAutoCreateRowSorter(true);
+	private static final long serialVersionUID = 6605108349608778614L;
+	private static Tabela_profesora instance=null;
+	public static AbstractTableModel model;
+	public static int row=-1;
+	public static JTable tab;
 	
-	model=(AbstractTableModel) this.getModel();
-	this.addMouseListener(new MouseAdapter() {
-		
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			tab=(JTable) e.getComponent();
-			if(tab.getSelectedRow()!=-1) {
-				row=tab.convertRowIndexToModel(tab.getSelectedRow());
-			}
+	public static Tabela_profesora getInstance() {
+		if (instance == null) {
+			instance = new Tabela_profesora();
 		}
-	});
-
-}
-
-@Override
-public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
-	Component c = super.prepareRenderer(renderer, row, column);
-	
-	if (isRowSelected(row)) {
-		c.setBackground(Color.LIGHT_GRAY);
-	} else {
-		c.setBackground(Color.WHITE);
+		return instance;
 	}
-	MojToolbar.btnProfesorNaPredmet.setVisible(false);
-	MojToolbar.btnStudentNaPredmet.setVisible(false);
-	tableActive = true;
-	return c;
-}
-public static void azurirajPrikaz() {		
-	model.fireTableDataChanged();
-	row=-1;
-}
+	private Tabela_profesora() {
+		this.setRowSelectionAllowed(true);
+		this.setColumnSelectionAllowed(true);
+		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.setModel(new AbstactTableModelProfesori());
+		this.setAutoCreateRowSorter(true);
+		this.getTableHeader().setReorderingAllowed(false);
+		
+		model=(AbstractTableModel) this.getModel();
 	
+		this.addMouseListener(new MouseAdapter() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				tab=(JTable) e.getComponent();
+				if(tab.getSelectedRow()!=-1) {
+					try {
+					row=tab.convertRowIndexToModel(tab.getSelectedRow());
+				}catch (Exception e2) {
+					// TODO: handle exception
+				}
+				}
+			}
+		});
+	
+	}
+		public static void azurirajPrikaz() {		
+		model.fireTableDataChanged();
+		row=-1;
+	}
+	@Override
+	public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+		Component c = super.prepareRenderer(renderer, row, column);
+		
+		if (isRowSelected(row)) {
+			c.setBackground(Color.LIGHT_GRAY);
+		} else {
+			c.setBackground(Color.WHITE);
+		}
+		return c;
+	}
+
 }
