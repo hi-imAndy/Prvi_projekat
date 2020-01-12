@@ -71,17 +71,18 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 					JOptionPane.showMessageDialog(null, "Ne postoji student sa tim indexom!");
 				}
 				else {
-					int godina = BazaPredmeta.getInstance().getPredmeti().getListaPredmeta().get(vrsta).getGodinaStudija();
-				String god = "";
-					if(godina == 1)
-						god += "Prva";
-					else if(godina == 2)
-						god += "Druga";
-					else if(godina == 3)
-						god += "Treca";
-					else if(godina == 4)
-						god += "Cetvrta";
-					if(!god.equalsIgnoreCase(s.getGodina_studija())) {
+					String god = s.getGodina_studija();
+					int godina = 0;
+				    
+					if(god.equalsIgnoreCase("Prva"))
+						godina = 1;
+					else if(god.equalsIgnoreCase("Druga"))
+						godina = 2;
+					else if(god.equalsIgnoreCase("Treca"))
+						godina = 3;
+					else if(god.equalsIgnoreCase("Cetvrta"))
+						godina = 4;
+					if(godina < BazaPredmeta.getInstance().getPredmeti().getListaPredmeta().get(vrsta).getGodinaStudija()) {
 						JOptionPane.showMessageDialog(parent, "Godina studija se ne poklapa sa godinom slušanja predmeta.");
 					}
 					else {
