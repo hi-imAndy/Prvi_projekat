@@ -47,7 +47,7 @@ public class BazaPredmeta {
 	
 	public BazaPredmeta() {
 		predmeti = new ListaPredmeta();
-		makePredmeti();
+		//makePredmeti();
 		
 		this.file=new File("predmeti.txt");
 		

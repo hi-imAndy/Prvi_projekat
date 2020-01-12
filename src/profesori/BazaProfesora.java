@@ -54,7 +54,7 @@ public class BazaProfesora {
 	
 	public BazaProfesora() {
 		profesori = new ListaProfesora();
-		makeProfesori();
+		//makeProfesori();
 		this.file=new File("profesori.txt");
 		kolone = new ArrayList<>();
 		initProfesori();
