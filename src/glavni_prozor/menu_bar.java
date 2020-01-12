@@ -36,6 +36,11 @@ public class menu_bar extends JMenuBar {
 
 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2995242819604801482L;
+
 	public menu_bar(Frame parent) {
 		
 		JMenu file = new JMenu("File");

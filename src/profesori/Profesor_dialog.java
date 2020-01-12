@@ -23,6 +23,10 @@ import glavni_prozor.Glavni_prozor;
 
 public class Profesor_dialog extends JDialog{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6250100400078563256L;
 	static JTextField imeText = new JTextField();
 	static JTextField prezimeText = new JTextField();
 	static JTextField datumText = new JTextField();

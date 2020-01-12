@@ -22,6 +22,11 @@ import studenti.StudentiJTable;
 
 public class DodavanjeStudentaNaPredmet extends JDialog{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2456260493666466771L;
+
 	public DodavanjeStudentaNaPredmet(Frame parent) {
 		setModal(true);
 		setTitle("Dodavanje studenta na predmet");

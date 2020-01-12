@@ -21,6 +21,11 @@ import studenti.BazaStudenata;
 import studenti.Student;
 
 public class DodavanjeProfNaPredmet extends JDialog{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1219176632349513961L;
+
 	public DodavanjeProfNaPredmet(Frame parent) {
 		setModal(true);
 		setTitle("Dodavanje profesora na predmet");

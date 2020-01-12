@@ -1,3 +1,4 @@
+
 package predmeti;
 
 import java.awt.BorderLayout;
@@ -22,6 +23,11 @@ import profesori.Profesor;
 
 public class IzmenaPredmeta extends JDialog{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5956398247742446382L;
+
 	public IzmenaPredmeta(String sifra, String naziv, int semestar, int godina, String profLicnaKarta) {
 	    JTextField sifraText = new JTextField(String.valueOf(sifra));
 		JTextField nazivText = new JTextField(naziv);

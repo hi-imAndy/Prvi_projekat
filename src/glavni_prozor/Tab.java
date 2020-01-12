@@ -18,19 +18,22 @@ import javax.swing.event.AncestorListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import predmeti.Brisanje_studenta_sa_predmeta;
 import predmeti.Tabela_predmeta;
 import profesori.Tabela_profesora;
+
 import studenti.PredmetiKodStudenta;
 import studenti.StudentiJTable;
 
 
 
 public class Tab extends JTabbedPane{
+ 
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L; 
-
+	private static final long serialVersionUID = -2066180810046450990L;
 	private static int selectedIndex1=0;
 	
 	public static int getSelectedIndex1() {
@@ -78,7 +81,7 @@ private static Tab instance=null;
 		
 		//PREDMET
 
-		Tabela_predmeta tabpred = new Tabela_predmeta();
+		Tabela_predmeta tabpred = Tabela_predmeta.getInstance();
 		JScrollPane tp=new JScrollPane(tabpred);
 		tp.setPreferredSize(new Dimension(w-50,h-50));
 		pred.add(tp,BorderLayout.NORTH);
@@ -109,6 +112,25 @@ private static Tab instance=null;
 					}
 				}
 			}
+		});
+		
+		
+		Tabela_predmeta.getInstance().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				if(e.getClickCount()==1)
+				{
+					if(Tabela_predmeta.getInstance().getSelectedColumn()==5)
+					{
+						int row=Tabela_predmeta.getInstance().getSelectedRow();
+						Brisanje_studenta_sa_predmeta dijalog=new Brisanje_studenta_sa_predmeta(null, row);
+						dijalog.setVisible(true);
+					}
+				}
+			}
+			
+			
 		});
 		
 }}

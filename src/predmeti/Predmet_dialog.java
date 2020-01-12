@@ -25,6 +25,10 @@ import profesori.BazaProfesora;
 import profesori.Profesor;
 
 public class Predmet_dialog extends JDialog{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6383351776137898014L;
 	static JTextField sifraText = new JTextField();
 	static JTextField nazivText = new JTextField();
 	static JComboBox<String> semestarCombo;

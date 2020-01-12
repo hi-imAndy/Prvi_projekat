@@ -17,44 +17,59 @@ import javax.swing.table.TableCellRenderer;
 
 import glavni_prozor.MojToolbar;
 import glavni_prozor.MyApp;
+
 import studenti.AbstractTableModelStudenti;
 
 public class Tabela_predmeta extends JTable {
-	private static final long serialVersionUID = 6605108349608778614L;
-	private static Tabela_predmeta instance=null;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5798281842906951158L;
 	public static AbstractTableModel model;
 	public static int row=-1;
 	public static JTable tab;
 	public static boolean tableActive = false;
 	
+	
+	private static Tabela_predmeta instance=null;
 	public static Tabela_predmeta getInstance() {
 		if (instance == null) {
-			instance = new Tabela_predmeta(); 
-		} 
+			instance = new Tabela_predmeta();
+		}
 		return instance;
 	}
 	public Tabela_predmeta() {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		setModel(new ModelPredmeta());
+		this.setModel(new AbstractTableModelPredmeti());
 		this.setAutoCreateRowSorter(true);
+		this.getTableHeader().setReorderingAllowed(false);
 		
 		model=(AbstractTableModel) this.getModel();
 		this.addMouseListener(new MouseAdapter() {
 			
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				tab=(JTable) e.getComponent();
-				if(tab.getSelectedRow()!=-1) {
-					row=tab.convertRowIndexToModel(tab.getSelectedRow());
+				@Override
+				public void mouseReleased(MouseEvent e) {
+				    tab= (JTable) e.getComponent();
+				    if(tab.getSelectedRow()!=-1) {
+				    	try {
+				        row = tab.convertRowIndexToModel(tab.getSelectedRow());
+				        //System.out.println(rowSelectedIndex);
+				    }catch (Exception a) {
+						
+					}
+				    }	
 				}
-			}
-		});
-	
+				});
+	}
+	public static void azurirajPrikaz() {		
+		model.fireTableDataChanged();
+		row=-1;
 	}
 	
-	@Override
+	
 	public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
 		Component c = super.prepareRenderer(renderer, row, column);
 		
@@ -65,12 +80,7 @@ public class Tabela_predmeta extends JTable {
 		}
 		MojToolbar.btnProfesorNaPredmet.setVisible(true);
 		MojToolbar.btnStudentNaPredmet.setVisible(true);
-		MojToolbar.btnStudentSaPredmeta.setVisible(true);
 		tableActive = true;
 		return c;
-	}
-	public static void azurirajPrikaz() {		
-		model.fireTableDataChanged();
-		row=-1;
 	}
 }

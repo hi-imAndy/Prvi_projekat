@@ -21,9 +21,13 @@ import javax.swing.UIManager;
 
 public class Status_bar extends JPanel {
 
-    private static final long serialVersionUID = 1L;
+ 
 
-    protected JPanel leftPanel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -83298226513146286L;
+	protected JPanel leftPanel;
     protected JPanel rightPanel;
 
 

@@ -27,6 +27,7 @@ import javax.swing.table.TableRowSorter;
 import predmeti.BazaPredmeta;
 import predmeti.BrisanjePredmeta;
 import predmeti.BrisanjeProfesoraSaPredmeta;
+import predmeti.Brisanje_studenta_sa_predmeta;
 import predmeti.DodavanjeProfNaPredmet;
 import predmeti.DodavanjeStudentaNaPredmet;
 import predmeti.IzmenaPredmeta;
@@ -52,6 +53,10 @@ import studenti.dodavanje_studenta1;
 
 public class MojToolbar extends JToolBar{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8977800370717708826L;
 	static JButton btnCreate;
 	static JButton btnEdit;
 	static JButton btnDelete;
@@ -224,7 +229,7 @@ public class MojToolbar extends JToolBar{
 		}
 	});
 	
-	
+	/*
 	btnStudentSaPredmeta = new JButton();
 	btnStudentSaPredmeta.setToolTipText("Delete student");
 	btnStudentSaPredmeta.setIcon(new ImageIcon("slike/delete_student.png"));
@@ -236,10 +241,10 @@ public class MojToolbar extends JToolBar{
 			if(Tabela_predmeta.row==-1)
 				JOptionPane.showMessageDialog(null, "Predmet mora biti izabran da biste uklonili studenta!");
 			else {
-				Brisanje_studenta bsd	= new Brisanje_studenta(parent);
+				Brisanje_studenta_sa_predmeta bsd	= new Brisanje_studenta_sa_predmeta(parent, orientation);
 				bsd.setVisible(true);}
 		}
-	});
+	});*/
 	
 	btnProfesorSaPredmeta = new JButton();
 	btnProfesorSaPredmeta.setToolTipText("Delete profesor");

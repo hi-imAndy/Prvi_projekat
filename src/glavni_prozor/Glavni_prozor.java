@@ -9,6 +9,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,16 +18,24 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
+import predmeti.BazaPredmeta;
 import predmeti.ModelPredmeta;
 import predmeti.Tabela_predmeta;
+import profesori.BazaProfesora;
 import profesori.ModelProfesora;
 import profesori.Tabela_profesora;
+
 import studenti.AbstractTableModelStudenti;
+import studenti.BazaStudenata;
 import studenti.StudentiJTable;
 
 
 public class Glavni_prozor extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3259399103057356878L;
 	private static Glavni_prozor instance = null;
 	
 	public static Glavni_prozor getInstance() {
@@ -69,7 +79,52 @@ public class Glavni_prozor extends JFrame{
  	 Tab tab=new Tab(); 
 	 add(tab,BorderLayout.CENTER);
  	
-  	 
+     this.addWindowListener(new WindowListener() {
+			
+			@Override
+			public void windowOpened(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowIconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowDeiconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowDeactivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowClosing(WindowEvent e) {
+				//BazaStudenata.getInstance().setStudenti(ToolBar.getInstance().ps.getOriginalna_lista());
+				BazaStudenata.getInstance().sacuvajStudente();
+				BazaPredmeta.getInstance().sacuvajPredmete();
+				BazaProfesora.getInstance().sacuvajProfesore();
+			}
+			
+			@Override
+			public void windowClosed(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowActivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 	
 }

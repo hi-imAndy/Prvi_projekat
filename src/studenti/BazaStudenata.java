@@ -1,9 +1,21 @@
 package studenti;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 import predmeti.Predmet;
 import studenti.ListaStudenata;
@@ -26,11 +38,16 @@ public class BazaStudenata {
 
 	ListaStudenata studenti;
 	private List<String> kolone;
-
+	private File fajl;
+	ArrayList<Student> studenti2;
+	
+	
 	public BazaStudenata() {
-		
+		this.fajl=new File("studenti.txt");
 		studenti=new ListaStudenata();
-		initStudent();
+		
+		if(fajl.length()!=0)
+			initStudent();
 
 		this.kolone = new ArrayList<>();
 		this.kolone.add("IME"); 
@@ -48,7 +65,7 @@ public class BazaStudenata {
 
 	}
 
-	private void initStudent() {
+	/*private void initStudent() {
 	    studenti.dodavanjeStudenta(new Student("Maja","Zoric","11.08.1997","jskjff","","","RA-76-2017","","1",Status_studenta.B,(double) 4.5));
 		studenti.dodavanjeStudenta(new Student("Zorica","Lakic","11.10.1997","jskjff","","","RA-19-2017","","2",Status_studenta.S,(double)7.5));
 		studenti.dodavanjeStudenta(new Student("Aleksandra","Arsic","12.1.1998.","jskjff","","","RA-40-2017","","4",Status_studenta.S,(double)10.0));
@@ -57,7 +74,7 @@ public class BazaStudenata {
 		
 		
 
-	}
+	}*/
 	
 	public static void setInstanca(BazaStudenata instanca) {
 		BazaStudenata.instance=instanca;
@@ -118,6 +135,60 @@ public class BazaStudenata {
 			return null;
 		}
 	}
+	public void initStudent() {
+		
+		//ArrayList<?> studenti1=null;
+		try
+		{
+			FileInputStream ulaz=new FileInputStream(fajl);
+			ObjectInputStream ois=new ObjectInputStream(ulaz);
+			Object obj=ois.readObject();
+			//studenti1=(ArrayList<?>) obj;
+			
+			ois.close();
+			ulaz.close();
+			studenti = (ListaStudenata) obj;
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch (EOFException e)
+		{
+			e.printStackTrace();
+		}
+		
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		catch(ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		 
+		
+
+	}
+	
+	public void sacuvajStudente()
+	{
+		try{
+			FileOutputStream fos=new FileOutputStream(new File("studenti.txt"));
+			ObjectOutputStream oos=new ObjectOutputStream(fos);
+			oos.writeObject(this.studenti);
+			oos.close();
+			fos.close();
+		}
+		catch(FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 	
 	public void dodajStudenta(String ime,String prezime,String dr,String adresa,String telefon,String email,String brindexa,

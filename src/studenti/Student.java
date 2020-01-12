@@ -1,4 +1,5 @@
 package studenti;
+import java.io.Serializable;
 import java.util.*;
 
 
@@ -7,8 +8,12 @@ import predmeti.ListaPredmeta;
 import predmeti.Predmet;
 import profesori.Profesor;
 
-public class Student extends Osoba{
+public class Student extends Osoba implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3476283114517459947L;
 	ListaPredmeta lista_predmeta;
 	String broj_indeksa;
 	String datum_upisa;

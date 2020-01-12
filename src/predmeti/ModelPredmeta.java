@@ -6,6 +6,11 @@ import studenti.BazaStudenata;
 import predmeti.ListaPredmeta;
 
 public class ModelPredmeta extends AbstractTableModel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1688169937715664100L;
+
 	@Override
 	public int getRowCount() {
 		return BazaPredmeta.getInstance().getPredmeti().getListaPredmeta().size();

@@ -1,10 +1,15 @@
 package studenti;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import predmeti.Predmet;
 
-public class ListaStudenata {
+public class ListaStudenata implements Serializable  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -189494820799207539L;
 	private ArrayList<Student> lista_studenata;
 
 	public ListaStudenata() {

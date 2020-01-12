@@ -1,12 +1,17 @@
 package profesori;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import osobe.Osoba;
 import predmeti.Predmet;
 
-public class Profesor extends Osoba{
+public class Profesor extends Osoba implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5303721782093423503L;
 	private String adresaKancelarije;
 	private String brojLicne;
 	private String titula;
