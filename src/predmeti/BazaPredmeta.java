@@ -139,9 +139,6 @@ public class BazaPredmeta {
 		p3.addPredmet(pred3);
 		p4.addPredmet(pred4);
 		
-		for(Predmet predmet : p1.getPredmeti()) {
-			System.out.println(predmet);
-		}
 		
 	}
 	

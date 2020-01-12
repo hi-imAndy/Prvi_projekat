@@ -3,6 +3,8 @@ package profesori;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JList;
 import java.awt.FlowLayout;
@@ -23,8 +25,6 @@ public class PredmetiKodProfesora {
 	JLabel statusBar=new JLabel();
 	dijalog.add(statusBar,BorderLayout.SOUTH);
 	statusBar.setPreferredSize(new Dimension(dijalog.getHeight(),25));
-	
-	
 	
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	double height=screenSize.getHeight();
@@ -63,6 +63,16 @@ public class PredmetiKodProfesora {
 	
 	panel.add(sp,gbc);
 	}
+	
+
+	JButton ukloni = new JButton("Ukloni");
+	JButton odustani = new JButton("Odustani");
+	
+	JPanel panel2 = new JPanel();
+	panel2.add(ukloni);
+	panel2.add(odustani);
+	
+	dijalog.add(panel2,BorderLayout.SOUTH);
 	dijalog.setVisible(true);
 	
 }
