@@ -73,7 +73,7 @@ private static Tab instance=null;
 
 		//PROF
 
-		Tabela_profesora tabprof = new Tabela_profesora();
+		Tabela_profesora tabprof = Tabela_profesora.getInstance();
 		JScrollPane tabpro=new JScrollPane(tabprof);
 		tabpro.setPreferredSize(new Dimension(w-50,h-50));
 		prof.add(tabpro,BorderLayout.NORTH);
@@ -143,7 +143,22 @@ private static Tab instance=null;
 					{
 						int row=Tabela_profesora.getInstance().getSelectedRow();
 						PredmetiKodProfesora dijalog=new PredmetiKodProfesora(row);
-						dijalog.setVisible(true);
+						//dijalog.setVisible(true);
+					}
+				}
+			}
+		});
+		
+		Tabela_profesora.getInstance().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				if(e.getClickCount()==1)
+				{
+					if(Tabela_profesora.getInstance().getSelectedColumn()==10)
+					{
+						int row=Tabela_profesora.getInstance().getSelectedRow();
+						PredmetiKodProfesora pks=new PredmetiKodProfesora(row);
 					}
 				}
 			}
